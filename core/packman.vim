@@ -2,6 +2,25 @@
 
 call plug#begin('~/.vim/plugged')
 
+" 标签页
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/nvim-bufferline.lua'
+
+" 开屏
+Plug 'glepnir/dashboard-nvim'
+
+" 操作视觉增强
+Plug 'rhysd/accelerated-jk'
+Plug 'itchyny/vim-cursorword'
+Plug 'hrsh7th/vim-eft'
+Plug 'Yggdroot/indentLine'
+Plug 'tyru/caw.vim'
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-operator-surround'
+
+" git
+Plug 'mhinz/vim-signify'
+
 " 颜色荧光笔
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -25,8 +44,16 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 Plug 'neovim/nvim-lspconfig'
 
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'liuchengxu/vista.vim'
+
 " lang
 Plug 'posva/vim-vue'
 
+Plug 'Shougo/context_filetype.vim'
+
 Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
