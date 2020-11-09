@@ -1,6 +1,19 @@
 " Write buffer (save)
 nnoremap <C-s> :<C-u>write<CR>
 
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+imap <C-S> <esc>:w<CR>
+imap <C-Q> <esc>:wq<CR>
+
+"switch window
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <leader>ws :<C-u>sp<CR>
+nnoremap <leader>wv :<C-u>vs<CR>
+
 " Whitespace jump (see plugin/whitespace.vim)
 nnoremap ]w :<C-u>WhitespaceNext<CR>
 nnoremap [w :<C-u>WhitespacePrev<CR>
