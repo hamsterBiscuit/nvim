@@ -47,6 +47,13 @@ if has('vim_starting')
 	xnoremap ;        <Nop>
 
 endif
+
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+endif
+
 call utils#source_file($VIM_PATH,'core/general.vim')
 call utils#source_file($VIM_PATH,'core/packman.vim')
 call utils#source_file($VIM_PATH,'core/packman-config.vim')
