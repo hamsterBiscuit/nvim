@@ -1,3 +1,9 @@
+" Write buffer (save)
+nnoremap <C-s> :<C-u>write<CR>
+
+" Whitespace jump (see plugin/whitespace.vim)
+nnoremap ]w :<C-u>WhitespaceNext<CR>
+nnoremap [w :<C-u>WhitespacePrev<CR>
 
 " fuzzyfind 模糊搜索 快捷键
 nnoremap <silent> <Leader>bb :<C-u>Telescope buffers<CR>
