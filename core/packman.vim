@@ -2,9 +2,10 @@
 
 call plug#begin('~/.vim/plugged')
 
-" 标签页
+" 标签页 状态栏
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
+Plug 'glepnir/galaxyline.nvim'
 
 " 开屏
 Plug 'glepnir/dashboard-nvim'

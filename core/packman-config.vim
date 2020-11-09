@@ -8,6 +8,8 @@ require'bufferline'.setup{
   }
 }
 
+require('eviline')
+
 --  颜色荧光笔
 require "colorizer".setup()
 
