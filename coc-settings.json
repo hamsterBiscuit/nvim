@@ -83,7 +83,8 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+		"vue"
   ],
   // coc-actions
   "coc-actions.hideCursor": false,
