@@ -26,8 +26,10 @@ function! s:check_back_space() abort
 endfunction
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> ]e <Plug>(coc-diagnostic-prev)
+nmap <silent> [e <Plug>(coc-diagnostic-next)
+nmap ]g <Plug>(coc-git-prevchunk)
+nmap [g <Plug>(coc-git-nextchunk)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

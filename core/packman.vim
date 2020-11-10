@@ -49,4 +49,6 @@ Plug 'Shougo/context_filetype.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 call plug#end()
