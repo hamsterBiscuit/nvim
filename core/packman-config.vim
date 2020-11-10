@@ -106,6 +106,8 @@ augroup mygroup
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+" Add ':Prettier' command to format js
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 let g:coc_snippet_next = '<TAB>'
@@ -134,4 +136,5 @@ let g:coc_global_extensions =[
     \ 'coc-eslint',
     \ 'coc-phpls',
     \ 'coc-sh',
+    \ 'coc-prettier',
     \]
