@@ -13,10 +13,11 @@ Plug 'glepnir/dashboard-nvim'
 " 操作视觉增强
 Plug 'rhysd/accelerated-jk'
 Plug 'hrsh7th/vim-eft'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'tyru/caw.vim'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
+Plug 'glepnir/indent-guides.nvim'
 
 " 颜色荧光笔
 Plug 'norcalli/nvim-colorizer.lua'
