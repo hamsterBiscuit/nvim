@@ -49,8 +49,8 @@ endfunction
 
 
 " Whitespace jump (see plugin/whitespace.vim)
-nnoremap ]w :<C-u>WhitespaceNext<CR>
-nnoremap [w :<C-u>WhitespacePrev<CR>
+" nnoremap ]w :<C-u>WhitespaceNext<CR>
+" nnoremap [w :<C-u>WhitespacePrev<CR>
 
 " accelerated-jk
 nmap <silent>j <Plug>(accelerated_jk_gj)
