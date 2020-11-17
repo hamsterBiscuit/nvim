@@ -36,6 +36,8 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 }
+
+require('indent_guides').options.exclude_filetypes = {'defx', 'dashboard', 'vista'}
 EOF
 
 " glepnir/dashboard-nvim

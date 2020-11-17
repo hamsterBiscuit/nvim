@@ -16,7 +16,7 @@ Plug 'hrsh7th/vim-eft'
 Plug 'tyru/caw.vim'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
-Plug 'Yggdroot/indentLine'
+Plug 'glepnir/indent-guides.nvim'
 
 " 颜色荧光笔
 Plug 'norcalli/nvim-colorizer.lua'
