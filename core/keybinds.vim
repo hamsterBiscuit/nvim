@@ -65,11 +65,11 @@ xmap F <Plug>(eft-F)
 omap F <Plug>(eft-F)
 
 " fuzzyfind 模糊搜索 快捷键
-nnoremap <silent> <Leader>bb :<C-u>Telescope buffers<CR>
-nnoremap <silent> <Leader>fa :<C-u>Telescope live_grep<CR>
-nnoremap <silent> <Leader>ff :<C-u>Telescope find_files<cr>
-nnoremap <silent> <Leader>fh :<C-u>Telescope oldfiles<CR>
-nnoremap <silent> <Leader>fl :<C-u>Telescope loclist<CR>
+nnoremap <silent> <Leader>bb :<C-u>Clap buffers<CR>
+nnoremap <silent> <Leader>fa :<C-u>Clap grep<CR>
+nnoremap <silent> <Leader>ff :<C-u>Clap files<cr>
+nnoremap <silent> <Leader>fh :<C-u>Clap history<CR>
+nnoremap <silent> <Leader>fl :<C-u>Clap loclist<CR>
 
 " 文件管理
 nnoremap <silent> <Leader>e

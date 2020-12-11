@@ -43,7 +43,7 @@ EOF
 
 " glepnir/dashboard-nvim
 let g:dashboard_default_header = 'commicgirl10'
-let g:dashboard_default_executive ='telescope'
+let g:dashboard_default_executive ='clap'
 let g:dashboard_custom_section = {
       \ 'find_history'        :{
           \ 'description': ['  Recently opened files                   SPC f h'],
@@ -71,13 +71,6 @@ augroup END
 " defx
 call utils#source_file($VIM_PATH,'module/defx.vim')
 
-" Yggdroot/indentLine
-let g:indentLine_enabled = 1
-" let g:indentLine_char='┆'
-let g:indentLine_fileTypeExclude = ['defx','dbui','vista_kind','vista','dashboard']
-" let g:indentLine_concealcursor = 'niv'
-let g:indentLine_showFirstIndentLevel =1
-
 " liuchengxu/vista.vim
 let g:vista#renderer#enable_icon = 1
 let g:vista_disable_statusline = 1
@@ -100,6 +93,15 @@ let g:gutentags_generate_on_write = 0
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0
 let g:gutentags_exclude_filetypes = [ 'defx', 'denite', 'vista', 'magit' ]
+
+" clap
+let g:clap_theme = 'material_design_dark'
+let g:clap_current_selection_sign= { 'text': '➤', 'texthl': "ClapCurrentSelectionSign", "linehl": "ClapCurrentSelection"}
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_enable_icon = 1
+let g:clap_search_box_border_style = 'curve'
+let g:clap_provider_grep_enable_icon = 1
+let g:clap_prompt_format = '%spinner%%forerunner_status% %provider_id%: '
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')

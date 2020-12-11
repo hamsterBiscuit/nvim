@@ -22,13 +22,11 @@ Plug 'glepnir/indent-guides.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 
 " fuzzyfind 模糊搜索
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'on': 'Telescope' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 " 高亮
 Plug 'glepnir/zephyr-nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " 文件管理
