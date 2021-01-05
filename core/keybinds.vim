@@ -72,10 +72,8 @@ nnoremap <silent> <Leader>fh :<C-u>Clap history<CR>
 nnoremap <silent> <Leader>fl :<C-u>Clap loclist<CR>
 
 " 文件管理
-nnoremap <silent> <Leader>e
-      \ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
-    nnoremap <silent> <Leader>F
-      \ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>
+nnoremap <silent> <Leader>e :<C-u>NvimTreeToggle<CR>
+nnoremap <silent> <Leader>F :<C-u>NvimTreeFindFile<CR>
 
 " Vista
 nnoremap <silent> <Leader>v :<C-u>Vista!!<CR>

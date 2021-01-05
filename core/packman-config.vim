@@ -45,7 +45,27 @@ augroup user_plugin_cursorword
 augroup END
 
 " defx
-call utils#source_file($VIM_PATH,'module/defx.vim')
+" call utils#source_file($VIM_PATH,'module/defx.vim')
+
+" nvim-tree.lua
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_bindings = {
+	\ 'edit':            ['<CR>', 'l'],
+	\ 'edit_vsplit':     's',
+	\ 'edit_split':      'i',
+	\}
+let g:nvim_tree_icons = {
+	\ 'default': '',
+	\ 'symlink': '',
+	\ 'git': {
+	\   'unstaged': "✚",
+	\   'staged': "✚",
+	\   'unmerged': "≠",
+	\   'renamed': "≫",
+	\   'untracked': "★"
+	\   },
+\ }
 
 " liuchengxu/vista.vim
 let g:vista#renderer#enable_icon = 1

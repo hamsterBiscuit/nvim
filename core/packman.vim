@@ -10,7 +10,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'hardcoreplayers/vim-buffet'
 Plug 'glepnir/spaceline.vim'
 
-
 Plug 'glepnir/oceanic-material'
 
 " 开屏
@@ -31,9 +30,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 " 文件管理
-Plug 'kristijanhusak/defx-icons'
-Plug 'kristijanhusak/defx-git'
-Plug 'Shougo/defx.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " 补全
 Plug 'neoclide/coc.nvim'
