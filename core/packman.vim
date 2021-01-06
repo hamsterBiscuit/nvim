@@ -26,7 +26,7 @@ Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 " 高亮
 Plug 'glepnir/zephyr-nvim'
-Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
 " 文件管理

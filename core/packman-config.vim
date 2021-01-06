@@ -1,45 +1,5 @@
 
-lua << EOF
---  akinsho/nvim-bufferline.lua
-require'bufferline'.setup{
-  options = {
-    mappings = true,
-    always_show_bufferline = false,
-  }
-}
-
-require('eviline')
-
---  颜色荧光笔
-require "colorizer".setup()
-
---  高亮
-require('zephyr')
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all",
-  highlight = {
-    enable = true,
-  },
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-  },
-}
-
-require('indent_guides').options.exclude_filetypes = {'defx', 'dashboard', 'vista'}
-require('indent_guides').options.indent_guide_size = 1
-EOF
+lua require('packman-config')
 
 " glepnir/dashboard-nvim
 let g:dashboard_default_header = 'commicgirl10'
@@ -158,6 +118,7 @@ let g:coc_global_extensions =[
     \ 'coc-vetur',
     \ 'coc-tsserver',
     \ 'coc-eslint',
+    \ 'coc-lua',
     \ 'coc-phpls',
     \ 'coc-sh',
     \ 'coc-prettier',
