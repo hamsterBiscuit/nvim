@@ -1,10 +1,45 @@
 
 lua << EOF
+--  akinsho/nvim-bufferline.lua
+require'bufferline'.setup{
+  options = {
+    mappings = true,
+    always_show_bufferline = false,
+  }
+}
+
+require('eviline')
+
 --  颜色荧光笔
 require "colorizer".setup()
-EOF
 
-colorscheme oceanic_material
+--  高亮
+require('zephyr')
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true,
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
+}
+
+require('indent_guides').options.exclude_filetypes = {'defx', 'dashboard', 'vista'}
+require('indent_guides').options.indent_guide_size = 1
+EOF
 
 " glepnir/dashboard-nvim
 let g:dashboard_default_header = 'commicgirl10'
@@ -23,17 +58,6 @@ let g:dashboard_custom_section = {
           \ 'description': ['  Find  word                              SPC f w'],
           \ 'command': 'DashboardFindWord'},
       \}
-
-" glepnir/spaceline.vim
-let g:spaceline_seperate_style= 'slant-cons'
-let g:spaceline_git_branch_icon= ''
-
-" indentLine
-let g:indentLine_enabled = 1
-let g:indentLine_char='┆'
-let g:indentLine_fileTypeExclude = ['defx', 'denite', 'dashboard', 'tagbar', 'vista_kind', 'vista']
-let g:indentLine_concealcursor = 'niv'
-let g:indentLine_showFirstIndentLevel =1
 
 " itchyny/vim-cursorword
 augroup user_plugin_cursorword
