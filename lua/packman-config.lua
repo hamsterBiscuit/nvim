@@ -59,3 +59,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.vimls.setup{}
 require'lspconfig'.vuels.setup{}
+require'lspconfig'.gopls.setup{}
+require'lspconfig'.jsonls.setup{}
