@@ -1,6 +1,43 @@
 
 lua require('packman-config')
 
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+" Use completion-nvim in every buffer
+autocmd BufEnter * lua require'completion'.on_attach()
+let g:completion_chain_complete_list = [
+    \  {'complete_items': ['lsp']},
+    \  {'complete_items': ['snippet']},
+    \  {'complete_items': ['buffers']},
+    \  {'complete_items': ['path']},
+    \  {'mode': '<c-p>'},
+    \  {'mode': '<c-n>'}
+  \]
+
+let g:completion_word_ignored_ft = ['LuaTree','vista']
+
+" 括号
+let g:delimitMate_expand_cr = 0
+let g:delimitMate_expand_space = 1
+let g:delimitMate_smart_quotes = 1
+let g:delimitMate_expand_inside_quotes = 0
+au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+
+" git
+let g:signify_sign_add = '▋'
+let g:signify_sign_change = '▋'
+let g:signify_sign_delete = '▋'
+let g:signify_sign_delete_first_line = '▘'
+let g:signify_sign_show_count = 0
+
+" itchyny/vim-cursorword
+augroup user_plugin_cursorword
+  autocmd!
+  autocmd FileType defx,denite,fern,clap,vista let b:cursorword = 0
+  autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif
+  autocmd InsertEnter * let b:cursorword = 0
+  autocmd InsertLeave * let b:cursorword = 1
+augroup END
+
 " glepnir/dashboard-nvim
 let g:dashboard_default_header = 'commicgirl10'
 let g:dashboard_default_executive ='clap'
@@ -83,43 +120,3 @@ let g:clap_search_box_border_style = 'curve'
 let g:clap_provider_grep_enable_icon = 1
 let g:clap_prompt_format = '%spinner%%forerunner_status% %provider_id%: '
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-augroup mygroup
-  autocmd!
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-" Add ':Prettier' command to format js
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
-let g:coc_status_error_sign = '•'
-let g:coc_status_warning_sign = '•'
-let g:coc_disable_transparent_cursor = 1
-let g:coc_global_extensions =[
-    \ 'coc-html',
-    \ 'coc-css',
-    \ 'coc-vimlsp',
-    \ 'coc-snippets',
-    \ 'coc-emmet',
-    \ 'coc-pairs',
-    \ 'coc-json',
-    \ 'coc-highlight',
-    \ 'coc-git',
-    \ 'coc-emoji',
-    \ 'coc-yaml',
-    \ 'coc-tabnine',
-    \ 'coc-gitignore',
-    \ 'coc-actions',
-    \ 'coc-spell-checker',
-    \ 'coc-vetur',
-    \ 'coc-tsserver',
-    \ 'coc-eslint',
-    \ 'coc-lua',
-    \ 'coc-phpls',
-    \ 'coc-sh',
-    \ 'coc-prettier',
-    \]

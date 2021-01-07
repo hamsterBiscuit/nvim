@@ -17,6 +17,7 @@ Plug 'tyru/caw.vim'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-operator-surround'
 Plug 'glepnir/indent-guides.nvim'
+Plug 'itchyny/vim-cursorword'
 
 " 颜色荧光笔
 Plug 'norcalli/nvim-colorizer.lua'
@@ -33,7 +34,17 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'kyazdani42/nvim-tree.lua'
 
 " 补全
-Plug 'neoclide/coc.nvim'
+" Plug 'neoclide/coc.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'steelsojka/completion-buffers'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+
+" git
+Plug 'mhinz/vim-signify'
+
+Plug 'Raimondi/delimitMate'
 
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vista.vim'
