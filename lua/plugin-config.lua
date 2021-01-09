@@ -17,18 +17,13 @@ end
 
 vim.api.nvim_command([[command! Format execute 'lua vim.lsp.buf.formatting()']])
 
-local servers = {'jsonls', 'clangd', 'cssls', 'html', 'jdtls', 'pyright', 'ocamllsp', 'hls', 'vimls', 'vuels', 'gopls'}
+local servers = {'tsserver', 'jsonls', 'clangd', 'cssls', 'html', 'jdtls', 'pyright', 'ocamllsp', 'hls', 'vimls', 'vuels', 'gopls'}
 
 for _, server in ipairs(servers) do
   lspconf[server].setup {
     on_attach = on_attach,
   }
 end
-
-lspconf['tsserver'].setup {
-  on_attach = on_attach,
-  root_dir = root_pattern_prefer("tsconfig.json", "package.json", ".git")
-}
 
 local sumneko_root_path = os.getenv("HOME") .. '/develop/lua-language-server'
 
