@@ -3,6 +3,18 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
 
+function configTelescope()
+  require('telescope').setup {
+    extensions = {
+      fzy_native = {
+        override_generic_sorter = false,
+        override_file_sorter = true,
+      }
+    }
+  }
+  require('telescope').load_extension('fzy_native')
+end
+
 local packer = require('packer')
 packer.init({git = {
   clone_timeout = nil
@@ -33,7 +45,18 @@ return packer.startup(
     use 'norcalli/nvim-colorizer.lua'
 
     -- fuzzyfind 模糊搜索
-    use {'liuchengxu/vim-clap', run = ':Clap install-binary!' }
+    -- use {'liuchengxu/vim-clap', run = ':Clap install-binary!' }
+    -- use {'nvim-telescope/telescope-fzy-native.nvim', opt = true}
+    use {
+      'nvim-telescope/telescope.nvim',
+      cmd = 'Telescope',
+      config = configTelescope,
+      requires = {
+        {'nvim-telescope/telescope-fzy-native.nvim'},
+        {'nvim-lua/popup.nvim'},
+        {'nvim-lua/plenary.nvim'},
+      }
+    }
 
     -- 高亮
     use 'glepnir/zephyr-nvim'

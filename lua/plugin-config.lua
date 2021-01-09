@@ -145,7 +145,7 @@ vim.api.nvim_command('augroup END')
 
 -- glepnir/dashboard-nvim
 vim.g.dashboard_default_header = 'commicgirl10'
-vim.g.dashboard_default_executive ='clap'
+vim.g.dashboard_default_executive ='telescope'
 vim.g.dashboard_custom_section = {
   find_history  = {
   description = {'  Recently opened files                   SPC f h'},

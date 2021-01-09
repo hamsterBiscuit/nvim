@@ -36,11 +36,10 @@ vim.api.nvim_set_keymap('x', 'F', '<Plug>(eft-F)', {})
 vim.api.nvim_set_keymap('o', 'F', '<Plug>(eft-F)', {})
 
 -- fuzzyfind 模糊搜索 快捷键
-vim.api.nvim_set_keymap('n', '<Leader>bb', ':<C-u>Clap buffers<CR>', { silent = true, noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>fa', ':<C-u>Clap grep<CR>', { silent = true, noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>ff', ':<C-u>Clap files<CR>', { silent = true, noremap = true})
-vim.api.nvim_set_keymap('n', '<Leader>fh', ':<C-u>Clap history<CR>', { silent = true, noremap = true })
-vim.api.nvim_set_keymap('n', '<Leader>fl', ':<C-u>Clap loclist<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>bb', ':<C-u>Telescope buffers<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>fa', ':<C-u>Telescope live_grep<CR>', { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>ff', ':<C-u>Telescope find_files<CR>', { silent = true, noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>fh', ':<C-u>Telescope oldfiles<CR>', { silent = true, noremap = true })
 
 -- 文件管理
 vim.api.nvim_set_keymap('n', '<Leader>e', ':<C-u>NvimTreeToggle<CR>', { silent = true, noremap = true })

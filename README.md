@@ -3,12 +3,16 @@
 > 此配置来自于
 > [ThinkVim](https://github.com/hardcoreplayers/ThinkVim)，可以认为本配置是
 > ThinkVim 的私人定制版本。非常感谢 ThinkVim 作者开源的 vim 配置
+现在配置全部基于 lua 重写，需要 neovim 5.0
 
 ## 特性
 
-- [vim-plug](https://github.com/junegunn/vim-plug) 管理插件
-- [coc.nvim](https://github.com/neoclide/coc.nvim) 提供补全等类 vscode 体验
+- [packer](https//github.com/wbthomason/packer.nvim) 管理插件
+- [completion-nvim](https://github.com/nvim-lua/completion-nvim) 提供补全
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) 提供LSP
+- [vim-signify](https://github.com/mhinz/vim-signify) 提供git 状态
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) 提供标签页
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) 提供文件树
 - [galaxyline](https://github.com/glepnir/galaxyline.nvim) 提供状态栏
 - [dashboard](https://github.com/glepnir/dashboard-nvim) 提供首屏画面
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
