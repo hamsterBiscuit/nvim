@@ -67,5 +67,5 @@ return packer.startup(
     use 'editorconfig/editorconfig-vim'
 
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'  }
-    end
+  end
 )

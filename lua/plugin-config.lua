@@ -33,14 +33,16 @@ lspconf['tsserver'].setup {
 local sumneko_root_path = os.getenv("HOME") .. '/develop/lua-language-server'
 
 lspconf.sumneko_lua.setup {
- cmd = { sumneko_root_path .. '/bin/macOS/lua-language-server', '-E', sumneko_root_path .. '/main.lua' };
+  cmd = { sumneko_root_path .. '/bin/macOS/lua-language-server', '-E', sumneko_root_path .. '/main.lua' };
+  filetypes = {'lua'};
+  root_patterns = {'.git'};
   settings = {
     Lua = {
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
         -- Setup your lua path
-        path = vim.split(package.path, ';'),
+        -- path = vim.split(package.path, ';'),
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
@@ -75,6 +77,11 @@ vim.api.nvim_set_keymap('i', '<CR>', [[pumvisible() ? complete_info()["selected"
 
 vim.g.completion_word_ignored_ft = {'LuaTree','vista'}
 
+vim.api.nvim_command([[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=]])
+vim.api.nvim_command([[sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=]])
+vim.api.nvim_command([[sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=]])
+vim.api.nvim_command([[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=]])
+
 --  akinsho/nvim-bufferline.lua
 require'bufferline'.setup {
   options = {
@@ -90,6 +97,8 @@ require'colorizer'.setup{}
 
 --  高亮
 require('zephyr')
+vim.api.nvim_command('set foldmethod=expr')
+vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all",
   highlight = {
@@ -157,15 +166,6 @@ vim.g.dashboard_custom_section = {
         command= 'DashboardFindWord'},
 }
 
--- itchyny/vim-cursorword
-vim.api.nvim_command('augroup user_plugin_cursorword')
-vim.api.nvim_command('autocmd!')
-vim.api.nvim_command('autocmd FileType defx,denite,fern,clap,vista let b:cursorword = 0')
-vim.api.nvim_command('autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif')
-vim.api.nvim_command('autocmd InsertEnter * let b:cursorword = 0')
-vim.api.nvim_command('autocmd InsertLeave * let b:cursorword = 1')
-vim.api.nvim_command('augroup END')
-
 -- nvim-tree.lua
 vim.g.nvim_tree_hide_dotfiles = 1
 vim.g.nvim_tree_indent_markers = 1
@@ -183,8 +183,8 @@ vim.g.nvim_tree_icons = {
     unmerged= "≠",
     renamed= "≫",
     untracked= "★"
-	   },
- }
+	},
+}
 
 -- liuchengxu/vista.vim
 vim.g['vista#renderer#enable_icon'] = 1
@@ -195,14 +195,14 @@ vim.g.vista_vimwiki_executive = 'markdown'
 vim.g.vista_executive_for = {
   vimwiki= 'markdown',
   pandoc= 'markdown',
-  markdown= 'lsp',
-  typescript= 'lsp',
-  typescriptreact= 'lsp',
-  vue= 'lsp',
+  markdown= 'vim_lsp',
+  typescript= 'vim_lsp',
+  typescriptreact= 'vim_lsp',
+  vue= 'vim_lsp',
    }
 
 -- ludovicchabant/vim-gutentags
-vim.g.gutentags_cache_dir = '~/.cache/vim/tags'
+vim.g.gutentags_cache_dir = os.getenv("HOME") .. '/.cache/vim/tags'
 vim.g.gutentags_project_root = {'.root', '.git', '.svn','.project','go.mod','.Cargo.toml','tsconfig.js','jsconfig.js'}
 vim.g.gutentags_generate_on_write = 0
 vim.g.gutentags_generate_on_missing = 0
@@ -217,3 +217,4 @@ vim.g.clap_enable_icon = 1
 vim.g.clap_search_box_border_style = 'curve'
 vim.g.clap_provider_grep_enable_icon = 1
 vim.g.clap_prompt_format = '%spinner%%forerunner_status% %provider_id%: '
+
