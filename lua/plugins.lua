@@ -3,17 +3,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
 
-function configTelescope()
-  require('telescope').setup {
-    extensions = {
-      fzy_native = {
-        override_generic_sorter = false,
-        override_file_sorter = true,
-      }
-    }
-  }
-  require('telescope').load_extension('fzy_native')
-end
 
 local packer = require('packer')
 packer.init({git = {
@@ -26,11 +15,11 @@ return packer.startup(
     use 'wbthomason/packer.nvim'
     -- 标签页 状态栏
     use 'kyazdani42/nvim-web-devicons'
-    use 'akinsho/nvim-bufferline.lua'
-    use 'glepnir/galaxyline.nvim'
+    use {'akinsho/nvim-bufferline.lua'}
+    use {'glepnir/galaxyline.nvim'}
 
     -- 开屏
-    use 'glepnir/dashboard-nvim'
+    use {'glepnir/dashboard-nvim'}
 
     -- 操作视觉增强
     use 'rhysd/accelerated-jk'
@@ -38,19 +27,15 @@ return packer.startup(
     use 'tyru/caw.vim'
     use 'kana/vim-operator-user'
     use 'rhysd/vim-operator-surround'
-    use 'glepnir/indent-guides.nvim'
-    use 'itchyny/vim-cursorword'
+    use {'glepnir/indent-guides.nvim'}
+    use {'itchyny/vim-cursorword'}
 
     -- 颜色荧光笔
-    use 'norcalli/nvim-colorizer.lua'
+    use {'norcalli/nvim-colorizer.lua'}
 
     -- fuzzyfind 模糊搜索
-    -- use {'liuchengxu/vim-clap', run = ':Clap install-binary!' }
-    -- use {'nvim-telescope/telescope-fzy-native.nvim', opt = true}
     use {
       'nvim-telescope/telescope.nvim',
-      cmd = 'Telescope',
-      config = configTelescope,
       requires = {
         {'nvim-telescope/telescope-fzy-native.nvim'},
         {'nvim-lua/popup.nvim'},
@@ -59,27 +44,31 @@ return packer.startup(
     }
 
     -- 高亮
-    use 'glepnir/zephyr-nvim'
-    use 'nvim-treesitter/nvim-treesitter'
+    use {'glepnir/zephyr-nvim'}
+    use {'nvim-treesitter/nvim-treesitter'}
     use 'nvim-treesitter/nvim-treesitter-textobjects'
 
     -- 文件管理
-    use 'kyazdani42/nvim-tree.lua'
+    use {'kyazdani42/nvim-tree.lua'}
 
     -- 补全
     use 'neovim/nvim-lspconfig'
-    use 'nvim-lua/completion-nvim'
-    use 'steelsojka/completion-buffers'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
+    use {
+      'nvim-lua/completion-nvim',
+      requires = {
+        {'steelsojka/completion-buffers'},
+        {'hrsh7th/vim-vsnip'},
+        {'hrsh7th/vim-vsnip-integ'},
+      }
+    }
 
     -- git
-    use 'mhinz/vim-signify'
+    use {'mhinz/vim-signify'}
 
-    use 'Raimondi/delimitMate'
+    use {'Raimondi/delimitMate'}
 
-    use 'ludovicchabant/vim-gutentags'
-    use 'liuchengxu/vista.vim'
+    use {'ludovicchabant/vim-gutentags'}
+    use {'liuchengxu/vista.vim'}
 
     -- lang
     use 'posva/vim-vue'

@@ -9,14 +9,6 @@ endif
 
 lua << END
 local plugins = {
-  ["telescope.nvim"] = {
-    commands = { "Telescope" },
-    config = { "\27LJ\2\nÀ\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\5\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\0\15fzy_native\1\0\0\1\0\2\25override_file_sorter\2\28override_generic_sorter\1\nsetup\14telescope\frequire\0" },
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
-  },
   ["vim-prettier"] = {
     commands = { "Prettier" },
     loaded = false,
@@ -157,7 +149,6 @@ endfunction
 
 
 " Command lazy-loads
-command! -nargs=* -range -bang -complete=file Telescope call s:load(['telescope.nvim'], { "cmd": "Telescope", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 command! -nargs=* -range -bang -complete=file Prettier call s:load(['vim-prettier'], { "cmd": "Prettier", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 
 " Keymap lazy-loads
