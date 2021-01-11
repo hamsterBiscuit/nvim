@@ -7,7 +7,6 @@ function config:configLSP()
   local on_attach = function(_, bufnr)
     require('completion').on_attach()
   end
-  vim.api.nvim_command([[command! Format execute 'lua vim.lsp.buf.formatting()']])
 
   local servers = {'tsserver', 'jsonls', 'clangd', 'cssls', 'html', 'jdtls', 'pyright', 'ocamllsp', 'hls', 'vimls', 'vuels', 'gopls'}
 
@@ -48,7 +47,6 @@ function config:configLSP()
   vim.g.completion_enable_snippet = 'vim-vsnip'
   vim.g.completion_confirm_key = ''
   vim.g.completion_enable_auto_hover = 0
-  vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
   vim.g.completion_matching_smart_case = 1
   vim.g.completion_trigger_on_delete = 1
   vim.g.completion_chain_complete_list = {
