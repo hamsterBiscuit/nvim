@@ -125,7 +125,6 @@ return packer.startup(
     }
     use {
       'nvim-treesitter/nvim-treesitter',
-      event = 'BufRead *',
       requires = {{'nvim-treesitter/nvim-treesitter-textobjects'}},
       config = function()
         vim.api.nvim_command('set foldmethod=expr')
@@ -237,9 +236,10 @@ return packer.startup(
           vimwiki= 'markdown',
           pandoc= 'markdown',
           markdown= 'vim_lsp',
-          typescript= 'vim_lsp',
-          typescriptreact= 'vim_lsp',
-          vue= 'vim_lsp',
+          typescript= 'nvim_lsp',
+          typescriptreact= 'nvim_lsp',
+          vue= 'nvim_lsp',
+          lua= 'nvim_lsp',
         }
       end
     }
