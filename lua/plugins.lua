@@ -16,7 +16,7 @@ return packer.startup(
     -- 标签页 状态栏
     use 'kyazdani42/nvim-web-devicons'
     use {'akinsho/nvim-bufferline.lua'}
-    use {'glepnir/galaxyline.nvim'}
+    use {'glepnir/galaxyline.nvim', config = function() require('eviline') end}
 
     -- 开屏
     use {'glepnir/dashboard-nvim'}
@@ -31,7 +31,7 @@ return packer.startup(
     use {'itchyny/vim-cursorword'}
 
     -- 颜色荧光笔
-    use {'norcalli/nvim-colorizer.lua'}
+    use {'norcalli/nvim-colorizer.lua', config = function() require'colorizer'.setup{} end}
 
     -- fuzzyfind 模糊搜索
     use {
@@ -44,7 +44,7 @@ return packer.startup(
     }
 
     -- 高亮
-    use {'glepnir/zephyr-nvim'}
+    use {'glepnir/zephyr-nvim', config = function() require('zephyr') end}
     use {'nvim-treesitter/nvim-treesitter'}
     use 'nvim-treesitter/nvim-treesitter-textobjects'
 

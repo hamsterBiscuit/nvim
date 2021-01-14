@@ -1,0 +1,96 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/1e37c13/
+<Plug>BufKillAlt	plugin/bufkill.vim	/^noremap <Plug>BufKillAlt         :call <SID>GotoBuffer('#', '')<CR>$/;"	m
+<Plug>BufKillBack	plugin/bufkill.vim	/^noremap <Plug>BufKillBack        :call <SID>GotoBuffer('bufback', '')<CR>$/;"	m
+<Plug>BufKillBangAlt	plugin/bufkill.vim	/^noremap <Plug>BufKillBangAlt     :call <SID>GotoBuffer('#', '!')<CR>$/;"	m
+<Plug>BufKillBangBack	plugin/bufkill.vim	/^noremap <Plug>BufKillBangBack    :call <SID>GotoBuffer('bufback', '!')<CR>$/;"	m
+<Plug>BufKillBangBd	plugin/bufkill.vim	/^noremap <Plug>BufKillBangBd      :call <SID>BufKill('bd', '!')<CR>$/;"	m
+<Plug>BufKillBangBun	plugin/bufkill.vim	/^noremap <Plug>BufKillBangBun     :call <SID>BufKill('bun', '!')<CR>$/;"	m
+<Plug>BufKillBangBw	plugin/bufkill.vim	/^noremap <Plug>BufKillBangBw      :call <SID>BufKill('bw', '!')<CR>$/;"	m
+<Plug>BufKillBangForward	plugin/bufkill.vim	/^noremap <Plug>BufKillBangForward :call <SID>GotoBuffer('bufforward', '!')<CR>$/;"	m
+<Plug>BufKillBd	plugin/bufkill.vim	/^noremap <Plug>BufKillBd          :call <SID>BufKill('bd', '')<CR>$/;"	m
+<Plug>BufKillBun	plugin/bufkill.vim	/^noremap <Plug>BufKillBun         :call <SID>BufKill('bun', '')<CR>$/;"	m
+<Plug>BufKillBw	plugin/bufkill.vim	/^noremap <Plug>BufKillBw          :call <SID>BufKill('bw', '')<CR>$/;"	m
+<Plug>BufKillForward	plugin/bufkill.vim	/^noremap <Plug>BufKillForward     :call <SID>GotoBuffer('bufforward', '')<CR>$/;"	m
+<Plug>BufKillUndo	plugin/bufkill.vim	/^noremap <Plug>BufKillUndo        :call <SID>UndoKill()<CR>$/;"	m
+BufKill	plugin/bufkill.vim	/^augroup BufKill$/;"	a
+BufKill	plugin/bufkill.vim	/^function! <SID>BufKill(cmd, bang) "{{{1$/;"	f
+CreateUniqueCommand	plugin/bufkill.vim	/^function! <SID>CreateUniqueCommand(lhs, rhs)$/;"	f
+CreateUniqueMapping	plugin/bufkill.vim	/^  function! <SID>CreateUniqueMapping(lhs, rhs, ...)$/;"	f
+DiffOrig	plugin/difftools.vim	/^command! -nargs=0 DiffOrig call s:open_diff()$/;"	c
+File	README.md	/^### File$/;"	S	section:nvim config""Key
+Find	README.md	/^### Find$/;"	S	section:nvim config""Key
+FoldText	plugin/nicefold.vim	/^function! FoldText()$/;"	f
+GotoBuffer	plugin/bufkill.vim	/^function! <SID>GotoBuffer(cmd, bang) "{{{1$/;"	f
+IsBufferNew	plugin/bufkill.vim	/^function! <SID>IsBufferNew(buf) "{{{1$/;"	f
+Key	README.md	/^## Key$/;"	s	chapter:nvim config
+Normal	README.md	/^### Normal$/;"	S	section:nvim config""Key
+Operator Surround	README.md	/^### Operator Surround$/;"	S	section:nvim config""Key
+RestoreView	plugin/bufkill.vim	/^function! <SID>RestoreView() "{{{1$/;"	f
+RestoreWindowPos	plugin/bufkill.vim	/^function! <SID>RestoreWindowPos() "{{{1$/;"	f
+SaveView	plugin/bufkill.vim	/^function! <SID>SaveView() "{{{1$/;"	f
+SaveWindowPos	plugin/bufkill.vim	/^function! <SID>SaveWindowPos() "{{{1$/;"	f
+SwitchToNewBuffer	plugin/bufkill.vim	/^function! <SID>SwitchToNewBuffer(bang) "{{1$/;"	f
+UndoKill	plugin/bufkill.vim	/^function! <SID>UndoKill() "{{{1$/;"	f
+UpdateLastColumn	plugin/bufkill.vim	/^function! <SID>UpdateLastColumn(event) "{{{1$/;"	f
+UpdateList	plugin/bufkill.vim	/^function! <SID>UpdateList(event) "{{{1$/;"	f
+Vista	README.md	/^### Vista$/;"	S	section:nvim config""Key
+Window	README.md	/^### Window$/;"	S	section:nvim config""Key
+["af"]	lua/plugin-config.lua	/^          ["af"] = "@function.outer",$/;"	f
+["if"]	lua/plugin-config.lua	/^          ["if"] = "@function.inner",$/;"	f
+bind.bind_option	lua/bind.lua	/^function bind.bind_option(options)$/;"	f
+buffer_not_empty	lua/eviline.lua	/^local buffer_not_empty = function()$/;"	f
+checkwidth	lua/eviline.lua	/^local checkwidth = function()$/;"	f
+config	lua/plugins.lua	/^    use {'glepnir\/galaxyline.nvim', config = function() require('eviline') end}$/;"	f
+config	lua/plugins.lua	/^    use {'glepnir\/zephyr-nvim', config = function() require('zephyr') end}$/;"	f
+config	lua/plugins.lua	/^    use {'norcalli\/nvim-colorizer.lua', config = function() require'colorizer'.setup{} end}$/;"	f
+config:configBufferline	lua/plugin-config.lua	/^function config:configBufferline()$/;"	f
+config:configCursorword	lua/plugin-config.lua	/^function config:configCursorword()$/;"	f
+config:configDashboard	lua/plugin-config.lua	/^function config:configDashboard()$/;"	f
+config:configDelimitMate	lua/plugin-config.lua	/^function config:configDelimitMate()$/;"	f
+config:configGutentags	lua/plugin-config.lua	/^function config:configGutentags()$/;"	f
+config:configIndentGuides	lua/plugin-config.lua	/^function config:configIndentGuides()$/;"	f
+config:configLSP	lua/plugin-config.lua	/^function config:configLSP()$/;"	f
+config:configNvimTree	lua/plugin-config.lua	/^function config:configNvimTree()$/;"	f
+config:configSignify	lua/plugin-config.lua	/^function config:configSignify()$/;"	f
+config:configTelescope	lua/plugin-config.lua	/^function config:configTelescope()$/;"	f
+config:configTreesitter	lua/plugin-config.lua	/^function config:configTreesitter()$/;"	f
+config:configVista	lua/plugin-config.lua	/^function config:configVista()$/;"	f
+disable_distribution_plugins	lua/core.lua	/^local disable_distribution_plugins= function()$/;"	f
+find_git_root	lua/eviline.lua	/^local function find_git_root()$/;"	f
+g:BufKillActionWhenBufferDisplayedInAnotherWindow	plugin/bufkill.vim	/^  let g:BufKillActionWhenBufferDisplayedInAnotherWindow = 'confirm'$/;"	v
+g:BufKillCommandPrefix	plugin/bufkill.vim	/^  let g:BufKillCommandPrefix = 'B'$/;"	v
+g:BufKillFunctionSelectingValidBuffersToDisplay	plugin/bufkill.vim	/^  let g:BufKillFunctionSelectingValidBuffersToDisplay = 'buflisted'$/;"	v
+g:BufKillOverrideCtrlCaret	plugin/bufkill.vim	/^  let g:BufKillOverrideCtrlCaret = 0$/;"	v
+g:BufKillVerbose	plugin/bufkill.vim	/^  let g:BufKillVerbose = 1$/;"	v
+g:DebugEcho	plugin/bufkill.vim	/^  let g:DebugEcho = 'echom'$/;"	v
+g:loaded_difftools	plugin/difftools.vim	/^let g:loaded_difftools = 1$/;"	v
+g:loaded_nicefold	plugin/nicefold.vim	/^let g:loaded_nicefold = 1$/;"	v
+leader_map	lua/core.lua	/^local leader_map = function()$/;"	f
+load_core	lua/core.lua	/^local load_core = function()$/;"	f
+loaded_bufkill	plugin/bufkill.vim	/^let loaded_bufkill = 1$/;"	v
+nvim config	README.md	/^# nvim config$/;"	c
+on_attach	lua/plugin-config.lua	/^  local on_attach = function(_, bufnr)$/;"	f
+options:load_options	lua/options.lua	/^function options:load_options()$/;"	f
+plugin_difftools	plugin/difftools.vim	/^augroup plugin_difftools$/;"	a
+plugin_fastfold	plugin/nicefold.vim	/^augroup plugin_fastfold$/;"	a
+provider	lua/eviline.lua	/^    provider = function () return ' ' end$/;"	f
+provider	lua/eviline.lua	/^    provider = function() return '  ' end,$/;"	f
+provider	lua/eviline.lua	/^    provider = function() return '▊ ' end,$/;"	f
+provider	lua/eviline.lua	/^    provider = function() return '' end,$/;"	f
+provider	lua/eviline.lua	/^    provider = function()$/;"	f
+q	plugin/difftools.vim	/^	nnoremap <buffer><silent> q :execute bufwinnr(b:diff_bnr) . 'q'<CR>$/;"	m
+q	plugin/difftools.vim	/^	nnoremap <buffer><silent> q :quit<CR>$/;"	m
+s:BufKillCreateMappings	plugin/bufkill.vim	/^let s:BufKillCreateMappings = get(g:,'BufKillCreateMappings',0)$/;"	v
+s:Debug	plugin/bufkill.vim	/^function! s:Debug(level, ...) "{{{1$/;"	f
+s:close_diff	plugin/difftools.vim	/^function! s:close_diff()$/;"	f
+s:open_diff	plugin/difftools.vim	/^function! s:open_diff()$/;"	f
+s:save_cpo	plugin/bufkill.vim	/^let s:save_cpo = &cpo$/;"	v
+特性	README.md	/^## 特性$/;"	s	chapter:nvim config

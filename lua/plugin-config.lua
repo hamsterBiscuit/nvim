@@ -232,21 +232,17 @@ vim.api.nvim_command('highlight htmlTag gui=NONE guifg=' .. syntax.blue .. ' gui
 
 config:configBufferline()
 
-require('eviline')
-
 config:configDashboard()
 
 config:configIndentGuides()
 
 config:configCursorword()
 
-require'colorizer'.setup{}
 
 config:configNvimTree()
 
 config:configTelescope()
 
-require('zephyr')
 
 config:configTreesitter()
 
