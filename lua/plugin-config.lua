@@ -56,6 +56,34 @@ function config:configLSP()
     { mode = { '<c-p>' } },
     { mode = { '<c-n>' } }
   }
+  vim.g.completion_customize_lsp_label = {
+    Function = "",
+    Method = "",
+    Variable = "",
+    Constant = "",
+    Struct = "פּ",
+    Class = "",
+    Interface = "禍",
+    Text = "",
+    Enum = "",
+    EnumMember = "",
+    Module = "",
+    Color = "",
+    Property = "襁",
+    Field = "綠",
+    Unit = "",
+    File = "",
+    Value = "",
+    Event = "鬒",
+    Folder = "",
+    Keyword = "",
+    Snippet = "",
+    Operator = "洛",
+    Reference = " ",
+    TypeParameter = "",
+    Default = ""
+  }
+
   vim.api.nvim_set_keymap('i', '<CR>', [[pumvisible() ? complete_info()["selected"] != "-1" ?"\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>":(delimitMate#WithinEmptyPair() ? "\<Plug>delimitMateCR" : "\<CR>")]], { expr = true })
 
   vim.g.completion_word_ignored_ft = {'LuaTree','vista'}

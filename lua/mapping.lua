@@ -68,3 +68,6 @@ vim.api.nvim_set_keymap('n', 'gs', "<cmd>lua vim.lsp.buf.signature_help()<CR>", 
 vim.api.nvim_set_keymap('n', 'gr', "<cmd>lua vim.lsp.buf.references()<CR>", { silent = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'gt', "<cmd>lua vim.lsp.buf.type_definition()<CR>", { silent = true, noremap = true })
 vim.api.nvim_set_keymap('n', 'gw', "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", { silent = true, noremap = true })
+ -- mhinz/vim-signify
+vim.api.nvim_set_keymap('n', '[g', "<plug>(signify-next-hunk)", {})
+vim.api.nvim_set_keymap('n', ']g', "<plug>(signify-prev-hunk)", {})
