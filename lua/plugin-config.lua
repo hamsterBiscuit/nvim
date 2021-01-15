@@ -84,7 +84,7 @@ function config:configLSP()
     Default = ""
   }
 
-  vim.api.nvim_set_keymap('i', '<CR>', [[pumvisible() ? complete_info()["selected"] != "-1" ?"\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>":(delimitMate#WithinEmptyPair() ? "\<Plug>delimitMateCR" : "\<CR>")]], { expr = true })
+  -- vim.api.nvim_set_keymap('i', '<CR>', [[pumvisible() ? complete_info()["selected"] != "-1" ?"\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>":(delimitMate#WithinEmptyPair() ? "\<Plug>delimitMateCR" : "\<CR>")]], { expr = true })
 
   vim.g.completion_word_ignored_ft = {'LuaTree','vista'}
 end

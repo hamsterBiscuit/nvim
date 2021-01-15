@@ -89,6 +89,7 @@ function options:load_options()
     wrap           = false;
     linebreak      = true;
     relativenumber = true;
+    number         = true;
     colorcolumn    = "80";
     foldenable     = true;
     signcolumn     = "yes";
