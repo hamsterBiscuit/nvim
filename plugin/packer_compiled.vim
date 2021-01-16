@@ -44,6 +44,7 @@ local plugins = {
     path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/emmet-vim"
   },
   ["formatter.nvim"] = {
+    commands = { "Format" },
     config = { "\27LJ\2\nä\1\0\0\5\0\6\0\n5\0\0\0005\1\1\0006\2\2\0009\2\3\0029\2\4\2)\4\0\0B\2\2\2>\2\2\1=\1\5\0L\0\2\0\targs\22nvim_buf_get_name\bapi\bvim\1\4\0\0\21--stdin-filepath\0\19--single-quote\1\0\2\nstdin\2\bexe\rprettierN\0\0\2\0\3\0\0045\0\0\0005\1\1\0=\1\2\0L\0\2\0\targs\1\4\0\0\19--indent-count\3\2\f--stdin\1\0\2\nstdin\2\bexe\vluafmtå\1\1\0\6\0\n\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\5\0004\4\3\0003\5\4\0>\5\1\4=\4\6\0034\4\3\0003\5\a\0>\5\1\4=\4\b\3=\3\t\2B\0\2\1K\0\1\0\rfiletype\blua\0\15javascript\1\0\0\0\1\0\1\flogging\1\nsetup\14formatter\frequire\0" },
     loaded = false,
     only_sequence = false,
@@ -72,7 +73,7 @@ local plugins = {
   },
   ["telescope.nvim"] = {
     commands = { "Telescope" },
-    config = { "\27LJ\2\n¿\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\5\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\0\15fzy_native\1\0\0\1\0\2\28override_generic_sorter\1\25override_file_sorter\2\nsetup\14telescope\frequire\0" },
+    config = { "\27LJ\2\n¿\1\0\0\5\0\t\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\b\0'\2\5\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\0\15fzy_native\1\0\0\1\0\2\25override_file_sorter\2\28override_generic_sorter\1\nsetup\14telescope\frequire\0" },
     loaded = false,
     only_sequence = false,
     only_setup = false,
@@ -249,22 +250,22 @@ end
 
 -- Pre-load configuration
 -- Post-load configuration
--- Config for: zephyr-nvim
-loadstring("\27LJ\2\nÕ\2\0\0\6\0\f\0!6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0026\1\3\0009\1\4\0019\1\5\1'\3\6\0009\4\a\0'\5\b\0&\3\5\3B\1\2\0016\1\3\0009\1\4\0019\1\5\1'\3\t\0009\4\n\0'\5\b\0&\3\5\3B\1\2\0016\1\3\0009\1\4\0019\1\5\1'\3\v\0009\4\n\0'\5\b\0&\3\5\3B\1\2\1K\0\1\0&highlight htmlTag gui=NONE guifg=\tblue&highlight htmlArg gui=NONE guifg=\27 guibg=NONE cterm=bold\vorange*highlight htmlTagName gui=bold guifg=\17nvim_command\bapi\bvim\21get_zephyr_color\vzephyr\frequire\0")()
+-- Config for: nvim-treesitter
+loadstring("\27LJ\2\nõ\3\0\0\6\0\19\0\0276\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\4\0B\0\2\0016\0\5\0'\2\6\0B\0\2\0029\0\a\0005\2\b\0005\3\t\0=\3\n\0025\3\v\0=\3\f\0025\3\16\0005\4\r\0005\5\14\0=\5\15\4=\4\17\3=\3\18\2B\0\2\1K\0\1\0\16textobjects\vselect\1\0\0\fkeymaps\1\0\4\aac\17@class.outer\aic\17@class.inner\aaf\20@function.outer\aif\20@function.inner\1\0\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire,set foldexpr=nvim_treesitter#foldexpr()\24set foldmethod=expr\17nvim_command\bapi\bvim\0")()
+-- Config for: galaxyline.nvim
+loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\feviline\frequire\0")()
+-- Config for: vim-gutentags
+loadstring("\27LJ\2\n§\3\0\0\4\0\14\0\0306\0\0\0009\0\1\0006\1\3\0009\1\4\1'\3\5\0B\1\2\2'\2\6\0&\1\2\1=\1\2\0006\0\0\0009\0\1\0005\1\b\0=\1\a\0006\0\0\0009\0\1\0)\1\0\0=\1\t\0006\0\0\0009\0\1\0)\1\0\0=\1\n\0006\0\0\0009\0\1\0)\1\0\0=\1\v\0006\0\0\0009\0\1\0005\1\r\0=\1\f\0K\0\1\0\1\5\0\0\tdefx\vdenite\nvista\nmagit gutentags_exclude_filetypes\30gutentags_generate_on_new\"gutentags_generate_on_missing gutentags_generate_on_write\1\t\0\0\n.root\t.git\t.svn\r.project\vgo.mod\16.Cargo.toml\16tsconfig.js\16jsconfig.js\27gutentags_project_root\21/.cache/vim/tags\tHOME\vgetenv\aos\24gutentags_cache_dir\6g\bvim\0")()
+-- Config for: nvim-tree.lua
+loadstring("\27LJ\2\nƒ\2\0\0\3\0\f\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\1\0005\1\6\0005\2\5\0=\2\a\1=\1\4\0006\0\0\0009\0\1\0005\1\t\0005\2\n\0=\2\v\1=\1\b\0K\0\1\0\bgit\1\0\5\14untracked\b‚òÖ\frenamed\b‚â´\runmerged\b‚â†\vstaged\b‚úö\runstaged\b‚úö\1\0\2\fsymlink\bÔíÅ\fdefault\bÔÖú\20nvim_tree_icons\tedit\1\0\2\15edit_split\6i\16edit_vsplit\6s\1\3\0\0\t<CR>\6l\23nvim_tree_bindings\29nvim_tree_indent_markers\28nvim_tree_hide_dotfiles\6g\bvim\0")()
 -- Config for: dashboard-nvim
 loadstring("\27LJ\2\n˘\4\0\0\4\0\21\0\0296\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\n\0005\2\b\0005\3\a\0=\3\t\2=\2\v\0015\2\r\0005\3\f\0=\3\t\2=\2\14\0015\2\16\0005\3\15\0=\3\t\2=\2\17\0015\2\19\0005\3\18\0=\3\t\2=\2\20\1=\1\6\0K\0\1\0\14find_word\1\0\1\fcommand\22DashboardFindWord\1\2\0\0009ÔÜö  Find  word                              SPC f w\rnew_file\1\0\1\fcommand\21DashboardNewFile\1\2\0\0009Ôúï  New   File                              SPC t f\14find_file\1\0\1\fcommand\22DashboardFindFile\1\2\0\0009ÔÖú  Find  File                              SPC f f\17find_history\1\0\0\16description\1\0\1\fcommand\25DashboardFindHistory\1\2\0\0009Ôú°  Recently opened files                   SPC f h\29dashboard_custom_section\14telescope dashboard_default_executive\17commicgirl10\29dashboard_default_header\6g\bvim\0")()
 -- Config for: nvim-bufferline.lua
-loadstring("\27LJ\2\nt\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\2\rmappings\2\27always_show_bufferline\1\nsetup\15bufferline\frequire\0")()
--- Config for: nvim-treesitter
-loadstring("\27LJ\2\nõ\3\0\0\6\0\19\0\0276\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\4\0B\0\2\0016\0\5\0'\2\6\0B\0\2\0029\0\a\0005\2\b\0005\3\t\0=\3\n\0025\3\v\0=\3\f\0025\3\16\0005\4\r\0005\5\14\0=\5\15\4=\4\17\3=\3\18\2B\0\2\1K\0\1\0\16textobjects\vselect\1\0\0\fkeymaps\1\0\4\aic\17@class.inner\aaf\20@function.outer\aif\20@function.inner\aac\17@class.outer\1\0\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire,set foldexpr=nvim_treesitter#foldexpr()\24set foldmethod=expr\17nvim_command\bapi\bvim\0")()
--- Config for: vim-gutentags
-loadstring("\27LJ\2\n§\3\0\0\4\0\14\0\0306\0\0\0009\0\1\0006\1\3\0009\1\4\1'\3\5\0B\1\2\2'\2\6\0&\1\2\1=\1\2\0006\0\0\0009\0\1\0005\1\b\0=\1\a\0006\0\0\0009\0\1\0)\1\0\0=\1\t\0006\0\0\0009\0\1\0)\1\0\0=\1\n\0006\0\0\0009\0\1\0)\1\0\0=\1\v\0006\0\0\0009\0\1\0005\1\r\0=\1\f\0K\0\1\0\1\5\0\0\tdefx\vdenite\nvista\nmagit gutentags_exclude_filetypes\30gutentags_generate_on_new\"gutentags_generate_on_missing gutentags_generate_on_write\1\t\0\0\n.root\t.git\t.svn\r.project\vgo.mod\16.Cargo.toml\16tsconfig.js\16jsconfig.js\27gutentags_project_root\21/.cache/vim/tags\tHOME\vgetenv\aos\24gutentags_cache_dir\6g\bvim\0")()
+loadstring("\27LJ\2\nt\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\2\27always_show_bufferline\1\rmappings\2\nsetup\15bufferline\frequire\0")()
 -- Config for: vista.vim
-loadstring("\27LJ\2\nÎ\2\0\0\2\0\v\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0006\0\0\0009\0\1\0005\1\n\0=\1\t\0K\0\1\0\1\0\a\15typescript\rnvim_lsp\rmarkdown\fvim_lsp\20typescriptreact\rnvim_lsp\bvue\rnvim_lsp\blua\rnvim_lsp\vpandoc\rmarkdown\fvimwiki\rmarkdown\24vista_executive_for\rmarkdown\28vista_vimwiki_executive\vscroll\31vista_echo_cursor_strategy\nctags\28vista_default_executive\29vista_disable_statusline\6g\bvim\0")()
--- Config for: galaxyline.nvim
-loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\feviline\frequire\0")()
--- Config for: nvim-tree.lua
-loadstring("\27LJ\2\nƒ\2\0\0\3\0\f\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\1\0005\1\6\0005\2\5\0=\2\a\1=\1\4\0006\0\0\0009\0\1\0005\1\t\0005\2\n\0=\2\v\1=\1\b\0K\0\1\0\bgit\1\0\5\14untracked\b‚òÖ\frenamed\b‚â´\runmerged\b‚â†\vstaged\b‚úö\runstaged\b‚úö\1\0\2\fsymlink\bÔíÅ\fdefault\bÔÖú\20nvim_tree_icons\tedit\1\0\2\15edit_split\6i\16edit_vsplit\6s\1\3\0\0\t<CR>\6l\23nvim_tree_bindings\29nvim_tree_indent_markers\28nvim_tree_hide_dotfiles\6g\bvim\0")()
+loadstring("\27LJ\2\nÎ\2\0\0\2\0\v\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0006\0\0\0009\0\1\0005\1\n\0=\1\t\0K\0\1\0\1\0\a\rmarkdown\fvim_lsp\vpandoc\rmarkdown\blua\rnvim_lsp\bvue\rnvim_lsp\20typescriptreact\rnvim_lsp\15typescript\rnvim_lsp\fvimwiki\rmarkdown\24vista_executive_for\rmarkdown\28vista_vimwiki_executive\vscroll\31vista_echo_cursor_strategy\nctags\28vista_default_executive\29vista_disable_statusline\6g\bvim\0")()
+-- Config for: zephyr-nvim
+loadstring("\27LJ\2\nÕ\2\0\0\6\0\f\0!6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0026\1\3\0009\1\4\0019\1\5\1'\3\6\0009\4\a\0'\5\b\0&\3\5\3B\1\2\0016\1\3\0009\1\4\0019\1\5\1'\3\t\0009\4\n\0'\5\b\0&\3\5\3B\1\2\0016\1\3\0009\1\4\0019\1\5\1'\3\v\0009\4\n\0'\5\b\0&\3\5\3B\1\2\1K\0\1\0&highlight htmlTag gui=NONE guifg=\tblue&highlight htmlArg gui=NONE guifg=\27 guibg=NONE cterm=bold\vorange*highlight htmlTagName gui=bold guifg=\17nvim_command\bapi\bvim\21get_zephyr_color\vzephyr\frequire\0")()
 -- Conditional loads
 -- Load plugins in order defined by `after`
 END
@@ -275,36 +276,36 @@ endfunction
 
 
 " Command lazy-loads
-command! -nargs=* -range -bang -complete=file Telescope call s:load(['telescope.nvim'], { "cmd": "Telescope", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 command! -nargs=* -range -bang -complete=file Prettier call s:load(['vim-prettier'], { "cmd": "Prettier", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
+command! -nargs=* -range -bang -complete=file Format call s:load(['formatter.nvim'], { "cmd": "Format", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
+command! -nargs=* -range -bang -complete=file Telescope call s:load(['telescope.nvim'], { "cmd": "Telescope", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 
 " Keymap lazy-loads
 noremap <silent> f <cmd>call <SID>load(['vim-eft'], { "keys": "f", "prefix": "" })<cr>
-noremap <silent> j <cmd>call <SID>load(['accelerated-jk'], { "keys": "j", "prefix": "" })<cr>
-noremap <silent> k <cmd>call <SID>load(['accelerated-jk'], { "keys": "k", "prefix": "" })<cr>
 noremap <silent> gcc <cmd>call <SID>load(['caw.vim'], { "keys": "gcc", "prefix": "" })<cr>
+noremap <silent> k <cmd>call <SID>load(['accelerated-jk'], { "keys": "k", "prefix": "" })<cr>
+noremap <silent> j <cmd>call <SID>load(['accelerated-jk'], { "keys": "j", "prefix": "" })<cr>
 
 augroup packer_load_aucmds
   au!
   " Filetype lazy-loads
+  au FileType html ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "html" })
+  au FileType css ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "css" })
+  au FileType sass ++once call s:load(['nvim-colorizer.lua'], { "ft": "sass" })
+  au FileType markdown ++once call s:load(['markdown-preview.nvim'], { "ft": "markdown" })
+  au FileType javascript ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "javascript" })
+  au FileType javascriptreact ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "javascriptreact" })
+  au FileType typescript ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "typescript" })
   au FileType typescriptreact ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "typescriptreact" })
   au FileType vue ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "vue" })
   au FileType lua ++once call s:load(['nvim-colorizer.lua'], { "ft": "lua" })
   au FileType vim ++once call s:load(['nvim-colorizer.lua'], { "ft": "vim" })
-  au FileType markdown ++once call s:load(['markdown-preview.nvim'], { "ft": "markdown" })
-  au FileType html ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "html" })
-  au FileType css ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "css" })
-  au FileType sass ++once call s:load(['nvim-colorizer.lua'], { "ft": "sass" })
   au FileType scss ++once call s:load(['nvim-colorizer.lua'], { "ft": "scss" })
-  au FileType javascript ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "javascript" })
-  au FileType javascriptreact ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "javascriptreact" })
-  au FileType typescript ++once call s:load(['emmet-vim', 'nvim-colorizer.lua'], { "ft": "typescript" })
   " Event lazy-loads
-  au BufreadPre * ++once call s:load(['formatter.nvim'], { "event": "BufreadPre *" })
-  au BufReadPre * ++once call s:load(['vim-cursorword', 'context_filetype.vim', 'auto-pairs', 'indent-guides.nvim', 'vim-signify'], { "event": "BufReadPre *" })
   au InsertEnter * ++once call s:load(['emmet-vim'], { "event": "InsertEnter *" })
-  au BufNewFile * ++once call s:load(['formatter.nvim', 'vim-cursorword', 'auto-pairs', 'vim-signify'], { "event": "BufNewFile *" })
+  au BufNewFile * ++once call s:load(['auto-pairs', 'vim-signify', 'vim-cursorword'], { "event": "BufNewFile *" })
   au InsertCharPre * ++once call s:load(['vim-vsnip', 'vim-vsnip-integ'], { "event": "InsertCharPre *" })
+  au BufReadPre * ++once call s:load(['indent-guides.nvim', 'context_filetype.vim', 'auto-pairs', 'vim-signify', 'vim-cursorword'], { "event": "BufReadPre *" })
   " Function lazy-loads
 augroup END
 
