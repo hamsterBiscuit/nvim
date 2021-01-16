@@ -42,9 +42,7 @@ return packer.startup(
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
     use {
-      "glepnir/indent-guides.nvim",
-      event = "BufReadPre *",
-      config = require("plugin-config.indent-guides")
+      "Yggdroot/indentLine",
     }
     use {
       "itchyny/vim-cursorword",
