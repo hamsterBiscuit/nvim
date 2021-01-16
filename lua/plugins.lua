@@ -344,8 +344,5 @@ return packer.startup(
         vim.g.user_emmet_mode = "i"
       end
     }
-
-    use "junegunn/goyo.vim"
-    use "junegunn/limelight.vim"
   end
 )

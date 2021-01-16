@@ -31,15 +31,13 @@ function config:configLSP()
 
   require("lspconfig").sumneko_lua.setup {
     cmd = {sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua"},
-    filetypes = {"lua"},
-    root_patterns = {".git"},
     settings = {
       Lua = {
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = "LuaJIT"
+          version = "LuaJIT",
           -- Setup your lua path
-          -- path = vim.split(package.path, ';'),
+          path = vim.split(package.path, ';'),
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
@@ -107,11 +105,6 @@ vim.api.nvim_command(
 vim.api.nvim_command([[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=]])
 
 config:configLSP()
-
-vim.cmd [[
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoLeave Limelight!
-]]
 
 -- show hover window on hover
 vim.cmd [[ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics() ]]

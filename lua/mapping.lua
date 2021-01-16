@@ -73,7 +73,3 @@ vim.api.nvim_set_keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>"
 vim.api.nvim_set_keymap("n", "[g", "<plug>(signify-next-hunk)", {})
 vim.api.nvim_set_keymap("n", "]g", "<plug>(signify-prev-hunk)", {})
 
--- [[ Limelight/ Goyo ]]
-vim.api.nvim_set_keymap('n', '<leader>g', ':Goyo<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>l', ':Limelight<CR>', {})
-
