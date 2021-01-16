@@ -202,7 +202,7 @@ return packer.startup(
       end
     }
 
-    use {'rstacruz/vim-closer', event = 'BufReadPre *'}
+    use {'jiangmiao/auto-pairs', event = {'BufReadPre *','BufNewFile *'}}
 
     use {
       'ludovicchabant/vim-gutentags',
