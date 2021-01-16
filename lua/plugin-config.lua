@@ -96,8 +96,6 @@ function config:configLSP()
     Default = ""
   }
 
-  -- vim.api.nvim_set_keymap('i', '<CR>', [[pumvisible() ? complete_info()["selected"] != "-1" ?"\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>":(delimitMate#WithinEmptyPair() ? "\<Plug>delimitMateCR" : "\<CR>")]], { expr = true })
-
   vim.g.completion_word_ignored_ft = {"LuaTree", "vista"}
 end
 
@@ -109,3 +107,12 @@ vim.api.nvim_command(
 vim.api.nvim_command([[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=]])
 
 config:configLSP()
+
+vim.cmd [[
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
+]]
+
+-- show hover window on hover
+vim.cmd [[ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics() ]]
+

@@ -1,4 +1,5 @@
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
 end
@@ -29,9 +30,31 @@ return packer.startup(
         }
       end
     }
-    use {"glepnir/galaxyline.nvim", config = function()
-        require("eviline")
-      end}
+    -- use {
+    --   "glepnir/galaxyline.nvim",
+    --   config = function()
+    --     require("eviline")
+    --   end
+    -- }
+    use {
+      "datwaft/bubbly.nvim",
+      config = function()
+        vim.g.bubbly_palette = {
+          background = "#34343c",
+          foreground = "#c5cdd9",
+          black = "#3e4249",
+          red = "#ec7279",
+          green = "#a0c980",
+          yellow = "#deb974",
+          blue = "#6cb6eb",
+          purple = "#d38aea",
+          cyan = "#5dbbc1",
+          white = "#c5cdd9",
+          lightgrey = "#57595e",
+          darkgrey = "#404247"
+        }
+      end
+    }
 
     -- 开屏
     use {
@@ -51,10 +74,6 @@ return packer.startup(
           new_file = {
             description = {"  New   File                              SPC t f"},
             command = "DashboardNewFile"
-          },
-          find_word = {
-            description = {"  Find  word                              SPC f w"},
-            command = "DashboardFindWord"
           }
         }
       end
@@ -64,6 +83,7 @@ return packer.startup(
     use {"rhysd/accelerated-jk", keys = {"j", "k"}}
     use {"hrsh7th/vim-eft", keys = "f"}
     use {"tyru/caw.vim", keys = "gcc"}
+    use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
     use {
@@ -121,6 +141,9 @@ return packer.startup(
       },
       config = function()
         require("telescope").setup {
+          defaults = {
+            prompt_position = "top"
+          },
           extensions = {
             fzy_native = {
               override_generic_sorter = false,
@@ -172,13 +195,18 @@ return packer.startup(
         }
       end
     }
+    use {"sheerun/vim-polyglot"}
 
     -- 文件管理
     use {
       "kyazdani42/nvim-tree.lua",
       config = function()
-        vim.g.nvim_tree_hide_dotfiles = 1
         vim.g.nvim_tree_indent_markers = 1
+        vim.g.nvim_tree_auto_close = 1
+        vim.g.nvim_tree_quit_on_open = 1
+        vim.g.nvim_tree_git_hl = 1
+        vim.g.nvim_tree_tab_open = 1
+        vim.g.nvim_tree_allow_resize = 1
         vim.g.nvim_tree_bindings = {
           edit = {"<CR>", "l"},
           edit_vsplit = "s",
@@ -298,7 +326,6 @@ return packer.startup(
     }
 
     -- lang
-    use "posva/vim-vue"
     use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
 
     use {"Shougo/context_filetype.vim", event = "BufReadPre *"}
@@ -317,5 +344,8 @@ return packer.startup(
         vim.g.user_emmet_mode = "i"
       end
     }
+
+    use "junegunn/goyo.vim"
+    use "junegunn/limelight.vim"
   end
 )

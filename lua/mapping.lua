@@ -36,9 +36,11 @@ vim.api.nvim_set_keymap("o", "F", "<Plug>(eft-F)", {})
 
 -- fuzzyfind 模糊搜索 快捷键
 vim.api.nvim_set_keymap("n", "<Leader>bb", ":<C-u>Telescope buffers<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>fa", ":<C-u>Telescope live_grep<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>ff", ":<C-u>Telescope find_files<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>fh", ":<C-u>Telescope oldfiles<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>fa", ":<C-u>DashboardFindWord<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>ff", ":<C-u>DashboardFindFile<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>fh", ":<C-u>DashboardFindHistory<CR>", {silent = true, noremap = true})
+
+vim.api.nvim_set_keymap("n", "<Leader>tf", ":<C-u>DashboardNewFile<CR>", {silent = true, noremap = true})
 
 -- 文件管理
 vim.api.nvim_set_keymap("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", {silent = true, noremap = true})
@@ -70,3 +72,8 @@ vim.api.nvim_set_keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>"
 -- mhinz/vim-signify
 vim.api.nvim_set_keymap("n", "[g", "<plug>(signify-next-hunk)", {})
 vim.api.nvim_set_keymap("n", "]g", "<plug>(signify-prev-hunk)", {})
+
+-- [[ Limelight/ Goyo ]]
+vim.api.nvim_set_keymap('n', '<leader>g', ':Goyo<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>l', ':Limelight<CR>', {})
+
