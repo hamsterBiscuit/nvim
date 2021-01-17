@@ -5,6 +5,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 local packer = require("packer")
+local use = packer.use
 packer.init(
   {
     git = {

@@ -1,4 +1,3 @@
-
 local config = {}
 
 -- lsp
@@ -32,13 +31,14 @@ function config:configLSP()
 
   require("lspconfig").sumneko_lua.setup {
     cmd = {sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua"},
+    on_attach = on_attach,
     settings = {
       Lua = {
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = "LuaJIT",
           -- Setup your lua path
-          path = vim.split(package.path, ';'),
+          path = vim.split(package.path, ";")
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
@@ -109,4 +109,3 @@ config:configLSP()
 
 -- show hover window on hover
 vim.cmd [[ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics() ]]
-
