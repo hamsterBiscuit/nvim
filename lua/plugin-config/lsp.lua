@@ -61,39 +61,40 @@ function config:configLSP()
   vim.g.completion_trigger_on_delete = 1
   vim.g.completion_chain_complete_list = {
     {complete_items = {"lsp"}},
+    {complete_items = {"tabnine"}},
     {complete_items = {"snippet"}},
     {complete_items = {"buffers"}},
     {complete_items = {"path"}},
     {mode = {"<c-p>"}},
     {mode = {"<c-n>"}}
   }
-  vim.g.completion_customize_lsp_label = {
-    Function = "",
-    Method = "",
-    Variable = "",
-    Constant = "",
-    Struct = "פּ",
-    Class = "",
-    Interface = "禍",
-    Text = "",
-    Enum = "",
-    EnumMember = "",
-    Module = "",
-    Color = "",
-    Property = "襁",
-    Field = "綠",
-    Unit = "",
-    File = "",
-    Value = "",
-    Event = "鬒",
-    Folder = "",
-    Keyword = "",
-    Snippet = "",
-    Operator = "洛",
-    Reference = " ",
-    TypeParameter = "",
-    Default = ""
-  }
+  -- vim.g.completion_customize_lsp_label = {
+  --   Function = "",
+  --   Method = "",
+  --   Variable = "",
+  --   Constant = "",
+  --   Struct = "פּ",
+  --   Class = "",
+  --   Interface = "禍",
+  --   Text = "",
+  --   Enum = "",
+  --   EnumMember = "",
+  --   Module = "",
+  --   Color = "",
+  --   Property = "襁",
+  --   Field = "綠",
+  --   Unit = "",
+  --   File = "",
+  --   Value = "",
+  --   Event = "鬒",
+  --   Folder = "",
+  --   Keyword = "",
+  --   Snippet = "",
+  --   Operator = "洛",
+  --   Reference = " ",
+  --   TypeParameter = "",
+  --   Default = ""
+  -- }
 
   vim.g.completion_word_ignored_ft = {"LuaTree", "vista"}
 end

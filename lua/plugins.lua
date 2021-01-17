@@ -91,7 +91,6 @@ return packer.startup(
       requires = {{"nvim-treesitter/nvim-treesitter-textobjects"}},
       config = require("plugin-config.treesitter")
     }
-    use {"sheerun/vim-polyglot"}
 
     -- 文件管理
     use {
@@ -104,6 +103,7 @@ return packer.startup(
     use {
       "nvim-lua/completion-nvim",
       requires = {
+        {"aca/completion-tabnine", run = "version=3.1.9 ./install.sh"},
         {"steelsojka/completion-buffers"},
         {"hrsh7th/vim-vsnip", event = "InsertCharPre *"},
         {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
