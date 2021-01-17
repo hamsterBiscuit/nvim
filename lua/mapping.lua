@@ -26,14 +26,6 @@ vim.api.nvim_set_keymap("s", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expan
 vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
 vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
 
--- vim-eft
-vim.api.nvim_set_keymap("n", "f", "<Plug>(eft-f)", {})
-vim.api.nvim_set_keymap("x", "f", "<Plug>(eft-f)", {})
-vim.api.nvim_set_keymap("o", "f", "<Plug>(eft-f)", {})
-vim.api.nvim_set_keymap("n", "F", "<Plug>(eft-F)", {})
-vim.api.nvim_set_keymap("x", "F", "<Plug>(eft-F)", {})
-vim.api.nvim_set_keymap("o", "F", "<Plug>(eft-F)", {})
-
 -- fuzzyfind 模糊搜索 快捷键
 vim.api.nvim_set_keymap("n", "<Leader>bb", ":<C-u>Telescope buffers<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>fa", "<cmd>lua require('telescope').extensions.fzf_writer.staged_grep()<CR>", {silent = true, noremap = true})

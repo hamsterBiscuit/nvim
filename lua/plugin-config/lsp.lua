@@ -60,11 +60,11 @@ function config:configLSP()
   vim.g.completion_matching_smart_case = 1
   vim.g.completion_trigger_on_delete = 1
   vim.g.completion_chain_complete_list = {
-    {complete_items = {"lsp"}},
-    {complete_items = {"tabnine"}},
-    {complete_items = {"snippet"}},
-    {complete_items = {"buffers"}},
-    {complete_items = {"path"}},
+    {complete_items = {"lsp", 'tabnine', 'snippet', 'buffers', 'path'}},
+    -- {complete_items = {"tabnine"}},
+    -- {complete_items = {"snippet"}},
+    -- {complete_items = {"buffers"}},
+    -- {complete_items = {"path"}},
     {mode = {"<c-p>"}},
     {mode = {"<c-n>"}}
   }
