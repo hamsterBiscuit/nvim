@@ -10,25 +10,11 @@ try
 
 lua << END
 local plugins = {
-  ["accelerated-jk"] = {
-    keys = { { "", "j" }, { "", "k" } },
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/accelerated-jk"
-  },
   ["auto-pairs"] = {
     loaded = false,
     only_sequence = false,
     only_setup = false,
     path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/auto-pairs"
-  },
-  ["caw.vim"] = {
-    keys = { { "", "gcc" } },
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/caw.vim"
   },
   ["context_filetype.vim"] = {
     loaded = false,
@@ -51,13 +37,6 @@ local plugins = {
     only_setup = false,
     path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/formatter.nvim"
   },
-  indentLine = {
-    config = { "\27LJ\2\ní\2\0\0\2\0\n\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0005\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0006\0\0\0009\0\1\0)\1\1\0=\1\t\0K\0\1\0$indentLine_showFirstIndentLevel\bniv\29indentLine_concealcursor\1\a\0\0\tdefx\vdenite\14dashboard\vtagbar\15vista_kind\nvista\31indentLine_fileTypeExclude\b‚îÜ\20indentLine_char\23indentLine_enabled\6g\bvim\0" },
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/indentLine"
-  },
   ["markdown-preview.nvim"] = {
     loaded = false,
     only_sequence = false,
@@ -71,27 +50,12 @@ local plugins = {
     only_setup = false,
     path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/nvim-colorizer.lua"
   },
-  ["telescope.nvim"] = {
-    commands = { "Telescope" },
-    config = { "\27LJ\2\nË\1\0\0\5\0\v\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\a\0005\4\6\0=\4\b\3=\3\t\2B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\n\0'\2\b\0B\0\2\1K\0\1\0\19load_extension\15extensions\15fzy_native\1\0\0\1\0\2\25override_file_sorter\2\28override_generic_sorter\1\rdefaults\1\0\0\1\0\1\20prompt_position\btop\nsetup\14telescope\frequire\0" },
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
-  },
   ["vim-cursorword"] = {
     config = { "\27LJ\2\nª\3\0\0\3\0\n\0$6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\4\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\5\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\6\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\a\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\b\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\t\0B\0\2\1K\0\1\0\16augroup END/autocmd InsertLeave * let b:cursorword = 1/autocmd InsertEnter * let b:cursorword = 0Gautocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endifFautocmd FileType defx,denite,fern,clap,vista let b:cursorword = 0\rautocmd!#augroup user_plugin_cursorword\17nvim_command\bapi\bvim\0" },
     loaded = false,
     only_sequence = false,
     only_setup = false,
     path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/vim-cursorword"
-  },
-  ["vim-eft"] = {
-    keys = { { "", "f" } },
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/Users/yongqi/.local/share/nvim/site/pack/packer/opt/vim-eft"
   },
   ["vim-prettier"] = {
     commands = { "Prettier" },
@@ -256,20 +220,22 @@ end
 
 -- Pre-load configuration
 -- Post-load configuration
+-- Config for: telescope.nvim
+loadstring("\27LJ\2\nÜ\2\0\0\5\0\n\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\a\0005\4\6\0=\4\b\3=\3\t\2B\0\2\1K\0\1\0\15extensions\15fzf_writer\1\0\0\1\0\3\20use_highlighter\2\29minimum_files_characters\3\2\28minimum_grep_characters\3\2\rdefaults\1\0\0\1\0\3\21sorting_strategy\14ascending\18prompt_prefix\tüîç\20prompt_position\btop\nsetup\14telescope\frequire\0")()
 -- Config for: bubbly.nvim
-loadstring("\27LJ\2\nÍ\1\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\f\tcyan\f#5dbbc1\bred\f#ec7279\rdarkgrey\f#404247\nblack\f#3e4249\14lightgrey\f#57595e\15foreground\f#c5cdd9\nwhite\f#c5cdd9\15background\f#34343c\vpurple\f#d38aea\tblue\f#6cb6eb\vyellow\f#deb974\ngreen\f#a0c980\19bubbly_palette\6g\bvim\0")()
+loadstring("\27LJ\2\nÍ\1\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\f\rdarkgrey\f#404247\nblack\f#3e4249\14lightgrey\f#57595e\15foreground\f#c5cdd9\nwhite\f#c5cdd9\15background\f#34343c\tcyan\f#5dbbc1\vpurple\f#d38aea\tblue\f#6cb6eb\vyellow\f#deb974\ngreen\f#a0c980\bred\f#ec7279\19bubbly_palette\6g\bvim\0")()
 -- Config for: vista.vim
-loadstring("\27LJ\2\nÎ\2\0\0\2\0\v\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0006\0\0\0009\0\1\0005\1\n\0=\1\t\0K\0\1\0\1\0\a\bvue\rnvim_lsp\blua\rnvim_lsp\vpandoc\rmarkdown\fvimwiki\rmarkdown\rmarkdown\fvim_lsp\20typescriptreact\rnvim_lsp\15typescript\rnvim_lsp\24vista_executive_for\rmarkdown\28vista_vimwiki_executive\vscroll\31vista_echo_cursor_strategy\nctags\28vista_default_executive\29vista_disable_statusline\6g\bvim\0")()
+loadstring("\27LJ\2\nÎ\2\0\0\2\0\v\0\0216\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0'\1\4\0=\1\3\0006\0\0\0009\0\1\0'\1\6\0=\1\5\0006\0\0\0009\0\1\0'\1\b\0=\1\a\0006\0\0\0009\0\1\0005\1\n\0=\1\t\0K\0\1\0\1\0\a\15typescript\rnvim_lsp\rmarkdown\fvim_lsp\fvimwiki\rmarkdown\20typescriptreact\rnvim_lsp\blua\rnvim_lsp\bvue\rnvim_lsp\vpandoc\rmarkdown\24vista_executive_for\rmarkdown\28vista_vimwiki_executive\vscroll\31vista_echo_cursor_strategy\nctags\28vista_default_executive\29vista_disable_statusline\6g\bvim\0")()
+-- Config for: nvim-treesitter
+loadstring("\27LJ\2\nõ\3\0\0\6\0\19\0\0276\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\4\0B\0\2\0016\0\5\0'\2\6\0B\0\2\0029\0\a\0005\2\b\0005\3\t\0=\3\n\0025\3\v\0=\3\f\0025\3\16\0005\4\r\0005\5\14\0=\5\15\4=\4\17\3=\3\18\2B\0\2\1K\0\1\0\16textobjects\vselect\1\0\0\fkeymaps\1\0\4\aaf\20@function.outer\aif\20@function.inner\aac\17@class.outer\aic\17@class.inner\1\0\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire,set foldexpr=nvim_treesitter#foldexpr()\24set foldmethod=expr\17nvim_command\bapi\bvim\0")()
 -- Config for: zephyr-nvim
 loadstring("\27LJ\2\nÕ\2\0\0\6\0\f\0!6\0\0\0'\2\1\0B\0\2\0016\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0026\1\3\0009\1\4\0019\1\5\1'\3\6\0009\4\a\0'\5\b\0&\3\5\3B\1\2\0016\1\3\0009\1\4\0019\1\5\1'\3\t\0009\4\n\0'\5\b\0&\3\5\3B\1\2\0016\1\3\0009\1\4\0019\1\5\1'\3\v\0009\4\n\0'\5\b\0&\3\5\3B\1\2\1K\0\1\0&highlight htmlTag gui=NONE guifg=\tblue&highlight htmlArg gui=NONE guifg=\27 guibg=NONE cterm=bold\vorange*highlight htmlTagName gui=bold guifg=\17nvim_command\bapi\bvim\21get_zephyr_color\vzephyr\frequire\0")()
--- Config for: dashboard-nvim
-loadstring("\27LJ\2\nâ\4\0\0\4\0\18\0\0256\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\n\0005\2\b\0005\3\a\0=\3\t\2=\2\v\0015\2\r\0005\3\f\0=\3\t\2=\2\14\0015\2\16\0005\3\15\0=\3\t\2=\2\17\1=\1\6\0K\0\1\0\rnew_file\1\0\1\fcommand\21DashboardNewFile\1\2\0\0009Ôúï  New   File                              SPC t f\14find_file\1\0\1\fcommand\22DashboardFindFile\1\2\0\0009ÔÖú  Find  File                              SPC f f\17find_history\1\0\0\16description\1\0\1\fcommand\25DashboardFindHistory\1\2\0\0009Ôú°  Recently opened files                   SPC f h\29dashboard_custom_section\14telescope dashboard_default_executive\17commicgirl10\29dashboard_default_header\6g\bvim\0")()
--- Config for: nvim-treesitter
-loadstring("\27LJ\2\nõ\3\0\0\6\0\19\0\0276\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0016\0\0\0009\0\1\0009\0\2\0'\2\4\0B\0\2\0016\0\5\0'\2\6\0B\0\2\0029\0\a\0005\2\b\0005\3\t\0=\3\n\0025\3\v\0=\3\f\0025\3\16\0005\4\r\0005\5\14\0=\5\15\4=\4\17\3=\3\18\2B\0\2\1K\0\1\0\16textobjects\vselect\1\0\0\fkeymaps\1\0\4\aif\20@function.inner\aaf\20@function.outer\aac\17@class.outer\aic\17@class.inner\1\0\1\venable\2\vindent\1\0\1\venable\2\14highlight\1\0\1\venable\2\1\0\1\21ensure_installed\ball\nsetup\28nvim-treesitter.configs\frequire,set foldexpr=nvim_treesitter#foldexpr()\24set foldmethod=expr\17nvim_command\bapi\bvim\0")()
 -- Config for: nvim-tree.lua
-loadstring("\27LJ\2\n”\3\0\0\3\0\16\0%6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\1\0)\1\1\0=\1\4\0006\0\0\0009\0\1\0)\1\1\0=\1\5\0006\0\0\0009\0\1\0)\1\1\0=\1\6\0006\0\0\0009\0\1\0)\1\1\0=\1\a\0006\0\0\0009\0\1\0005\1\n\0005\2\t\0=\2\v\1=\1\b\0006\0\0\0009\0\1\0005\1\r\0005\2\14\0=\2\15\1=\1\f\0K\0\1\0\bgit\1\0\5\runmerged\b‚â†\vstaged\b‚úö\runstaged\b‚úö\14untracked\b‚òÖ\frenamed\b‚â´\1\0\2\fdefault\bÔÖú\fsymlink\bÔíÅ\20nvim_tree_icons\tedit\1\0\2\15edit_split\6i\16edit_vsplit\6s\1\3\0\0\t<CR>\6l\23nvim_tree_bindings\27nvim_tree_allow_resize\23nvim_tree_tab_open\21nvim_tree_git_hl\27nvim_tree_quit_on_open\25nvim_tree_auto_close\29nvim_tree_indent_markers\6g\bvim\0")()
+loadstring("\27LJ\2\n”\3\0\0\3\0\16\0%6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0006\0\0\0009\0\1\0)\1\1\0=\1\4\0006\0\0\0009\0\1\0)\1\1\0=\1\5\0006\0\0\0009\0\1\0)\1\1\0=\1\6\0006\0\0\0009\0\1\0)\1\1\0=\1\a\0006\0\0\0009\0\1\0005\1\n\0005\2\t\0=\2\v\1=\1\b\0006\0\0\0009\0\1\0005\1\r\0005\2\14\0=\2\15\1=\1\f\0K\0\1\0\bgit\1\0\5\frenamed\b‚â´\runmerged\b‚â†\vstaged\b‚úö\runstaged\b‚úö\14untracked\b‚òÖ\1\0\2\fdefault\bÔÖú\fsymlink\bÔíÅ\20nvim_tree_icons\tedit\1\0\2\16edit_vsplit\6s\15edit_split\6i\1\3\0\0\t<CR>\6l\23nvim_tree_bindings\27nvim_tree_allow_resize\23nvim_tree_tab_open\21nvim_tree_git_hl\27nvim_tree_quit_on_open\25nvim_tree_auto_close\29nvim_tree_indent_markers\6g\bvim\0")()
 -- Config for: vim-gutentags
 loadstring("\27LJ\2\n§\3\0\0\4\0\14\0\0306\0\0\0009\0\1\0006\1\3\0009\1\4\1'\3\5\0B\1\2\2'\2\6\0&\1\2\1=\1\2\0006\0\0\0009\0\1\0005\1\b\0=\1\a\0006\0\0\0009\0\1\0)\1\0\0=\1\t\0006\0\0\0009\0\1\0)\1\0\0=\1\n\0006\0\0\0009\0\1\0)\1\0\0=\1\v\0006\0\0\0009\0\1\0005\1\r\0=\1\f\0K\0\1\0\1\5\0\0\tdefx\vdenite\nvista\nmagit gutentags_exclude_filetypes\30gutentags_generate_on_new\"gutentags_generate_on_missing gutentags_generate_on_write\1\t\0\0\n.root\t.git\t.svn\r.project\vgo.mod\16.Cargo.toml\16tsconfig.js\16jsconfig.js\27gutentags_project_root\21/.cache/vim/tags\tHOME\vgetenv\aos\24gutentags_cache_dir\6g\bvim\0")()
+-- Config for: dashboard-nvim
+loadstring("\27LJ\2\nâ\4\0\0\4\0\18\0\0256\0\0\0009\0\1\0'\1\3\0=\1\2\0006\0\0\0009\0\1\0'\1\5\0=\1\4\0006\0\0\0009\0\1\0005\1\n\0005\2\b\0005\3\a\0=\3\t\2=\2\v\0015\2\r\0005\3\f\0=\3\t\2=\2\14\0015\2\16\0005\3\15\0=\3\t\2=\2\17\1=\1\6\0K\0\1\0\rnew_file\1\0\1\fcommand\21DashboardNewFile\1\2\0\0009Ôúï  New   File                              SPC t f\14find_file\1\0\1\fcommand\22DashboardFindFile\1\2\0\0009ÔÖú  Find  File                              SPC f f\17find_history\1\0\0\16description\1\0\1\fcommand\25DashboardFindHistory\1\2\0\0009Ôú°  Recently opened files                   SPC f h\29dashboard_custom_section\14telescope dashboard_default_executive\17commicgirl10\29dashboard_default_header\6g\bvim\0")()
 -- Config for: nvim-bufferline.lua
 loadstring("\27LJ\2\nt\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\foptions\1\0\0\1\0\2\27always_show_bufferline\1\rmappings\2\nsetup\15bufferline\frequire\0")()
 -- Conditional loads
@@ -282,36 +248,31 @@ endfunction
 
 
 " Command lazy-loads
-command! -nargs=* -range -bang -complete=file Format call s:load(['formatter.nvim'], { "cmd": "Format", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
-command! -nargs=* -range -bang -complete=file Telescope call s:load(['telescope.nvim'], { "cmd": "Telescope", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 command! -nargs=* -range -bang -complete=file Prettier call s:load(['vim-prettier'], { "cmd": "Prettier", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
+command! -nargs=* -range -bang -complete=file Format call s:load(['formatter.nvim'], { "cmd": "Format", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 
 " Keymap lazy-loads
-noremap <silent> f <cmd>call <SID>load(['vim-eft'], { "keys": "f", "prefix": "" })<cr>
-noremap <silent> j <cmd>call <SID>load(['accelerated-jk'], { "keys": "j", "prefix": "" })<cr>
-noremap <silent> gcc <cmd>call <SID>load(['caw.vim'], { "keys": "gcc", "prefix": "" })<cr>
-noremap <silent> k <cmd>call <SID>load(['accelerated-jk'], { "keys": "k", "prefix": "" })<cr>
 
 augroup packer_load_aucmds
   au!
   " Filetype lazy-loads
-  au FileType javascriptreact ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "javascriptreact" })
-  au FileType vim ++once call s:load(['nvim-colorizer.lua'], { "ft": "vim" })
   au FileType typescriptreact ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "typescriptreact" })
   au FileType vue ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "vue" })
   au FileType lua ++once call s:load(['nvim-colorizer.lua'], { "ft": "lua" })
-  au FileType typescript ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "typescript" })
-  au FileType markdown ++once call s:load(['markdown-preview.nvim'], { "ft": "markdown" })
   au FileType html ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "html" })
+  au FileType markdown ++once call s:load(['markdown-preview.nvim'], { "ft": "markdown" })
+  au FileType vim ++once call s:load(['nvim-colorizer.lua'], { "ft": "vim" })
   au FileType css ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "css" })
   au FileType sass ++once call s:load(['nvim-colorizer.lua'], { "ft": "sass" })
   au FileType scss ++once call s:load(['nvim-colorizer.lua'], { "ft": "scss" })
   au FileType javascript ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "javascript" })
+  au FileType javascriptreact ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "javascriptreact" })
+  au FileType typescript ++once call s:load(['nvim-colorizer.lua', 'emmet-vim'], { "ft": "typescript" })
   " Event lazy-loads
-  au BufReadPre * ++once call s:load(['vim-signify', 'vim-cursorword', 'vim-smoothie', 'auto-pairs', 'indentLine', 'context_filetype.vim'], { "event": "BufReadPre *" })
-  au BufNewFile * ++once call s:load(['vim-signify', 'vim-cursorword', 'vim-smoothie', 'auto-pairs', 'indentLine'], { "event": "BufNewFile *" })
+  au BufNewFile * ++once call s:load(['vim-cursorword', 'auto-pairs', 'vim-smoothie', 'vim-signify'], { "event": "BufNewFile *" })
+  au InsertCharPre * ++once call s:load(['vim-vsnip-integ', 'vim-vsnip'], { "event": "InsertCharPre *" })
   au InsertEnter * ++once call s:load(['emmet-vim'], { "event": "InsertEnter *" })
-  au InsertCharPre * ++once call s:load(['vim-vsnip', 'vim-vsnip-integ'], { "event": "InsertCharPre *" })
+  au BufReadPre * ++once call s:load(['context_filetype.vim', 'vim-cursorword', 'auto-pairs', 'vim-smoothie', 'vim-signify'], { "event": "BufReadPre *" })
   " Function lazy-loads
 augroup END
 

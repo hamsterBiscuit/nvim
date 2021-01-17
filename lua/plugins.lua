@@ -36,9 +36,9 @@ return packer.startup(
     }
 
     -- 操作视觉增强
-    use {"rhysd/accelerated-jk", keys = {"j", "k"}}
-    use {"hrsh7th/vim-eft", keys = "f"}
-    use {"tyru/caw.vim", keys = "gcc"}
+    use {"rhysd/accelerated-jk"}
+    use {"hrsh7th/vim-eft"}
+    use {"tyru/caw.vim"}
     use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
@@ -73,9 +73,8 @@ return packer.startup(
     -- fuzzyfind 模糊搜索
     use {
       "nvim-telescope/telescope.nvim",
-      cmd = "Telescope",
       requires = {
-        {"nvim-telescope/telescope-fzy-native.nvim"},
+        {"nvim-telescope/telescope-fzf-writer.nvim"},
         {"nvim-lua/popup.nvim"},
         {"nvim-lua/plenary.nvim"}
       },

@@ -1,0 +1,101 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.010  000.010: --- NVIM STARTING ---
+001.141  001.131: locale set
+001.904  000.764: inits 1
+001.936  000.032: window checked
+001.941  000.005: parsing arguments
+002.230  000.289: expanding arguments
+002.328  000.098: inits 2
+002.951  000.623: init highlight
+002.952  000.001: waiting for UI
+005.534  002.582: done waiting for UI
+005.583  000.049: initialized screen early for UI
+037.629  032.046: sourcing vimrc file(s)
+046.603  000.034  000.034: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/query.vim
+047.695  000.021  000.021: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/filetype.vim
+048.096  000.020  000.020: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/filetype.vim
+048.933  000.027  000.027: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/query.vim
+049.008  000.017  000.017: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/ftdetect/polyglot.vim
+065.334  018.214  018.129: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/autoload/polyglot/init.vim
+065.351  018.676  000.463: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/ftdetect/polyglot.vim
+065.644  027.860  009.150: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/filetype.vim
+066.129  000.020  000.020: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/filetype.vim
+066.518  000.052  000.052: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/ftplugin.vim
+067.189  000.047  000.047: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/indent.vim
+068.363  000.288  000.288: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/syntax/syncolor.vim
+069.071  001.145  000.857: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/syntax/synload.vim
+069.106  001.330  000.185: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/syntax/syntax.vim
+074.591  000.939  000.939: sourcing /Users/yongqi/.config/nvim/plugin/bufkill.vim
+074.808  000.149  000.149: sourcing /Users/yongqi/.config/nvim/plugin/difftools.vim
+074.994  000.121  000.121: sourcing /Users/yongqi/.config/nvim/plugin/nicefold.vim
+092.326  000.213  000.213: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/syntax/syncolor.vim
+093.838  000.183  000.183: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/syntax/syncolor.vim
+094.935  000.180  000.180: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/syntax/syncolor.vim
+102.504  027.450  026.874: sourcing /Users/yongqi/.config/nvim/plugin/packer_compiled.vim
+103.193  000.274  000.274: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/plugin/polyglot.vim
+104.166  000.026  000.026: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/gzip.vim
+104.258  000.021  000.021: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/health.vim
+104.429  000.104  000.104: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/man.vim
+104.524  000.023  000.023: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/matchit.vim
+104.613  000.022  000.022: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/matchparen.vim
+104.718  000.032  000.032: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/netrwPlugin.vim
+105.048  000.017  000.017: sourcing /Users/yongqi/.local/share/nvim/rplugin.vim
+105.058  000.269  000.253: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/rplugin.vim
+105.272  000.147  000.147: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/shada.vim
+105.397  000.036  000.036: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/spellfile.vim
+105.504  000.028  000.028: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/tarPlugin.vim
+105.632  000.022  000.022: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/tohtml.vim
+105.739  000.031  000.031: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/tutor.vim
+105.845  000.028  000.028: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/plugin/zipPlugin.vim
+105.957  009.298: loading plugins
+106.858  000.133  000.133: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/accelerated-jk/plugin/accelerated-jk.vim
+116.013  008.902  008.902: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/bubbly.nvim/plugin/bubbly.vim
+118.288  000.146  000.146: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-operator-user/autoload/operator/user.vim
+123.916  007.549  007.403: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/caw.vim/plugin/caw.vim
+124.717  000.355  000.355: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/completion-nvim/plugin/completion.vim
+125.442  000.418  000.418: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/plugin/dashboard.vim
+126.258  000.546  000.546: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/editorconfig-vim/plugin/editorconfig.vim
+126.650  000.037  000.037: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-bufferline.lua/plugin/bufferline.vim
+126.990  000.090  000.090: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+127.427  000.123  000.123: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-tree.lua/plugin/tree.vim
+129.103  001.411  001.411: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.vim
+129.276  000.033  000.033: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/query.vim
+131.323  001.802  001.802: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-treesitter-textobjects/plugin/nvim-treesitter-textobjects.vim
+131.708  000.048  000.048: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+134.945  002.900  002.900: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+135.748  000.303  000.303: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.vim
+136.477  000.452  000.452: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-eft/plugin/eft.vim
+137.091  000.342  000.342: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-gutentags/plugin/gutentags.vim
+137.768  000.318  000.318: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-operator-surround/plugin/operator/surround.vim
+138.296  000.185  000.185: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/plugin/polyglot.vim
+138.441  000.019  000.019: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/ftdetect/polyglot.vim
+138.864  000.117  000.117: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vista.vim/plugin/vista.vim
+139.184  007.145: loading packages
+139.939  000.518  000.518: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/indentLine/after/plugin/indentLine.vim
+145.073  004.915  004.915: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/completion-buffers/after/plugin/completion_buffers.vim
+145.505  000.888: loading after plugins
+145.524  000.019: inits 3
+151.340  005.816: reading ShaDa
+151.607  000.051  000.051: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/nvim-treesitter/autoload/nvim_treesitter.vim
+154.147  002.756: opening buffers
+156.271  000.874  000.874: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-polyglot/autoload/polyglot/sleuth.vim
+165.272  000.204  000.204: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/autoload/dashboard.vim
+169.535  014.311: BufEnter autocommands
+169.541  000.005: editing files in windows
+176.348  000.039  000.039: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/autoload/dashboard/utils.vim
+179.609  003.029  003.029: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/autoload/dashboard/header.vim
+180.498  000.146  000.146: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/autoload/dashboard/section.vim
+181.968  000.272  000.272: sourcing /usr/local/Cellar/neovim/HEAD-2390a0d/share/nvim/runtime/autoload/provider/clipboard.vim
+187.876  000.177  000.177: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/syntax/dashboard.vim
+188.643  000.019  000.019: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/dashboard-nvim/syntax/dashboard.vim
+191.159  000.535  000.535: sourcing /Users/yongqi/.local/share/nvim/site/pack/packer/start/vim-gutentags/autoload/gutentags.vim
+191.714  017.955: VimEnter autocommands
+191.717  000.003: UIEnter autocommands
+191.720  000.003: before starting main loop
+194.795  003.075: first screen update
+194.797  000.002: --- NVIM STARTED ---
