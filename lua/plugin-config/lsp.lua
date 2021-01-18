@@ -59,14 +59,14 @@ function config:configLSP()
   vim.g.completion_enable_auto_hover = 0
   vim.g.completion_matching_smart_case = 1
   vim.g.completion_trigger_on_delete = 1
+  vim.g.completion_auto_change_source = 1
   vim.g.completion_chain_complete_list = {
-    {complete_items = {"lsp", 'tabnine', 'snippet', 'buffers', 'path'}},
-    -- {complete_items = {"tabnine"}},
-    -- {complete_items = {"snippet"}},
-    -- {complete_items = {"buffers"}},
-    -- {complete_items = {"path"}},
-    {mode = {"<c-p>"}},
-    {mode = {"<c-n>"}}
+    default = {
+      {complete_items = {"lsp", "tabnine", "snippet"}},
+      {complete_items = {"path"}},
+      {mode = {"<c-p>"}},
+      {mode = {"<c-n>"}}
+    }
   }
   -- vim.g.completion_customize_lsp_label = {
   --   Function = "",

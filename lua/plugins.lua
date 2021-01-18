@@ -104,7 +104,6 @@ return packer.startup(
       "nvim-lua/completion-nvim",
       requires = {
         {"aca/completion-tabnine", run = "version=3.1.9 ./install.sh"},
-        {"steelsojka/completion-buffers"},
         {"hrsh7th/vim-vsnip", event = "InsertCharPre *"},
         {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
       }
