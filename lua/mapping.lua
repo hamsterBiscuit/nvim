@@ -17,6 +17,8 @@ vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
 vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], {noremap = true, expr = true})
 
 -- vsnip Expand or jump
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
