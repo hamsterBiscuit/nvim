@@ -125,10 +125,6 @@ return packer.startup(
     }
 
     use {
-      "ludovicchabant/vim-gutentags",
-      config = require("plugin-config.vim-gutentags")
-    }
-    use {
       "liuchengxu/vista.vim",
       config = require("plugin-config.vista")
     }
