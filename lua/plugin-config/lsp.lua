@@ -12,7 +12,6 @@ function config:configLSP()
     "jsonls",
     "clangd",
     "cssls",
-    -- "html",
     "pyright",
     "vimls",
     "vuels",

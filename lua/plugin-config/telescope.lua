@@ -3,7 +3,7 @@ return function()
     defaults = {
       prompt_position = "top",
       sorting_strategy = "ascending",
-      prompt_prefix="🔍",
+      prompt_prefix="🤖",
       mappings = {
         i = {
           ['<C-j>'] = require('telescope.actions').move_selection_next,

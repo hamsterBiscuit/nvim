@@ -24,10 +24,7 @@ return packer.startup(
       "akinsho/nvim-bufferline.lua",
       config = require("plugin-config.bufferline")
     }
-    use {
-      "datwaft/bubbly.nvim",
-      config = require("plugin-config.bubbly")
-    }
+    use {"glepnir/galaxyline.nvim", config = require("eviline")}
 
     -- 开屏
     use {
