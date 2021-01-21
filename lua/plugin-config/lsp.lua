@@ -5,17 +5,15 @@ function config:configLSP()
   local on_attach = function(_, bufnr)
     require("completion").on_attach()
   end
+  local util = require("lspconfig/util")
 
   local servers = {
     "tsserver",
     "jsonls",
     "clangd",
     "cssls",
-    "html",
-    "jdtls",
+    -- "html",
     "pyright",
-    "ocamllsp",
-    "hls",
     "vimls",
     "vuels",
     "gopls"
@@ -27,6 +25,22 @@ function config:configLSP()
     }
   end
 
+  require "lspconfig".gopls.setup {
+    cmd = {"gopls"},
+    on_attach = on_attach,
+    filetypes = {"go", "gomod"},
+    root_dir = function(fname)
+      return util.root_pattern("go.mod", ".git")(fname) or util.path.dirname(fname)
+    end,
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true
+        },
+        staticcheck = true
+      }
+    }
+  }
   local sumneko_root_path = os.getenv("HOME") .. "/develop/lua-language-server"
 
   require("lspconfig").sumneko_lua.setup {
@@ -54,6 +68,58 @@ function config:configLSP()
       }
     }
   }
+
+  require("lspconfig").diagnosticls.setup {
+    on_attach = on_attach,
+    filetypes = {"javascript", "javascript.jsx", "typescript", "typescriptreact", "vue"},
+    init_options = {
+      filetypes = {
+        javascript = "eslint",
+        ["javascript.jsx"] = "eslint",
+        javascriptreact = "eslint",
+        typescriptreact = "eslint",
+        typescript = "eslint",
+        vue = "eslint"
+      },
+      linters = {
+        eslint = {
+          sourceName = "eslint",
+          command = "./node_modules/.bin/eslint",
+          rootPatterns = {".git"},
+          debounce = 100,
+          args = {
+            "--cache",
+            "--stdin",
+            "--stdin-filename",
+            "%filepath",
+            "--format",
+            "json"
+          },
+          parseJson = {
+            errorsRoot = "[0].messages",
+            line = "line",
+            column = "column",
+            endLine = "endLine",
+            endColumn = "endColumn",
+            message = "${message} [${ruleId}]",
+            security = "severity"
+          },
+          securities = {
+            [2] = "error",
+            [1] = "warning"
+          }
+        }
+      }
+    }
+  }
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+  require "lspconfig".html.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+  }
+
   vim.g.completion_enable_snippet = "vim-vsnip"
   vim.g.completion_confirm_key = ""
   vim.g.completion_enable_auto_hover = 0
@@ -68,33 +134,6 @@ function config:configLSP()
       {mode = {"<c-n>"}}
     }
   }
-  -- vim.g.completion_customize_lsp_label = {
-  --   Function = "",
-  --   Method = "",
-  --   Variable = "",
-  --   Constant = "",
-  --   Struct = "פּ",
-  --   Class = "",
-  --   Interface = "禍",
-  --   Text = "",
-  --   Enum = "",
-  --   EnumMember = "",
-  --   Module = "",
-  --   Color = "",
-  --   Property = "襁",
-  --   Field = "綠",
-  --   Unit = "",
-  --   File = "",
-  --   Value = "",
-  --   Event = "鬒",
-  --   Folder = "",
-  --   Keyword = "",
-  --   Snippet = "",
-  --   Operator = "洛",
-  --   Reference = " ",
-  --   TypeParameter = "",
-  --   Default = ""
-  -- }
 
   vim.g.completion_word_ignored_ft = {"LuaTree", "vista"}
 end
@@ -107,17 +146,21 @@ vim.api.nvim_command(
 vim.api.nvim_command([[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=]])
 -- show hover window on hover
 vim.cmd [[ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics() ]]
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
     -- Enable underline, use default values
     underline = true,
     -- Enable virtual text, override spacing to 4
     virtual_text = false,
     -- Disable a feature
     update_in_insert = true,
+    signs = {
+      enable = true,
+      priority = 20
+    }
   }
 )
 
-
 config:configLSP()
-
