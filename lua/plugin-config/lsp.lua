@@ -8,7 +8,7 @@ function config:configLSP()
   local util = require("lspconfig/util")
 
   local servers = {
-    "tsserver",
+    -- "tsserver",
     "jsonls",
     "clangd",
     "cssls",
@@ -24,6 +24,14 @@ function config:configLSP()
     }
   end
 
+  require "lspconfig".tsserver.setup {
+    on_attach = on_attach,
+    root_dir = function(fname)
+      return util.root_pattern("tsconfig.json")(fname) or
+        util.root_pattern("package.json", "jsconfig.json", ".git")(fname) or
+        util.path.dirname(fname)
+    end
+  }
   require "lspconfig".gopls.setup {
     cmd = {"gopls"},
     on_attach = on_attach,
