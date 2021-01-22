@@ -30,8 +30,8 @@ vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
 
 -- fuzzyfind 模糊搜索 快捷键
 vim.api.nvim_set_keymap("n", "<Leader>bb", ":<C-u>Telescope buffers<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>fa", "<cmd>lua require('telescope').extensions.fzf_writer.staged_grep()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>ff", "<cmd>lua require('telescope').extensions.fzf_writer.files()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>fa", ":<C-u>Telescope fzf_writer staged_grep<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>ff", ":<C-u>Telescope fzf_writer files<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>fh", ":<C-u>DashboardFindHistory<CR>", {silent = true, noremap = true})
 
 vim.api.nvim_set_keymap("n", "<Leader>tf", ":<C-u>DashboardNewFile<CR>", {silent = true, noremap = true})

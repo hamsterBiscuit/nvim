@@ -70,6 +70,7 @@ return packer.startup(
     -- fuzzyfind 模糊搜索
     use {
       "nvim-telescope/telescope.nvim",
+      cmd = "Telescope",
       requires = {
         {"nvim-telescope/telescope-fzf-writer.nvim"},
         {"nvim-lua/popup.nvim"},
