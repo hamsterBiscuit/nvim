@@ -8,14 +8,12 @@ function config:configLSP()
   local util = require("lspconfig/util")
 
   local servers = {
-    -- "tsserver",
     "jsonls",
     "clangd",
     "cssls",
     "pyright",
     "vimls",
     "vuels",
-    "gopls"
   }
 
   for _, server in ipairs(servers) do
