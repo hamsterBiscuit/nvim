@@ -34,13 +34,12 @@ return packer.startup(
 
     -- 操作视觉增强
     use {"rhysd/accelerated-jk"}
-    use {"tyru/caw.vim"}
-    use{"easymotion/vim-easymotion"}
+    use {"tyru/caw.vim", event = {"BufReadPre *", "BufNewFile *"}}
     use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
     use {
-      "Yggdroot/indentLine",
+      "Yggdroot/indentLine"
     }
     use {
       "itchyny/vim-cursorword",
@@ -82,12 +81,15 @@ return packer.startup(
     -- 高亮
     use {
       "glepnir/zephyr-nvim",
-      config = require("plugin-config.zephyr")
+      config = require("plugin-config.zephyr"),
+      after = "nvim-treesitter"
     }
     use {
       "nvim-treesitter/nvim-treesitter",
-      requires = {{"nvim-treesitter/nvim-treesitter-textobjects"}},
-      config = require("plugin-config.treesitter")
+      requires = {
+        {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
+      },
+      config = require("plugin-config.treesitter"),
     }
 
     -- 文件管理
@@ -97,11 +99,15 @@ return packer.startup(
     }
 
     -- 补全
-    use "neovim/nvim-lspconfig"
+    use {"neovim/nvim-lspconfig"}
     use {
       "nvim-lua/completion-nvim",
+      event = {"BufReadPre *", "BufNewFile *"},
+      config = function()
+        vim.cmd [[autocmd BufReadPre,BufNewFile * lua require'completion'.on_attach()]]
+      end,
       requires = {
-        {"aca/completion-tabnine", run = "version=3.1.9 ./install.sh"},
+        {"aca/completion-tabnine", event = "InsertCharPre *", run = "version=3.1.9 ./install.sh"},
         {"hrsh7th/vim-vsnip", event = "InsertCharPre *"},
         {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
       }

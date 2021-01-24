@@ -2,9 +2,6 @@ local config = {}
 
 -- lsp
 function config:configLSP()
-  local on_attach = function(_, bufnr)
-    require("completion").on_attach()
-  end
   local util = require("lspconfig/util")
 
   local servers = {
@@ -18,12 +15,10 @@ function config:configLSP()
 
   for _, server in ipairs(servers) do
     require("lspconfig")[server].setup {
-      on_attach = on_attach
     }
   end
 
   require "lspconfig".tsserver.setup {
-    on_attach = on_attach,
     root_dir = function(fname)
       return util.root_pattern("tsconfig.json")(fname) or
         util.root_pattern("package.json", "jsconfig.json", ".git")(fname) or
@@ -32,7 +27,6 @@ function config:configLSP()
   }
   require "lspconfig".gopls.setup {
     cmd = {"gopls"},
-    on_attach = on_attach,
     filetypes = {"go", "gomod"},
     root_dir = function(fname)
       return util.root_pattern("go.mod", ".git")(fname) or util.path.dirname(fname)
@@ -50,7 +44,6 @@ function config:configLSP()
 
   require("lspconfig").sumneko_lua.setup {
     cmd = {sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua"},
-    on_attach = on_attach,
     settings = {
       Lua = {
         runtime = {
@@ -75,7 +68,6 @@ function config:configLSP()
   }
 
   require("lspconfig").diagnosticls.setup {
-    on_attach = on_attach,
     filetypes = {"javascript", "javascript.jsx", "typescript", "typescriptreact", "vue"},
     init_options = {
       filetypes = {
@@ -121,7 +113,6 @@ function config:configLSP()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   require "lspconfig".html.setup {
-    on_attach = on_attach,
     capabilities = capabilities
   }
 

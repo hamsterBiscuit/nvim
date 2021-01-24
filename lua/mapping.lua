@@ -48,10 +48,6 @@ vim.api.nvim_set_keymap("", "sa", "<Plug>(operator-surround-append)", {silent = 
 vim.api.nvim_set_keymap("", "sd", "<Plug>(operator-surround-delete)", {silent = true})
 vim.api.nvim_set_keymap("", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
--- caw
-vim.api.nvim_set_keymap("n", "gcc", "<Plug>(caw:hatpos:toggle)", {})
-vim.api.nvim_set_keymap("x", "gcc", "<Plug>(caw:hatpos:toggle)", {})
-
 -- LSP
 vim.api.nvim_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", {silent = true, noremap = true})
