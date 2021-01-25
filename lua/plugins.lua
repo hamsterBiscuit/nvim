@@ -34,7 +34,7 @@ return packer.startup(
 
     -- 操作视觉增强
     use {"rhysd/accelerated-jk"}
-    use {"tyru/caw.vim", event = {"BufReadPre *", "BufNewFile *"}}
+    use {"tyru/caw.vim"}
     use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
@@ -82,7 +82,6 @@ return packer.startup(
     use {
       "glepnir/zephyr-nvim",
       config = require("plugin-config.zephyr"),
-      after = "nvim-treesitter"
     }
     use {
       "nvim-treesitter/nvim-treesitter",
