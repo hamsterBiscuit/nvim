@@ -33,8 +33,10 @@ return packer.startup(
     }
 
     -- 操作视觉增强
+    use {"Shougo/context_filetype.vim"}
     use {"rhysd/accelerated-jk"}
-    use {"tyru/caw.vim"}
+    use {"tomtom/tcomment_vim"}
+    use {"hrsh7th/vim-eft"}
     use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
@@ -81,14 +83,14 @@ return packer.startup(
     -- 高亮
     use {
       "glepnir/zephyr-nvim",
-      config = require("plugin-config.zephyr"),
+      config = require("plugin-config.zephyr")
     }
     use {
       "nvim-treesitter/nvim-treesitter",
       requires = {
-        {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
+        {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"}
       },
-      config = require("plugin-config.treesitter"),
+      config = require("plugin-config.treesitter")
     }
 
     -- 文件管理
@@ -135,7 +137,6 @@ return packer.startup(
     -- lang
     use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
 
-    use {"Shougo/context_filetype.vim", event = "BufReadPre *"}
 
     use "editorconfig/editorconfig-vim"
 

@@ -63,3 +63,18 @@ vim.api.nvim_set_keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>"
 vim.api.nvim_set_keymap("n", "[g", "<plug>(signify-next-hunk)", {})
 vim.api.nvim_set_keymap("n", "]g", "<plug>(signify-prev-hunk)", {})
 
+-- vim-eft
+vim.api.nvim_set_keymap("n", ";", "<plug>(eft-repeat)", {})
+vim.api.nvim_set_keymap("x", ";", "<plug>(eft-repeat)", {})
+vim.api.nvim_set_keymap("n", "f", "<plug>(eft-f)", {})
+vim.api.nvim_set_keymap("x", "f", "<plug>(eft-f)", {})
+vim.api.nvim_set_keymap("o", "f", "<plug>(eft-f)", {})
+vim.api.nvim_set_keymap("n", "F", "<plug>(eft-F)", {})
+vim.api.nvim_set_keymap("x", "F", "<plug>(eft-F)", {})
+vim.api.nvim_set_keymap("o", "F", "<plug>(eft-F)", {})
+vim.api.nvim_set_keymap("n", "t", "<plug>(eft-t)", {})
+vim.api.nvim_set_keymap("x", "t", "<plug>(eft-t)", {})
+vim.api.nvim_set_keymap("o", "t", "<plug>(eft-t)", {})
+vim.api.nvim_set_keymap("n", "T", "<plug>(eft-T)", {})
+vim.api.nvim_set_keymap("x", "T", "<plug>(eft-T)", {})
+vim.api.nvim_set_keymap("o", "T", "<plug>(eft-T)", {})
