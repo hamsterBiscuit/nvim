@@ -41,6 +41,14 @@ return packer.startup(
     use "kana/vim-operator-user"
     use "rhysd/vim-operator-surround"
     use {
+      "skywind3000/asyncrun.vim",
+      config = function()
+        vim.g.asyncrun_open = 6
+      end
+    }
+    use {"skywind3000/asynctasks.vim"}
+    use {"skywind3000/vim-terminal-help"}
+    use {
       "Yggdroot/indentLine"
     }
     use {
@@ -136,7 +144,6 @@ return packer.startup(
 
     -- lang
     use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
-
 
     use "editorconfig/editorconfig-vim"
 
