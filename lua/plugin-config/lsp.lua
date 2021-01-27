@@ -7,7 +7,6 @@ function config:configLSP()
   local servers = {
     "jsonls",
     "clangd",
-    "cssls",
     "pyright",
     "vimls",
     "vuels",
@@ -112,9 +111,11 @@ function config:configLSP()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-  require "lspconfig".html.setup {
-    capabilities = capabilities
-  }
+  for _, server in pairs({"html", "cssls"}) do
+    require "lspconfig"[server].setup {
+      capabilities = capabilities
+    }
+end
 
   vim.g.completion_enable_snippet = "vim-vsnip"
   vim.g.completion_confirm_key = ""
