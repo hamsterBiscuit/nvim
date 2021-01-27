@@ -49,16 +49,20 @@ vim.api.nvim_set_keymap("", "sd", "<Plug>(operator-surround-delete)", {silent = 
 vim.api.nvim_set_keymap("", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
 -- LSP
-vim.api.nvim_set_keymap("n", "[e", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "]e", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "[e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "]e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "ga", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("v", "ga", "<cmd>lua require('lspsaga.codeaction').range_code_action()<CR>", {silent = true, noremap = true})
+
 -- mhinz/vim-signify
 vim.api.nvim_set_keymap("n", "[g", "<plug>(signify-next-hunk)", {})
 vim.api.nvim_set_keymap("n", "]g", "<plug>(signify-prev-hunk)", {})

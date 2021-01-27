@@ -44,6 +44,7 @@ return packer.startup(
       "skywind3000/asyncrun.vim",
       config = function()
         vim.g.asyncrun_open = 6
+        vim.g.asyncrun_mode = 'term'
       end
     }
     use {"skywind3000/asynctasks.vim"}
@@ -108,7 +109,8 @@ return packer.startup(
     }
 
     -- 补全
-    use {"neovim/nvim-lspconfig"}
+    use {"neovim/nvim-lspconfig", {"glepnir/lspsaga.nvim", config = function() require 'lspsaga'
+.init_lsp_saga() end}}
     use {
       "nvim-lua/completion-nvim",
       event = {"BufReadPre *", "BufNewFile *"},
