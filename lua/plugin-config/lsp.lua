@@ -121,12 +121,11 @@ end
   vim.g.completion_confirm_key = ""
   vim.g.completion_enable_auto_hover = 0
   vim.g.completion_matching_smart_case = 1
-  vim.g.completion_trigger_on_delete = 1
+  -- vim.g.completion_trigger_on_delete = 1
   vim.g.completion_auto_change_source = 1
   vim.g.completion_chain_complete_list = {
     default = {
-      {complete_items = {"lsp", "tabnine", "snippet"}},
-      {complete_items = {"path"}},
+      {complete_items = {"lsp", "tabnine", "snippet", "path"}},
       {mode = {"<c-p>"}},
       {mode = {"<c-n>"}}
     }
