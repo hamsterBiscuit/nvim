@@ -147,7 +147,7 @@ return packer.startup(
     -- use {"jiangmiao/auto-pairs", event = {"BufReadPre *", "BufNewFile *"}}
     use {
       "Raimondi/delimitMate",
-      event = "InsertCharPre *",
+      event = {"BufReadPre *", "BufNewFile *"},
       config = function()
         vim.g.delimitMate_expand_cr = 0
         vim.g.delimitMate_expand_space = 1
@@ -163,23 +163,28 @@ return packer.startup(
       config = require("plugin-config.formatter")
     }
 
+    -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
     use {
       "liuchengxu/vista.vim",
       config = require("plugin-config.vista")
     }
 
-    -- lang
+    -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
+    -- Prettier,这个是全局的
     use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
 
+    -- editorconfig
+    -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如锁进等文件规范
     use "editorconfig/editorconfig-vim"
 
-    use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install", ft = "markdown"}
+    -- 同步预览MD文件 :MarkdownPreview
+    use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
+    -- emmei插件 使用 ,, 触发补全，
     use {
       "mattn/emmet-vim",
-      -- event = "InsertEnter *",
-      -- ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
       config = require("plugin-config.emmet")
     }
+    -- HTML tag 自动补全
     use {
       "alvan/vim-closetag",
       config = require("plugin-config.closetag")

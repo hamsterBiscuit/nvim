@@ -9,5 +9,5 @@ return function()
     ["javascript.jsx"] = "jsxRegion"
   }
   vim.g.closetag_shortcut = ">"
-  vim.g.closetag_close_shortcut = "<leader>>"
+  -- vim.g.closetag_close_shortcut = "<leader>>"
 end
