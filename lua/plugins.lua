@@ -153,6 +153,7 @@ return packer.startup(
         vim.g.delimitMate_expand_space = 1
         vim.g.delimitMate_smart_quotes = 1
         vim.g.delimitMate_expand_inside_quotes = 0
+        vim.api.nvim_command([[au FileType xml,html,phtml,php,xhtml,js let b:delimitMate_matchpairs = "(:),[:],{:}"]])
       end
     }
 
@@ -178,6 +179,10 @@ return packer.startup(
       event = "InsertEnter *",
       ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
       config = require("plugin-config.emmet")
+    }
+    use {
+      "alvan/vim-closetag",
+      config = require("plugin-config.closetag")
     }
   end
 )
