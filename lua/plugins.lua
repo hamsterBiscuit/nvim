@@ -199,5 +199,6 @@ return packer.startup(
       "alvan/vim-closetag",
       config = require("plugin-config.closetag")
     }
+    use {"posva/vim-vue", ft = "vue"}
   end
 )
