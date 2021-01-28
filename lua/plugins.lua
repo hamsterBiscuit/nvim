@@ -176,8 +176,8 @@ return packer.startup(
     use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install", ft = "markdown"}
     use {
       "mattn/emmet-vim",
-      event = "InsertEnter *",
-      ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
+      -- event = "InsertEnter *",
+      -- ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
       config = require("plugin-config.emmet")
     }
     use {
