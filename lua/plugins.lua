@@ -20,10 +20,12 @@ return packer.startup(
     use "wbthomason/packer.nvim"
     -- 标签页 状态栏
     use "kyazdani42/nvim-web-devicons"
+    -- tab 栏插件 提供 leader + number 切换buffer
     use {
       "akinsho/nvim-bufferline.lua",
       config = require("plugin-config.bufferline")
     }
+    -- 状态栏插件
     use {"glepnir/galaxyline.nvim", config = require("eviline")}
 
     -- 开屏
@@ -33,13 +35,18 @@ return packer.startup(
     }
 
     -- 操作视觉增强
-    use {"Shougo/context_filetype.vim"}
+    -- j k 增强插件
     use {"rhysd/accelerated-jk"}
+    -- gc gcc 注释插件
     use {"tomtom/tcomment_vim"}
+    -- f t 增强
     use {"hrsh7th/vim-eft"}
+    -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
     use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
+    -- 增删改引号
     use "kana/vim-operator-user"
     use {"rhysd/vim-operator-surround"}
+    -- 任务 异步run term 插件
     use {
       "skywind3000/asyncrun.vim",
       config = function()
@@ -49,6 +56,7 @@ return packer.startup(
     }
     use {"skywind3000/asynctasks.vim"}
     use {"skywind3000/vim-terminal-help"}
+    -- 缩进线插件
     use {
       "glepnir/indent-guides.nvim",
       event = {"BufReadPre *", "BufNewFile *"},
@@ -59,6 +67,7 @@ return packer.startup(
         }
       end
     }
+    -- 当前光标下划线 高亮
     use {
       "itchyny/vim-cursorword",
       event = {"BufReadPre *", "BufNewFile *"},
@@ -95,7 +104,7 @@ return packer.startup(
       config = require("plugin-config.telescope")
     }
 
-    -- 高亮
+    -- 高亮 主题
     use {
       "glepnir/zephyr-nvim",
       config = require("plugin-config.zephyr")
@@ -137,14 +146,14 @@ return packer.startup(
       }
     }
 
-    -- git
+    -- git信息展示 :SignifyDiff
     use {
       "mhinz/vim-signify",
       event = {"BufReadPre *", "BufNewFile *"},
       config = require("plugin-config.vim-signify")
     }
 
-    -- use {"jiangmiao/auto-pairs", event = {"BufReadPre *", "BufNewFile *"}}
+    -- 自动括号括回
     use {
       "Raimondi/delimitMate",
       event = {"BufReadPre *", "BufNewFile *"},
@@ -157,6 +166,7 @@ return packer.startup(
       end
     }
 
+    -- 目前配置了lua和js，ts的格式化
     use {
       "mhartington/formatter.nvim",
       cmd = "Format",
