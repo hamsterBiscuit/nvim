@@ -118,7 +118,7 @@ function config:configLSP()
 end
 
   vim.g.completion_enable_snippet = "vim-vsnip"
-  vim.g.completion_confirm_key = ""
+  vim.g.completion_confirm_key = "<C-y>"
   vim.g.completion_enable_auto_hover = 0
   vim.g.completion_matching_smart_case = 1
   -- vim.g.completion_trigger_on_delete = 1

@@ -1,3 +1,12 @@
+function _G.check_back_space()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
 -- Write buffer (save)
 vim.api.nvim_set_keymap("i", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
@@ -15,10 +24,11 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<C-j>", [[pumvisible() ? "\<C-n>" : "\<C-j>"]], {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<C-k>", [[pumvisible() ? "\<C-p>" : "\<C-k>"]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ?"<Plug>(vsnip-expand-or-jump)" : v:lua.check_back_space() ? "<TAB>" : completion#trigger_completion()]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "<C-p>" : "<S-Tab>"]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-j>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ?"<Plug>(vsnip-expand-or-jump)" : v:lua.check_back_space() ? "<TAB>" : completion#trigger_completion()]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-k>", [[pumvisible() ? "<C-p>" : "<C-k>"]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", [[pumvisible() ? complete_info()["selected"] != "-1" ?"<Plug>(completion_confirm_completion)"  : "<c-e><CR>":(delimitMate#WithinEmptyPair() ? "<Plug>delimitMateCR" : "<CR>")]], { expr = true})
 
 -- vsnip Expand or jump
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})

@@ -39,18 +39,25 @@ return packer.startup(
     use {"hrsh7th/vim-eft"}
     use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
     use "kana/vim-operator-user"
-    use "rhysd/vim-operator-surround"
+    use {"rhysd/vim-operator-surround"}
     use {
       "skywind3000/asyncrun.vim",
       config = function()
         vim.g.asyncrun_open = 6
-        vim.g.asyncrun_mode = 'term'
+        vim.g.asyncrun_mode = "term"
       end
     }
     use {"skywind3000/asynctasks.vim"}
     use {"skywind3000/vim-terminal-help"}
     use {
-      "Yggdroot/indentLine"
+      "glepnir/indent-guides.nvim",
+      event = {"BufReadPre *", "BufNewFile *"},
+      config = function()
+        require("indent_guides").setup {
+          even_colors = {fg = "NONE", bg = "#23272e"},
+          odd_colors = {fg = "NONE", bg = "#23272e"}
+        }
+      end
     }
     use {
       "itchyny/vim-cursorword",
@@ -108,8 +115,15 @@ return packer.startup(
     }
 
     -- 补全
-    use {"neovim/nvim-lspconfig", {"glepnir/lspsaga.nvim", config = function() require 'lspsaga'
-.init_lsp_saga() end}}
+    use {
+      "neovim/nvim-lspconfig",
+      {
+        "glepnir/lspsaga.nvim",
+        config = function()
+          require "lspsaga".init_lsp_saga()
+        end
+      }
+    }
     use {
       "nvim-lua/completion-nvim",
       event = {"BufReadPre *", "BufNewFile *"},
@@ -130,7 +144,17 @@ return packer.startup(
       config = require("plugin-config.vim-signify")
     }
 
-    use {"jiangmiao/auto-pairs", event = {"BufReadPre *", "BufNewFile *"}}
+    -- use {"jiangmiao/auto-pairs", event = {"BufReadPre *", "BufNewFile *"}}
+    use {
+      "Raimondi/delimitMate",
+      event = "InsertCharPre *",
+      config = function()
+        vim.g.delimitMate_expand_cr = 0
+        vim.g.delimitMate_expand_space = 1
+        vim.g.delimitMate_smart_quotes = 1
+        vim.g.delimitMate_expand_inside_quotes = 0
+      end
+    }
 
     use {
       "mhartington/formatter.nvim",
