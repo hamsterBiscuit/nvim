@@ -82,7 +82,6 @@ return packer.startup(
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
       requires = {
-        {"nvim-telescope/telescope-fzf-writer.nvim"},
         {"nvim-lua/popup.nvim"},
         {"nvim-lua/plenary.nvim"}
       },
