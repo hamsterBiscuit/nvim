@@ -9,12 +9,11 @@ function config:configLSP()
     "clangd",
     "pyright",
     "vimls",
-    "vuels",
+    "vuels"
   }
 
   for _, server in ipairs(servers) do
-    require("lspconfig")[server].setup {
-    }
+    require("lspconfig")[server].setup {}
   end
 
   require "lspconfig".tsserver.setup {
@@ -115,13 +114,13 @@ function config:configLSP()
     require "lspconfig"[server].setup {
       capabilities = capabilities
     }
-end
+  end
 
   vim.g.completion_enable_snippet = "vim-vsnip"
   vim.g.completion_confirm_key = "<C-y>"
   vim.g.completion_enable_auto_hover = 0
   vim.g.completion_matching_smart_case = 1
-  -- vim.g.completion_trigger_on_delete = 1
+  vim.g.completion_trigger_on_delete = 1
   vim.g.completion_auto_change_source = 1
   vim.g.completion_chain_complete_list = {
     default = {

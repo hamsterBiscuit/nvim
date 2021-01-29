@@ -141,10 +141,19 @@ return packer.startup(
       end,
       requires = {
         {"aca/completion-tabnine", event = "InsertCharPre *", run = "version=3.1.9 ./install.sh"},
-        {"hrsh7th/vim-vsnip", event = "InsertCharPre *"},
+        {
+          "hrsh7th/vim-vsnip",
+          event = "InsertCharPre *",
+          config = function()
+            vim.g.vsnip_filetypes = {}
+            vim.g.vsnip_filetypes.javascriptreact = {"javascript"}
+            vim.g.vsnip_filetypes.typescriptreact = {"typescript"}
+          end
+        },
         {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
       }
     }
+    use {"dsznajder/vscode-es7-javascript-react-snippets", "xabikos/vscode-javascript"}
 
     -- git信息展示 :SignifyDiff
     use {
