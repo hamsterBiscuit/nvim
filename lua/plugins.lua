@@ -153,7 +153,11 @@ return packer.startup(
         {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
       }
     }
-    use {"dsznajder/vscode-es7-javascript-react-snippets", "xabikos/vscode-javascript"}
+    use {
+      "dsznajder/vscode-es7-javascript-react-snippets",
+      "xabikos/vscode-javascript",
+      "hollowtree/vscode-vue-snippets"
+    }
 
     -- git信息展示 :SignifyDiff
     use {
