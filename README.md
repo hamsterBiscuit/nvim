@@ -41,8 +41,7 @@
 | `g` + `d`    | N    | Jump to definition                                        |
 | `g` + `y`    | N    | Jump type definition                                      |
 | `g` + `i`    | N    | Jump implementation                                       |
-| `g` + `r`    | N    | Show references                                           |
-| `g` + `r`    | N    | Show references                                           |
+| `g` + `r`    | N    | rename                                                    |
 | `K`          | N    | Show document                                             |
 
 ### Window
