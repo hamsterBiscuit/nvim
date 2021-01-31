@@ -105,16 +105,23 @@ return packer.startup(
     }
 
     -- 高亮 主题
-    use {
-      "glepnir/zephyr-nvim",
-      config = require("plugin-config.zephyr")
-    }
+    -- use {
+    --   "glepnir/zephyr-nvim",
+    --   config = require("plugin-config.zephyr")
+    -- }
     use {
       "nvim-treesitter/nvim-treesitter",
       requires = {
         {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"}
       },
       config = require("plugin-config.treesitter")
+    }
+    use {
+      "tjdevries/colorbuddy.vim",
+      {
+        "Th3Whit3Wolf/onebuddy",
+        config = require("plugin-config.onebuddy")
+      }
     }
 
     -- 文件管理
