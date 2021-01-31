@@ -105,10 +105,6 @@ return packer.startup(
     }
 
     -- 高亮 主题
-    -- use {
-    --   "glepnir/zephyr-nvim",
-    --   config = require("plugin-config.zephyr")
-    -- }
     use {
       "nvim-treesitter/nvim-treesitter",
       requires = {
@@ -141,28 +137,8 @@ return packer.startup(
       }
     }
     use {
-      -- "nvim-lua/completion-nvim",
-      -- event = {"BufReadPre *", "BufNewFile *"},
-      -- config = function()
-      --   vim.cmd [[autocmd BufReadPre,BufNewFile * lua require'completion'.on_attach()]]
-      -- end,
       "hrsh7th/nvim-compe",
-      config = function()
-        require "compe".setup {
-          enabled = true,
-          debug = false,
-          min_length = 1,
-          preselect = "always",
-          allow_prefix_unmatch = false,
-          source = {
-            path = true,
-            buffer = true,
-            vsnip = true,
-            nvim_lsp = true,
-            nvim_lua = true
-          }
-        }
-      end,
+      config = require("plugin-config.nvim-compe"),
       requires = {
         -- {"aca/completion-tabnine", event = "InsertCharPre *", run = "version=3.1.9 ./install.sh"},
         {
@@ -186,22 +162,25 @@ return packer.startup(
 
     -- git信息展示 :SignifyDiff
     use {
-      "mhinz/vim-signify",
+      "lewis6991/gitsigns.nvim",
       event = {"BufReadPre *", "BufNewFile *"},
-      config = require("plugin-config.vim-signify")
+      config = function()
+        require("gitsigns").setup()
+      end,
+      requires = {
+        "nvim-lua/plenary.nvim"
+      }
+    }
+    use {
+      "f-person/git-blame.nvim",
+      event = {"BufReadPre *", "BufNewFile *"},
     }
 
     -- 自动括号括回
     use {
       "Raimondi/delimitMate",
       event = {"BufReadPre *", "BufNewFile *"},
-      config = function()
-        vim.g.delimitMate_expand_cr = 0
-        vim.g.delimitMate_expand_space = 1
-        vim.g.delimitMate_smart_quotes = 1
-        vim.g.delimitMate_expand_inside_quotes = 0
-        vim.api.nvim_command([[au FileType xml,html,phtml,php,xhtml,js let b:delimitMate_matchpairs = "(:),[:],{:}"]])
-      end
+      config = require("plugin-config.delimitMate")
     }
 
     -- 目前配置了lua和js，ts的格式化
