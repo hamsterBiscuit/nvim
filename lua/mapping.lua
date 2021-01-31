@@ -28,7 +28,8 @@ vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "<C-n>" : vsnip#available
 vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "<C-p>" : "<S-Tab>"]], {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<C-j>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ?"<Plug>(vsnip-expand-or-jump)" : v:lua.check_back_space() ? "<TAB>" : completion#trigger_completion()]], {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<C-k>", [[pumvisible() ? "<C-p>" : "<C-k>"]], {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", [[pumvisible() ? complete_info()["selected"] != "-1" ?"<Plug>(completion_confirm_completion)"  : "<c-e><CR>":(delimitMate#WithinEmptyPair() ? "<Plug>delimitMateCR" : "<CR>")]], { expr = true})
+-- vim.api.nvim_set_keymap("i", "<CR>", [[pumvisible() ? complete_info()["selected"] != "-1" ?"<Plug>(completion_confirm_completion)"  : "<c-e><CR>":(delimitMate#WithinEmptyPair() ? "<Plug>delimitMateCR" : "<CR>")]], { expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm({ 'keys': "<Plug>delimitMateCR", 'mode': '' })]], { noremap = true, expr = true})
 
 -- vsnip Expand or jump
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})

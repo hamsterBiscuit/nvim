@@ -134,13 +134,30 @@ return packer.startup(
       }
     }
     use {
-      "nvim-lua/completion-nvim",
-      event = {"BufReadPre *", "BufNewFile *"},
+      -- "nvim-lua/completion-nvim",
+      -- event = {"BufReadPre *", "BufNewFile *"},
+      -- config = function()
+      --   vim.cmd [[autocmd BufReadPre,BufNewFile * lua require'completion'.on_attach()]]
+      -- end,
+      "hrsh7th/nvim-compe",
       config = function()
-        vim.cmd [[autocmd BufReadPre,BufNewFile * lua require'completion'.on_attach()]]
+        require "compe".setup {
+          enabled = true,
+          debug = false,
+          min_length = 1,
+          preselect = "always",
+          allow_prefix_unmatch = false,
+          source = {
+            path = true,
+            buffer = true,
+            vsnip = true,
+            nvim_lsp = true,
+            nvim_lua = true
+          }
+        }
       end,
       requires = {
-        {"aca/completion-tabnine", event = "InsertCharPre *", run = "version=3.1.9 ./install.sh"},
+        -- {"aca/completion-tabnine", event = "InsertCharPre *", run = "version=3.1.9 ./install.sh"},
         {
           "hrsh7th/vim-vsnip",
           event = "InsertCharPre *",
