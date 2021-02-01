@@ -13,9 +13,10 @@ packer.init(
     }
   }
 )
+packer.reset()
 
-return packer.startup(
-  function()
+-- return packer.startup(
+  -- function()
     -- plugins manger
     use "wbthomason/packer.nvim"
     -- 标签页 状态栏
@@ -231,5 +232,5 @@ return packer.startup(
         vim.g.vue_pre_processors = "detect_on_enter"
       end
     }
-  end
-)
+--   end
+-- )
