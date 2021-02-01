@@ -38,7 +38,15 @@ return packer.startup(
     -- j k 增强插件
     use {"rhysd/accelerated-jk"}
     -- gc gcc 注释插件
-    use {"tomtom/tcomment_vim"}
+    use {
+      "tyru/caw.vim",
+      requires = {
+        "Shougo/context_filetype.vim",
+        config = function()
+          vim.g["context_filetype#search_offset"] = 2000
+        end
+      }
+    }
     -- f t 增强
     use {"hrsh7th/vim-eft"}
     -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
@@ -173,7 +181,7 @@ return packer.startup(
     }
     use {
       "f-person/git-blame.nvim",
-      event = {"BufReadPre *", "BufNewFile *"},
+      event = {"BufReadPre *", "BufNewFile *"}
     }
 
     -- 自动括号括回
@@ -216,6 +224,12 @@ return packer.startup(
       "alvan/vim-closetag",
       config = require("plugin-config.closetag")
     }
-    use {"posva/vim-vue", ft = "vue"}
+    use {
+      "posva/vim-vue",
+      ft = "vue",
+      config = function()
+        vim.g.vue_pre_processors = "detect_on_enter"
+      end
+    }
   end
 )
