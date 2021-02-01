@@ -1,4 +1,3 @@
-return function()
   require("colorbuddy").colorscheme("onebuddy")
   local Color, c, Group, g, s = require("colorbuddy").setup()
   local no = s.NONE
@@ -13,4 +12,3 @@ return function()
   Group.new('DiffNewFile', c.hue_4, c.syntax_bg, no)
   Group.new('DiffLine',    c.hue_2, c.syntax_bg, no)
   Group.new('DiffRemoved', c.hue_5, c.syntax_bg, no)
-end

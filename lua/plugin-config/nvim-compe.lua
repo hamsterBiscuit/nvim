@@ -1,4 +1,3 @@
-return function()
   require "compe".setup {
     enabled = true,
     debug = false,
@@ -13,4 +12,3 @@ return function()
       nvim_lua = true
     }
   }
-end

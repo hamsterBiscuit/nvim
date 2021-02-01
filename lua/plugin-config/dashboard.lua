@@ -1,4 +1,3 @@
-return function()
 vim.g.dashboard_custom_header={
     '',
     '',
@@ -35,4 +34,3 @@ vim.g.dashboard_custom_header={
       command = "DashboardNewFile"
     }
   }
-end

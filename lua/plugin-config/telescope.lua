@@ -1,4 +1,3 @@
-return function()
   require("telescope").setup {
     defaults = {
       prompt_position = "top",
@@ -12,4 +11,3 @@ return function()
       }
     },
   }
-end

@@ -32,8 +32,9 @@ local load_core = function()
   leader_map()
 
   options:load_options()
-  require("plugins")
-  require("plugin-config")
+  -- require("plugins")
+  -- require("plugin-config")
+  require("dein"):load_repos()
   require("mapping")
 end
 

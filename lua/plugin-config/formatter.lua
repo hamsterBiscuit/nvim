@@ -1,4 +1,3 @@
-return function()
   function Prettier()
     return {
       exe = "prettier",
@@ -39,4 +38,3 @@ return function()
       }
     }
   )
-end
