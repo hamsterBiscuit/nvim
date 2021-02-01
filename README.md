@@ -5,12 +5,14 @@
 > ThinkVim 的私人定制版本。非常感谢 ThinkVim 作者开源的 vim 配置
 现在配置全部基于 lua 重写，需要 neovim 5.0
 
+PS: 目前 ThinkVim已经不维护，大神目前在用的配置是这个[配置](https://github.com/glepnir/nvim)
+
 ## 特性
 
 - [packer](https//github.com/wbthomason/packer.nvim) 管理插件
-- [completion-nvim](https://github.com/nvim-lua/completion-nvim) 提供补全
+- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe) 提供补全
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) 提供LSP
-- [vim-signify](https://github.com/mhinz/vim-signify) 提供git 状态
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 提供git 状态
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) 提供标签页
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) 提供文件树
 - [galaxyline](https://github.com/glepnir/galaxyline.nvim) 提供状态栏
@@ -18,8 +20,11 @@
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 	[zephyr-nvim](https://github.com/glepnir/zephyr-nvim) 提供代码高亮和主题
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) 提供模糊搜索
-- [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
-	提供颜色荧光笔
+- [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 提供颜色荧光笔
+- [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) 注释插件
+- [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim) 任务系统
+
+- [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
 
 ## Key
 
@@ -68,8 +73,8 @@
 
 | KeyMap         | Mode | Description                        |
 | -------------- | ---- | ---------------------------------- |
-| `Leader` + `e` | N    | Open defx file tree                |
-| `Leader` + `F` | N    | Open defx file with current buffer |
+| `Leader` + `e` | N    | Open file tree                |
+| `Leader` + `F` | N    | Open file with current buffer |
 
 ### Vista
 

@@ -1,12 +1,3 @@
-function _G.check_back_space()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
-
 -- Write buffer (save)
 vim.api.nvim_set_keymap("i", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
@@ -24,12 +15,10 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
--- vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ?"\<Plug>(vsnip-expand-or-jump)" : v:lua.check_back_space() ? "<TAB>" : completion#trigger_completion()]], {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<Tab>"]], {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "<C-p>" : "<S-Tab>"]], {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<C-j>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<Tab>"]], {expr = true})
 vim.api.nvim_set_keymap("i", "<C-k>", [[pumvisible() ? "<C-p>" : "<C-k>"]], {noremap = true, expr = true})
--- vim.api.nvim_set_keymap("i", "<CR>", [[pumvisible() ? complete_info()["selected"] != "-1" ?"<Plug>(completion_confirm_completion)"  : "<c-e><CR>":(delimitMate#WithinEmptyPair() ? "<Plug>delimitMateCR" : "<CR>")]], { expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm({ 'keys': "<Plug>delimitMateCR", 'mode': '' })]], { noremap = true, expr = true})
 
 -- vsnip Expand or jump
@@ -61,8 +50,8 @@ vim.api.nvim_set_keymap("", "sd", "<Plug>(operator-surround-delete)", {silent = 
 vim.api.nvim_set_keymap("", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
 -- LSP
-vim.api.nvim_set_keymap("n", "[e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "]e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "[e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_prev()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "]e", "<cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_next()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "K", "<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua require'lspsaga.provider'.preview_definition()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<CR>", {silent = true, noremap = true})
@@ -74,9 +63,9 @@ vim.api.nvim_set_keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finde
 vim.api.nvim_set_keymap("n", "ga", "<cmd>lua require('lspsaga.codeaction').code_action()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("v", "ga", "<cmd>lua require('lspsaga.codeaction').range_code_action()<CR>", {silent = true, noremap = true})
 
--- mhinz/vim-signify
-vim.api.nvim_set_keymap("n", "[g", "<plug>(signify-next-hunk)", {})
-vim.api.nvim_set_keymap("n", "]g", "<plug>(signify-prev-hunk)", {})
+-- gitsigns.nvim
+vim.api.nvim_set_keymap("n", "[g", "<cmd>lua require\"gitsigns\".prev_hunk()<CR>", {})
+vim.api.nvim_set_keymap("n", "]g", "<cmd>lua require\"gitsigns\".next_hunk()<CR>", {})
 
 -- vim-eft
 vim.api.nvim_set_keymap("n", ";", "<plug>(eft-repeat)", {})
@@ -93,3 +82,10 @@ vim.api.nvim_set_keymap("o", "t", "<plug>(eft-t)", {})
 vim.api.nvim_set_keymap("n", "T", "<plug>(eft-T)", {})
 vim.api.nvim_set_keymap("x", "T", "<plug>(eft-T)", {})
 vim.api.nvim_set_keymap("o", "T", "<plug>(eft-T)", {})
+
+-- asynctasks
+vim.api.nvim_set_keymap("n", "F5", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "F9", ":<C-u>AsyncTask file-build<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "F6", ":<C-u>AsyncTask project-run<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "F7", ":<C-u>AsyncTask project-build<CR>", {silent = true, noremap = true})
+
