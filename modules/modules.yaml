@@ -57,8 +57,8 @@
 - repo: kana/vim-operator-user
 
 - repo: rhysd/vim-operator-surround
-  depends: vim-operator-user
-  on_map: { n: <Plug> }
+  on_source: vim-operator-user
+  on_map: { vnx: <Plug> }
 
 # 任务 异步run term 插件
 - repo: skywind3000/asyncrun.vim
@@ -67,6 +67,7 @@
     let g:asyncrun_mode = "term"
 
 - repo: skywind3000/asynctasks.vim
+  on_cmd: [AsyncTask, AsyncTaskMacro, AsyncTaskList, AsyncTaskEdit]
 
 - repo: skywind3000/vim-terminal-help
 
@@ -130,10 +131,11 @@
 # 补全
 - repo: neovim/nvim-lspconfig
   on_event: BufRead
-  on_source: lspsaga.nvim
   hook_source: lua require("plugin-config.lsp")
 
 - repo: glepnir/lspsaga.nvim
+  on_cmd: Lspsaga
+  on_source: nvim-lspconfig
   hook_source: lua require("lspsaga").init_lsp_saga()
 
 - repo: hrsh7th/nvim-compe
@@ -181,7 +183,7 @@
 # Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
 - repo: liuchengxu/vista.vim
   on_cmd: [Vista, Vista!, Vista!!]
-  hook_source: require("plugin-config.vista")
+  hook_source: lua require("plugin-config.vista")
 
 # lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
 # Prettier,这个是全局的
