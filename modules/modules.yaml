@@ -2,7 +2,7 @@
 # 标签页 状态栏
 - repo: kyazdani42/nvim-web-devicons
 
-# tab 栏插件 提供 leader + number 切换buffer
+#: tab 栏插件 提供 leader + number 切换buffer
 - repo: akinsho/nvim-bufferline.lua
   depends: nvim-web-devicons
   hook_source: |
@@ -100,14 +100,14 @@
 
 # 高亮 主题
 - repo: nvim-treesitter/nvim-treesitter
+  on_event: BufRead
   hook_source: lua require("plugin-config.treesitter")
 
 - repo: nvim-treesitter/nvim-treesitter-textobjects
+  on_source: nvim-treesitter
 
-- repo: tjdevries/colorbuddy.vim
-
-- repo: Th3Whit3Wolf/onebuddy
-  hook_source: lua require("plugin-config.onebuddy")
+- repo: glepnir/zephyr-nvim
+  hook_source: lua require("zephyr")
 
 # 文件管理
 - repo: kyazdani42/nvim-tree.lua
