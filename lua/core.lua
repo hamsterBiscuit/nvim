@@ -31,6 +31,7 @@ local load_core = function()
   disable_distribution_plugins()
   leader_map()
 
+  require("zephyr")
   options:load_options()
   -- require("plugins")
   -- require("plugin-config")
