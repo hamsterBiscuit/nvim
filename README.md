@@ -21,7 +21,7 @@ PS: 目前 ThinkVim已经不维护，大神目前在用的配置是这个[配置
 	[zephyr-nvim](https://github.com/glepnir/zephyr-nvim) 提供代码高亮和主题
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) 提供模糊搜索
 - [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 提供颜色荧光笔
-- [tomtom/tcomment_vim](https://github.com/tomtom/tcomment_vim) 注释插件
+- [tyru/caw.vim](https://github.com/tyru/caw.vim) 注释插件
 - [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim) 任务系统
 
 - [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
