@@ -89,3 +89,12 @@ PS: 目前 ThinkVim已经不维护，大神目前在用的配置是这个[配置
 | `sa`   | V    | operator-surround-append  |
 | `sd`   | V    | operator-surround-delete  |
 | `sr`   | V    | operator-surround-replace |
+
+### AsyncTask
+
+| KeyMap | Mode | Description               |
+| ------ | ---- | ------------------------- |
+| `F5`   | N    | AsyncTask file-run  |
+| `F6`   | N    | AsyncTask project-run  |
+| `F7`   | N    | AsyncTask project-build |
+| `F9`   | N    | AsyncTask file-build |
