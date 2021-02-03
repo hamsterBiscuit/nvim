@@ -84,8 +84,8 @@ vim.api.nvim_set_keymap("x", "T", "<plug>(eft-T)", {})
 vim.api.nvim_set_keymap("o", "T", "<plug>(eft-T)", {})
 
 -- asynctasks
-vim.api.nvim_set_keymap("n", "F5", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "F9", ":<C-u>AsyncTask file-build<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "F6", ":<C-u>AsyncTask project-run<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "F7", ":<C-u>AsyncTask project-build<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<F5>", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<F9>", ":<C-u>AsyncTask file-build<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<F6>", ":<C-u>AsyncTask project-run<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<F7>", ":<C-u>AsyncTask project-build<CR>", {silent = true, noremap = true})
 

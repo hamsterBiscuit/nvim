@@ -66,7 +66,10 @@
     let g:asyncrun_open = 6
     let g:asyncrun_mode = "term"
 
+- repo: skywind3000/asyncrun.extra
+
 - repo: skywind3000/asynctasks.vim
+  hook_source: let g:asynctasks_term_pos = 'termhelp'
   on_cmd: [AsyncTask, AsyncTaskMacro, AsyncTaskList, AsyncTaskEdit]
 
 - repo: skywind3000/vim-terminal-help
