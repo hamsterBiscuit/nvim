@@ -10,8 +10,8 @@
       calc = true;
       vsnip = true;
       nvim_lsp = true;
-      nvim_lua = true;
       spell = true;
       tags = true;
+      nvim_lua = true;
     }
   }
