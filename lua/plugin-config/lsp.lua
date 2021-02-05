@@ -16,6 +16,16 @@ function config:configLSP()
     require("lspconfig")[server].setup {}
   end
 
+  require("lspconfig").vuels.setup {
+    init_options = {
+      config = {
+        vetur = {
+          ignoreProjectWarning = true
+        }
+      }
+    }
+  }
+
   require "lspconfig".tsserver.setup {
     root_dir = function(fname)
       return util.root_pattern("tsconfig.json")(fname) or
