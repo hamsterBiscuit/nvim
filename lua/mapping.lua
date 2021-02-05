@@ -50,8 +50,8 @@ vim.api.nvim_set_keymap("", "sd", "<Plug>(operator-surround-delete)", {silent = 
 vim.api.nvim_set_keymap("", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
 -- LSP
-vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_prev<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_next<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation<CR>", {silent = true, noremap = true})
