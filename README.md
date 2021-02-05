@@ -3,22 +3,22 @@
 > 此配置来自于
 > [ThinkVim](https://github.com/hardcoreplayers/ThinkVim)，可以认为本配置是
 > ThinkVim 的私人定制版本。非常感谢 ThinkVim 作者开源的 vim 配置
-现在配置全部基于 lua 重写，需要 neovim 5.0
+> 现在配置全部基于 lua 重写，需要 neovim 5.0
 
-PS: 目前 ThinkVim已经不维护，大神目前在用的配置是这个[配置](https://github.com/glepnir/nvim)
+PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配置](https://github.com/glepnir/nvim)
 
 ## 特性
 
 - [Shougo/dein.vim](https//github.com/Shougo/dein.vim) 管理插件
 - [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe) 提供补全
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) 提供LSP
-- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 提供git 状态
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) 提供 LSP
+- [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 提供 git 状态
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) 提供标签页
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) 提供文件树
 - [galaxyline](https://github.com/glepnir/galaxyline.nvim) 提供状态栏
 - [dashboard](https://github.com/glepnir/dashboard-nvim) 提供首屏画面
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-	[zephyr-nvim](https://github.com/glepnir/zephyr-nvim) 提供代码高亮和主题
+  [zephyr-nvim](https://github.com/glepnir/zephyr-nvim) 提供代码高亮和主题
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) 提供模糊搜索
 - [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 提供颜色荧光笔
 - [tyru/caw.vim](https://github.com/tyru/caw.vim) 注释插件
@@ -71,8 +71,8 @@ PS: 目前 ThinkVim已经不维护，大神目前在用的配置是这个[配置
 
 ### File
 
-| KeyMap         | Mode | Description                        |
-| -------------- | ---- | ---------------------------------- |
+| KeyMap         | Mode | Description                   |
+| -------------- | ---- | ----------------------------- |
 | `Leader` + `e` | N    | Open file tree                |
 | `Leader` + `F` | N    | Open file with current buffer |
 
@@ -92,9 +92,9 @@ PS: 目前 ThinkVim已经不维护，大神目前在用的配置是这个[配置
 
 ### AsyncTask
 
-| KeyMap | Mode | Description               |
-| ------ | ---- | ------------------------- |
-| `F5`   | N    | AsyncTask file-run  |
-| `F6`   | N    | AsyncTask project-run  |
+| KeyMap | Mode | Description             |
+| ------ | ---- | ----------------------- |
+| `F5`   | N    | AsyncTask file-run      |
+| `F6`   | N    | AsyncTask project-run   |
 | `F7`   | N    | AsyncTask project-build |
-| `F9`   | N    | AsyncTask file-build |
+| `F9`   | N    | AsyncTask file-build    |
