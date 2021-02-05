@@ -207,10 +207,6 @@
   on_event: InsertEnter
   hook_source: lua require("plugin-config.emmet")
 
-# HTML tag 自动补全
-- repo: alvan/vim-closetag
-  hook_source: lua require("plugin-config.closetag")
-
 - repo: posva/vim-vue
   on_ft: vue
   hook_source: let g:vue_pre_processors = "detect_on_enter"
