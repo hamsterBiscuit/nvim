@@ -44,10 +44,13 @@
     autocmd FileType * call InitCaw()
     call InitCaw()
 
+# 快速跳转
+- repo: justinmk/vim-sneak
+  # on_map: { n: <Plug> }
 # f t 增强
-- repo: hrsh7th/vim-eft
-  on_map: { nox: <Plug> }
-  hook_source: let g:eft_ignorecase = v:true
+# - repo: hrsh7th/vim-eft
+#   on_map: { nox: <Plug> }
+#   hook_source: let g:eft_ignorecase = v:true
 
 #  平滑滚动插件 半屏或者整屏翻页变为滚动效果
 - repo: psliwka/vim-smoothie

@@ -45,9 +45,9 @@ vim.api.nvim_set_keymap("n", "<Leader>F", ":<C-u>NvimTreeFindFile<CR>", {silent 
 vim.api.nvim_set_keymap("n", "<Leader>v", ":<C-u>Vista!!<CR>", {silent = true, noremap = true})
 
 -- operator mappings
-vim.api.nvim_set_keymap("", "sa", "<Plug>(operator-surround-append)", {silent = true})
-vim.api.nvim_set_keymap("", "sd", "<Plug>(operator-surround-delete)", {silent = true})
-vim.api.nvim_set_keymap("", "sr", "<Plug>(operator-surround-replace)", {silent = true})
+vim.api.nvim_set_keymap("v", "sa", "<Plug>(operator-surround-append)", {silent = true})
+vim.api.nvim_set_keymap("v", "sd", "<Plug>(operator-surround-delete)", {silent = true})
+vim.api.nvim_set_keymap("v", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
 -- LSP
 vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true, noremap = true})
@@ -68,20 +68,20 @@ vim.api.nvim_set_keymap("n", "[g", "<cmd>lua require\"gitsigns\".prev_hunk()<CR>
 vim.api.nvim_set_keymap("n", "]g", "<cmd>lua require\"gitsigns\".next_hunk()<CR>", {})
 
 -- vim-eft
-vim.api.nvim_set_keymap("n", ";", "<plug>(eft-repeat)", {})
-vim.api.nvim_set_keymap("x", ";", "<plug>(eft-repeat)", {})
-vim.api.nvim_set_keymap("n", "f", "<plug>(eft-f)", {})
-vim.api.nvim_set_keymap("x", "f", "<plug>(eft-f)", {})
-vim.api.nvim_set_keymap("o", "f", "<plug>(eft-f)", {})
-vim.api.nvim_set_keymap("n", "F", "<plug>(eft-F)", {})
-vim.api.nvim_set_keymap("x", "F", "<plug>(eft-F)", {})
-vim.api.nvim_set_keymap("o", "F", "<plug>(eft-F)", {})
-vim.api.nvim_set_keymap("n", "t", "<plug>(eft-t)", {})
-vim.api.nvim_set_keymap("x", "t", "<plug>(eft-t)", {})
-vim.api.nvim_set_keymap("o", "t", "<plug>(eft-t)", {})
-vim.api.nvim_set_keymap("n", "T", "<plug>(eft-T)", {})
-vim.api.nvim_set_keymap("x", "T", "<plug>(eft-T)", {})
-vim.api.nvim_set_keymap("o", "T", "<plug>(eft-T)", {})
+-- vim.api.nvim_set_keymap("n", ";", "<plug>(eft-repeat)", {})
+-- vim.api.nvim_set_keymap("x", ";", "<plug>(eft-repeat)", {})
+-- vim.api.nvim_set_keymap("n", "f", "<plug>(eft-f)", {})
+-- vim.api.nvim_set_keymap("x", "f", "<plug>(eft-f)", {})
+-- vim.api.nvim_set_keymap("o", "f", "<plug>(eft-f)", {})
+-- vim.api.nvim_set_keymap("n", "F", "<plug>(eft-F)", {})
+-- vim.api.nvim_set_keymap("x", "F", "<plug>(eft-F)", {})
+-- vim.api.nvim_set_keymap("o", "F", "<plug>(eft-F)", {})
+-- vim.api.nvim_set_keymap("n", "t", "<plug>(eft-t)", {})
+-- vim.api.nvim_set_keymap("x", "t", "<plug>(eft-t)", {})
+-- vim.api.nvim_set_keymap("o", "t", "<plug>(eft-t)", {})
+-- vim.api.nvim_set_keymap("n", "T", "<plug>(eft-T)", {})
+-- vim.api.nvim_set_keymap("x", "T", "<plug>(eft-T)", {})
+-- vim.api.nvim_set_keymap("o", "T", "<plug>(eft-T)", {})
 
 -- asynctasks
 vim.api.nvim_set_keymap("n", "<F5>", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})

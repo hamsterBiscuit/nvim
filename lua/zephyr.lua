@@ -231,7 +231,9 @@ function zephyr.load_syntax()
     NvimTreeRootFolder = {fg = zephyr.red},
     NvimTreeSpecialFile = {fg = zephyr.fg, bg = zephyr.none, stryle = "NONE"},
     TelescopeBorder = {fg = zephyr.teal},
-    TelescopePromptBorder = {fg = zephyr.blue}
+    TelescopePromptBorder = {fg = zephyr.blue},
+    Sneak = {fg = zephyr.bg, bg = zephyr.green},
+    SneakScope = {fg = zephyr.bg, bg = zephyr.green},
   }
   return syntax
 end

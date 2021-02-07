@@ -75,8 +75,8 @@ function options:load_options()
     listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
     pumblend = 10,
     winblend = 10,
-    spell = true,
-    spelllang = "en_us,cjk"
+    -- spell = true,
+    -- spelllang = "en_us,cjk"
   }
 
   self.bw_local = {
