@@ -26,8 +26,8 @@ vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expan
 vim.api.nvim_set_keymap("s", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
 
 -- accelerated-jk
-vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
-vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
+-- vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
+-- vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
 
 -- fuzzyfind 模糊搜索 快捷键
 vim.api.nvim_set_keymap("n", "<Leader>bb", ":<C-u>Telescope buffers<CR>", {silent = true, noremap = true})
@@ -45,9 +45,9 @@ vim.api.nvim_set_keymap("n", "<Leader>F", ":<C-u>NvimTreeFindFile<CR>", {silent 
 vim.api.nvim_set_keymap("n", "<Leader>v", ":<C-u>Vista!!<CR>", {silent = true, noremap = true})
 
 -- operator mappings
-vim.api.nvim_set_keymap("v", "sa", "<Plug>(operator-surround-append)", {silent = true})
-vim.api.nvim_set_keymap("v", "sd", "<Plug>(operator-surround-delete)", {silent = true})
-vim.api.nvim_set_keymap("v", "sr", "<Plug>(operator-surround-replace)", {silent = true})
+-- vim.api.nvim_set_keymap("v", "sa", "<Plug>(operator-surround-append)", {silent = true})
+-- vim.api.nvim_set_keymap("v", "sd", "<Plug>(operator-surround-delete)", {silent = true})
+-- vim.api.nvim_set_keymap("v", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
 -- LSP
 vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true, noremap = true})

@@ -35,8 +35,14 @@ local load_core = function()
   options:load_options()
   -- require("plugins")
   -- require("plugin-config")
-  require("dein"):load_repos()
+  -- require("dein"):load_repos()
   require("mapping")
+
+  vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
+  vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
+  vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
+  vim.cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
+  vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
 end
 
 load_core()
