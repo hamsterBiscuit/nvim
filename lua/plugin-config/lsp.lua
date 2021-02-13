@@ -9,14 +9,22 @@ function config:configLSP()
     "clangd",
     "pyright",
     "vimls",
-    "vuels"
+    "vuels",
+    "html",
+    "cssls"
   }
 
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+
   for _, server in ipairs(servers) do
-    require("lspconfig")[server].setup {}
+    require("lspconfig")[server].setup {
+      capabilities = capabilities
+    }
   end
 
   require("lspconfig").vuels.setup {
+    capabilities = capabilities,
     init_options = {
       config = {
         vetur = {
@@ -27,6 +35,7 @@ function config:configLSP()
   }
 
   require "lspconfig".tsserver.setup {
+    capabilities = capabilities,
     root_dir = function(fname)
       return util.root_pattern("tsconfig.json")(fname) or
         util.root_pattern("package.json", "jsconfig.json", ".git")(fname) or
@@ -34,6 +43,7 @@ function config:configLSP()
     end
   }
   require "lspconfig".gopls.setup {
+    capabilities = capabilities,
     cmd = {"gopls"},
     filetypes = {"go", "gomod"},
     root_dir = function(fname)
@@ -51,6 +61,7 @@ function config:configLSP()
   local sumneko_root_path = os.getenv("HOME") .. "/develop/lua-language-server"
 
   require("lspconfig").sumneko_lua.setup {
+    -- capabilities = capabilities,
     cmd = {sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua"},
     settings = {
       Lua = {
@@ -117,14 +128,6 @@ function config:configLSP()
       }
     }
   }
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-  for _, server in pairs({"html", "cssls"}) do
-    require "lspconfig"[server].setup {
-      capabilities = capabilities
-    }
-  end
 
   -- vim.g.completion_enable_snippet = "vim-vsnip"
   -- vim.g.completion_confirm_key = "<C-y>"

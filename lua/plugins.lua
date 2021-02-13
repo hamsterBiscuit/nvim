@@ -186,16 +186,15 @@ local function init()
   }
   use {
     "hrsh7th/nvim-compe",
-    event = "InsertEnter *",
     config = [[require("plugin-config.nvim-compe")]],
     requires = {
       {
         "hrsh7th/vim-vsnip",
         event = "InsertCharPre *",
         requires = {
-          "dsznajder/vscode-es7-javascript-react-snippets",
-          "xabikos/vscode-javascript",
-          "hollowtree/vscode-vue-snippets"
+          {"dsznajder/vscode-es7-javascript-react-snippets"},
+          {"xabikos/vscode-javascript"},
+          {"hollowtree/vscode-vue-snippets"}
         },
         config = function()
           vim.g.vsnip_filetypes = {}
@@ -258,7 +257,7 @@ local function init()
   -- emmei插件 使用 ,, 触发补全，
   use {
     "mattn/emmet-vim",
-    event = "InsertEnter",
+    event = "InsertEnter *",
     config = [[require("plugin-config.emmet")]]
   }
   use {
