@@ -1,6 +1,6 @@
 local packer = nil
 local function init()
-  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
   end
@@ -186,6 +186,7 @@ local function init()
   }
   use {
     "hrsh7th/nvim-compe",
+    -- event = {"BufReadPre *", "BufNewFile *"},
     config = [[require("plugin-config.nvim-compe")]],
     requires = {
       {
