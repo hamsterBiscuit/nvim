@@ -150,7 +150,7 @@ local function init()
     cmd = "Telescope",
     requires = {
       {"nvim-lua/popup.nvim"},
-      {"nvim-lua/plenary.nvim"}
+      {"nvim-lua/plenary.nvim", opt = true}
     },
     config = [[require("plugin-config.telescope")]]
   }
@@ -213,10 +213,12 @@ local function init()
     "lewis6991/gitsigns.nvim",
     event = {"BufReadPre *", "BufNewFile *"},
     config = function()
+      vim.cmd [[packadd plenary.nvim]]
       require("gitsigns").setup()
     end,
     requires = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
+      opt = true
     }
   }
   use {
