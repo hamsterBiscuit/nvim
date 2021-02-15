@@ -186,7 +186,7 @@ local function init()
   }
   use {
     "hrsh7th/nvim-compe",
-    -- event = {"BufReadPre *", "BufNewFile *"},
+    event = "InsertEnter *",
     config = [[require("plugin-config.nvim-compe")]],
     requires = {
       {
@@ -256,11 +256,13 @@ local function init()
   -- 同步预览MD文件 :MarkdownPreview
   -- use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
   -- emmei插件 使用 ,, 触发补全，
-  use {
-    "mattn/emmet-vim",
-    event = "InsertEnter *",
-    config = [[require("plugin-config.emmet")]]
-  }
+  -- use {
+  --   "mattn/emmet-vim",
+  --   -- event = "InsertEnter *",
+  --   -- event = {"BufReadPre *", "BufNewFile *"},
+  --   -- ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
+  --   config = [[require("plugin-config.emmet")]]
+  -- }
   use {
     "posva/vim-vue",
     ft = "vue",

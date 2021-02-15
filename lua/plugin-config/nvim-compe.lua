@@ -12,7 +12,7 @@ require("compe").setup {
     nvim_lsp = true,
     spell = true,
     tags = true,
-    nvim_lua = true
-    -- omni = true,
+    nvim_lua = true,
+    omni = true,
   }
 }

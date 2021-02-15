@@ -1,3 +1,39 @@
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+    return t "<Plug>(vsnip-expand-or-jump)"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+    return t "<Plug>(vsnip-jump-prev)"
+  else
+    return t "<S-Tab>"
+  end
+end
 -- Write buffer (save)
 vim.api.nvim_set_keymap("i", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
@@ -15,10 +51,8 @@ vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap("i", "<Tab>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<Tab>"]], {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", [[pumvisible() ? "<C-p>" : "<S-Tab>"]], {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<C-j>", [[pumvisible() ? "<C-n>" : vsnip#available(1) ? "<Plug>(vsnip-expand-or-jump)" : "<Tab>"]], {expr = true})
-vim.api.nvim_set_keymap("i", "<C-k>", [[pumvisible() ? "<C-p>" : "<C-k>"]], {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
 vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm({ 'keys': "<Plug>delimitMateCR", 'mode': '' })]], { noremap = true, expr = true})
 
 -- vsnip Expand or jump
