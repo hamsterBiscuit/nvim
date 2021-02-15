@@ -256,13 +256,16 @@ local function init()
   -- 同步预览MD文件 :MarkdownPreview
   -- use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
   -- emmei插件 使用 ,, 触发补全，
-  -- use {
-  --   "mattn/emmet-vim",
-  --   -- event = "InsertEnter *",
-  --   -- event = {"BufReadPre *", "BufNewFile *"},
-  --   -- ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
-  --   config = [[require("plugin-config.emmet")]]
-  -- }
+  use {
+    "mattn/emmet-vim",
+    ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
+    setup = [[require("plugin-config.emmet")]],
+    config = function()
+      vim.api.nvim_command(
+        [[autocmd FileType html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
+      )
+    end
+  }
   use {
     "posva/vim-vue",
     ft = "vue",
