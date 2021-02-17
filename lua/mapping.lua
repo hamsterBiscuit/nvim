@@ -62,9 +62,10 @@ vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm({ 'keys': "<Plug>delimitMat
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
 vim.api.nvim_set_keymap("s", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
 
--- accelerated-jk
--- vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
--- vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
+    -- Plugin Floaterm
+vim.api.nvim_set_keymap("n", "<A-d>", ":Lspsaga open_floaterm<CR>", {noremap = true})
+vim.api.nvim_set_keymap("t", "<A-d>", [[<C-\><C-n>:Lspsaga close_floaterm<CR>]], {noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>g", ":Lspsaga open_floaterm lazygit<CR>", {noremap = true})
 
 -- fuzzyfind 模糊搜索 快捷键
 vim.api.nvim_set_keymap("n", "<Leader>bb", ":<C-u>Telescope buffers<CR>", {silent = true, noremap = true})
@@ -103,22 +104,6 @@ vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent
 -- gitsigns.nvim
 vim.api.nvim_set_keymap("n", "[g", "<cmd>lua require\"gitsigns\".prev_hunk()<CR>", {})
 vim.api.nvim_set_keymap("n", "]g", "<cmd>lua require\"gitsigns\".next_hunk()<CR>", {})
-
--- vim-eft
--- vim.api.nvim_set_keymap("n", ";", "<plug>(eft-repeat)", {})
--- vim.api.nvim_set_keymap("x", ";", "<plug>(eft-repeat)", {})
--- vim.api.nvim_set_keymap("n", "f", "<plug>(eft-f)", {})
--- vim.api.nvim_set_keymap("x", "f", "<plug>(eft-f)", {})
--- vim.api.nvim_set_keymap("o", "f", "<plug>(eft-f)", {})
--- vim.api.nvim_set_keymap("n", "F", "<plug>(eft-F)", {})
--- vim.api.nvim_set_keymap("x", "F", "<plug>(eft-F)", {})
--- vim.api.nvim_set_keymap("o", "F", "<plug>(eft-F)", {})
--- vim.api.nvim_set_keymap("n", "t", "<plug>(eft-t)", {})
--- vim.api.nvim_set_keymap("x", "t", "<plug>(eft-t)", {})
--- vim.api.nvim_set_keymap("o", "t", "<plug>(eft-t)", {})
--- vim.api.nvim_set_keymap("n", "T", "<plug>(eft-T)", {})
--- vim.api.nvim_set_keymap("x", "T", "<plug>(eft-T)", {})
--- vim.api.nvim_set_keymap("o", "T", "<plug>(eft-T)", {})
 
 -- asynctasks
 vim.api.nvim_set_keymap("n", "<F5>", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})
