@@ -107,6 +107,7 @@ local function init()
       }
     }
   }
+  use {"mhinz/vim-sayonara", cmd = "Sayonara"}
   -- 缩进线插件
   use {
     "glepnir/indent-guides.nvim",
