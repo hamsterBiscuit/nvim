@@ -49,7 +49,6 @@ function options:load_options()
     switchbuf = "useopen",
     backspace = "indent,eol,start",
     diffopt = "filler,iwhite,internal,algorithm:patience",
-    -- completeopt = "menu,menuone,noselect,noinsert",
     completeopt = "menu,menuone,noselect",
     jumpoptions = "stack",
     showmode = false,
@@ -76,7 +75,7 @@ function options:load_options()
     pumblend = 10,
     winblend = 10,
     -- spell = true,
-    -- spelllang = "en_us,cjk"
+    spelllang = "en_us,cjk"
   }
 
   self.bw_local = {
@@ -91,7 +90,6 @@ function options:load_options()
     breakindentopt = "shift:2,min:20",
     wrap = false,
     linebreak = true,
-    relativenumber = true,
     number = true,
     colorcolumn = "80",
     foldenable = true,
