@@ -14,5 +14,6 @@ require("compe").setup {
     tags = true,
     nvim_lua = true,
     omni = true,
+    tabnine = true,
   }
 }

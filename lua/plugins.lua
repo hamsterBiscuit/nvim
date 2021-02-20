@@ -206,7 +206,8 @@ local function init()
           vim.g.vsnip_filetypes.typescriptreact = {"typescript"}
         end
       },
-      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
+      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"},
+      {"tzachar/compe-tabnine", event = "InsertCharPre *", run = "./install.sh"}
     }
   }
 

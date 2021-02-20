@@ -3,12 +3,12 @@ local t = function(str)
 end
 
 local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
+  local col = vim.fn.col(".") - 1
+  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+    return true
+  else
+    return false
+  end
 end
 
 -- Use (s-)tab to:
@@ -22,7 +22,7 @@ _G.tab_complete = function()
   elseif check_back_space() then
     return t "<Tab>"
   else
-    return vim.fn['compe#complete']()
+    return vim.fn["compe#complete"]()
   end
 end
 _G.s_tab_complete = function()
@@ -54,15 +54,26 @@ vim.api.nvim_set_keymap("n", "<A-l>", ":bn<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
-vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm({ 'keys': "<Plug>delimitMateCR", 'mode': '' })]], { noremap = true, expr = true})
+vim.api.nvim_set_keymap(
+  "i",
+  "<CR>",
+  [[compe#confirm({ 'keys': "<Plug>delimitMateCR", 'mode': '' })]],
+  {noremap = true, expr = true}
+)
+
+vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close('<C-e>')]], {expr = true, noremap = true})
+vim.api.nvim_set_keymap("i", "<C-f>", [[compe#scroll({ 'delta': +4 })]], {expr = true, noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-d>", [[compe#scroll({ 'delta': -4 })]], {expr = true, noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.tab_complete()", {expr = true, noremap = true})
+vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
 
 -- vsnip Expand or jump
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
 vim.api.nvim_set_keymap("s", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
 
-    -- Plugin Floaterm
+-- Plugin Floaterm
 vim.api.nvim_set_keymap("n", "<A-d>", ":Lspsaga open_floaterm<CR>", {noremap = true})
 vim.api.nvim_set_keymap("t", "<A-d>", [[<C-\><C-n>:Lspsaga close_floaterm<CR>]], {noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>g", ":Lspsaga open_floaterm lazygit<CR>", {noremap = true})
@@ -102,12 +113,11 @@ vim.api.nvim_set_keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", {silent = tru
 vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent = true, noremap = true})
 
 -- gitsigns.nvim
-vim.api.nvim_set_keymap("n", "[g", "<cmd>lua require\"gitsigns\".prev_hunk()<CR>", {})
-vim.api.nvim_set_keymap("n", "]g", "<cmd>lua require\"gitsigns\".next_hunk()<CR>", {})
+vim.api.nvim_set_keymap("n", "[g", '<cmd>lua require"gitsigns".prev_hunk()<CR>', {})
+vim.api.nvim_set_keymap("n", "]g", '<cmd>lua require"gitsigns".next_hunk()<CR>', {})
 
 -- asynctasks
 vim.api.nvim_set_keymap("n", "<F5>", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<F9>", ":<C-u>AsyncTask file-build<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<F6>", ":<C-u>AsyncTask project-run<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<F7>", ":<C-u>AsyncTask project-build<CR>", {silent = true, noremap = true})
-
