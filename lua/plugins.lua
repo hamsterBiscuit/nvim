@@ -207,7 +207,6 @@ local function init()
         end
       },
       {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"},
-      {"tzachar/compe-tabnine", event = "InsertCharPre *", run = "./install.sh"}
     }
   }
 
