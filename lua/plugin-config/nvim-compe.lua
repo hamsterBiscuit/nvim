@@ -13,6 +13,5 @@ require("compe").setup {
     spell = true,
     tags = true,
     nvim_lua = true,
-    omni = true,
   }
 }
