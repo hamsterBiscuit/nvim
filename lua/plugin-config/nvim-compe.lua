@@ -2,8 +2,6 @@ require("compe").setup {
   enabled = true,
   debug = false,
   min_length = 1,
-  preselect = "always",
-  allow_prefix_unmatch = false,
   source = {
     path = true,
     buffer = true,
@@ -13,5 +11,6 @@ require("compe").setup {
     spell = true,
     tags = true,
     nvim_lua = true,
+    omni = true,
   }
 }
