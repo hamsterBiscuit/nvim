@@ -20,7 +20,7 @@ _G.tab_complete = function()
   elseif vim.fn.call("vsnip#available", {1}) == 1 then
     return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
-    return t "<Tab>"
+    return t "<C-j>"
   else
     return vim.fn["compe#complete"]()
   end
@@ -31,7 +31,7 @@ _G.s_tab_complete = function()
   elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
     return t "<Plug>(vsnip-jump-prev)"
   else
-    return t "<S-Tab>"
+    return t "<C-k>"
   end
 end
 -- Write buffer (save)
@@ -54,8 +54,8 @@ vim.api.nvim_set_keymap("n", "<A-l>", ":bn<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
+-- vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
+-- vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
 vim.api.nvim_set_keymap(
   "i",
   "<CR>",
@@ -64,8 +64,8 @@ vim.api.nvim_set_keymap(
 )
 
 vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close('<C-e>')]], {expr = true, noremap = true})
-vim.api.nvim_set_keymap("i", "<C-f>", [[compe#scroll({ 'delta': +4 })]], {expr = true, noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-d>", [[compe#scroll({ 'delta': -4 })]], {expr = true, noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-f>", [[compe#scroll({ 'delta': +4 })]], {expr = true, noremap = true})
+vim.api.nvim_set_keymap("i", "<C-d>", [[compe#scroll({ 'delta': -4 })]], {expr = true, noremap = true})
 vim.api.nvim_set_keymap("i", "<C-j>", "v:lua.tab_complete()", {expr = true, noremap = true})
 vim.api.nvim_set_keymap("i", "<C-k>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
 
