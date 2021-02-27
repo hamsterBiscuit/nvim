@@ -5,6 +5,7 @@ local function init()
     vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
   end
   if packer == nil then
+    vim.cmd [[packadd packer.nvim]]
     packer = require("packer")
     packer.init(
       {
@@ -17,6 +18,8 @@ local function init()
   end
   local use = packer.use
   packer.reset()
+
+  use {"glepnir/zephyr-nvim", config = [[vim.cmd('colorscheme zephyr')]]}
 
   -- plugins manger
   use {"wbthomason/packer.nvim", opt = true}
