@@ -150,7 +150,7 @@ local function init()
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     requires = {
-      {"nvim-lua/popup.nvim"},
+      {"nvim-lua/popup.nvim", opt = true},
       {"nvim-lua/plenary.nvim", opt = true}
     },
     config = [[require("plugin-config.telescope")]]
