@@ -49,25 +49,7 @@ local function init()
   use {
     "tyru/caw.vim",
     keys = {"gc", "gcc"},
-    config = function()
-      vim.cmd [[
-      function! InitCaw() abort
-        if !&l:modifiable
-          silent! nunmap <buffer> gc
-          silent! xunmap <buffer> gc
-          silent! nunmap <buffer> gcc
-          silent! xunmap <buffer> gcc
-        else
-          nmap <buffer> gc <Plug>(caw:prefix)
-          xmap <buffer> gc <Plug>(caw:prefix)
-          nmap <buffer> gcc <Plug>(caw:hatpos:toggle)
-          xmap <buffer> gcc <Plug>(caw:hatpos:toggle)
-        endif
-      endfunction
-      autocmd FileType * call InitCaw()
-      call InitCaw()
-    ]]
-    end,
+    config = [[require("plugin-config.caw")]],
     requires = {
       "Shougo/context_filetype.vim",
       config = function()
@@ -83,11 +65,7 @@ local function init()
   use {
     "rhysd/vim-operator-surround",
     requires = {"kana/vim-operator-user"},
-    config = function()
-      vim.api.nvim_set_keymap("v", "sa", "<Plug>(operator-surround-append)", {silent = true})
-      vim.api.nvim_set_keymap("v", "sd", "<Plug>(operator-surround-delete)", {silent = true})
-      vim.api.nvim_set_keymap("v", "sr", "<Plug>(operator-surround-replace)", {silent = true})
-    end,
+    config = [[require("plugin-config.surround")]],
     keys = {{"v", "sa"}, {"v", "sr"}, {"v", "sd"}}
   }
   -- 任务 异步run term 插件
@@ -202,14 +180,9 @@ local function init()
           {"xabikos/vscode-javascript"},
           {"hollowtree/vscode-vue-snippets"}
         },
-        config = function()
-          vim.g.vsnip_filetypes = {}
-          vim.g.vsnip_filetypes.javascriptreact = {"javascript"}
-          vim.g.vsnip_filetypes.vue = {"vue", "javascript", "typescript"}
-          vim.g.vsnip_filetypes.typescriptreact = {"typescript"}
-        end
+        config = [[require("plugin-config.vsnip")]]
       },
-      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"},
+      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
     }
   }
 
@@ -260,8 +233,6 @@ local function init()
   -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如锁进等文件规范
   use "editorconfig/editorconfig-vim"
 
-  -- 同步预览MD文件 :MarkdownPreview
-  -- use {"iamcco/markdown-preview.nvim", run = "cd app && yarn install"}
   -- emmei插件 使用 ,, 触发补全，
   use {
     "mattn/emmet-vim",
@@ -271,13 +242,6 @@ local function init()
       vim.api.nvim_command(
         [[autocmd FileType html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
       )
-    end
-  }
-  use {
-    "posva/vim-vue",
-    ft = "vue",
-    config = function()
-      vim.g.vue_pre_processors = "detect_on_enter"
     end
   }
 end

@@ -9,7 +9,6 @@ function config:configLSP()
     "clangd",
     "pyright",
     "vimls",
-    "vuels",
     "html",
     "cssls"
   }
