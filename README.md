@@ -9,7 +9,7 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 
 ## 特性
 
-- [Shougo/dein.vim](https//github.com/Shougo/dein.vim) 管理插件
+- [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) 管理插件
 - [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe) 提供补全
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) 提供 LSP
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 提供 git 状态

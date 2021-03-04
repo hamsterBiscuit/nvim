@@ -28,14 +28,10 @@ local leader_map = function()
 end
 
 local load_core = function()
-  -- disable_distribution_plugins()
+  disable_distribution_plugins()
   leader_map()
 
-  -- require("zephyr")
   options:load_options()
-  -- require("plugins")
-  -- require("plugin-config")
-  -- require("dein"):load_repos()
   require("mapping")
 
   vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
