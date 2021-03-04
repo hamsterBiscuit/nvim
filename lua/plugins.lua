@@ -157,7 +157,7 @@ local function init()
   -- 补全
   use {
     "neovim/nvim-lspconfig",
-    event = "BufRead *",
+    event = "BufReadPre *",
     config = [[require("plugin-config.lsp")]]
   }
   use {
