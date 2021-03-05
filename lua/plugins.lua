@@ -68,26 +68,6 @@ local function init()
     config = [[require("plugin-config.surround")]],
     keys = {{"v", "sa"}, {"v", "sr"}, {"v", "sd"}}
   }
-  -- 任务 异步run term 插件
-  use {"skywind3000/asyncrun.extra"}
-  use {"skywind3000/vim-terminal-help"}
-  use {
-    "skywind3000/asynctasks.vim",
-    cmd = {"AsyncTask", "AsyncTaskMacro", "AsyncTaskList", "AsyncTaskEdit"},
-    config = function()
-      vim.g.asynctasks_term_pos = "termhelp"
-    end,
-    requires = {
-      {
-        "skywind3000/asyncrun.vim",
-        cmd = {"AsyncRun", "AsyncStop"},
-        config = function()
-          vim.g.asyncrun_open = 6
-          vim.g.asyncrun_mode = "term"
-        end
-      }
-    }
-  }
   use {"mhinz/vim-sayonara", cmd = "Sayonara"}
   -- 缩进线插件
   use {
