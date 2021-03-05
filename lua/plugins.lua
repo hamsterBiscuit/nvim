@@ -60,7 +60,7 @@ local function init()
   -- f t 增强
   use {"justinmk/vim-sneak", keys = {{"n", "s"}}}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
-  use {"psliwka/vim-smoothie", event = {"BufReadPre *", "BufNewFile *"}}
+  use {"psliwka/vim-smoothie", event = {"BufReadPre", "BufNewFile"}}
   -- 增删改引号
   use {
     "rhysd/vim-operator-surround",
@@ -92,7 +92,7 @@ local function init()
   -- 缩进线插件
   use {
     "glepnir/indent-guides.nvim",
-    event = {"BufReadPre *", "BufNewFile *"},
+    event = {"BufReadPre", "BufNewFile"},
     config = function()
       require("indent_guides").setup {
         even_colors = {fg = "NONE", bg = "#23272e"},
@@ -103,7 +103,7 @@ local function init()
   -- 当前光标下划线 高亮
   use {
     "itchyny/vim-cursorword",
-    event = {"BufReadPre *", "BufNewFile *"},
+    event = {"BufReadPre", "BufNewFile"},
     config = [[require("plugin-config.vim-cursorword")]]
   }
 
@@ -140,7 +140,7 @@ local function init()
   -- 高亮 主题
   use {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufRead *",
+    event = "BufRead",
     requires = {
       {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"}
     },
@@ -157,7 +157,7 @@ local function init()
   -- 补全
   use {
     "neovim/nvim-lspconfig",
-    event = "BufReadPre *",
+    event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
   use {
@@ -169,12 +169,12 @@ local function init()
   }
   use {
     "hrsh7th/nvim-compe",
-    event = "InsertEnter *",
+    event = "InsertEnter",
     config = [[require("plugin-config.nvim-compe")]],
     requires = {
       {
         "hrsh7th/vim-vsnip",
-        event = "InsertCharPre *",
+        event = "InsertCharPre",
         requires = {
           {"dsznajder/vscode-es7-javascript-react-snippets"},
           {"xabikos/vscode-javascript"},
@@ -182,14 +182,14 @@ local function init()
         },
         config = [[require("plugin-config.vsnip")]]
       },
-      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre *"}
+      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre"}
     }
   }
 
   -- git信息展示 :SignifyDiff
   use {
     "lewis6991/gitsigns.nvim",
-    event = {"BufReadPre *", "BufNewFile *"},
+    event = {"BufReadPre", "BufNewFile"},
     config = function()
       vim.cmd [[packadd plenary.nvim]]
       require("gitsigns").setup()
@@ -201,13 +201,13 @@ local function init()
   }
   use {
     "f-person/git-blame.nvim",
-    event = {"BufReadPre *", "BufNewFile *"}
+    event = {"BufReadPre", "BufNewFile"}
   }
 
   -- 自动括号括回
   use {
     "Raimondi/delimitMate",
-    event = {"BufReadPre *", "BufNewFile *"},
+    event = {"BufReadPre", "BufNewFile"},
     config = [[require("plugin-config.delimitMate")]]
   }
 
@@ -221,7 +221,7 @@ local function init()
   -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
   use {
     "liuchengxu/vista.vim",
-    event = {"BufReadPre *", "BufNewFile *"},
+    event = {"BufReadPre", "BufNewFile"},
     config = [[require("plugin-config.vista")]]
   }
 
