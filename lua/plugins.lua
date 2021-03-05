@@ -190,10 +190,7 @@ local function init()
   use {
     "lewis6991/gitsigns.nvim",
     event = {"BufReadPre", "BufNewFile"},
-    config = function()
-      vim.cmd [[packadd plenary.nvim]]
-      require("gitsigns").setup()
-    end,
+    config = [[require("plugin-config.gitsigns")]],
     requires = {
       "nvim-lua/plenary.nvim",
       opt = true
