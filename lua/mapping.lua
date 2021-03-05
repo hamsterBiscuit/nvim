@@ -20,7 +20,7 @@ _G.tab_complete = function()
   elseif vim.fn.call("vsnip#available", {1}) == 1 then
     return t "<Plug>(vsnip-expand-or-jump)"
   elseif check_back_space() then
-    return t "<C-j>"
+    return t "<Tab>"
   else
     return vim.fn["compe#complete"]()
   end
@@ -31,7 +31,7 @@ _G.s_tab_complete = function()
   elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
     return t "<Plug>(vsnip-jump-prev)"
   else
-    return t "<C-k>"
+    return t "<S-Tab>"
   end
 end
 -- Write buffer (save)
@@ -54,8 +54,8 @@ vim.api.nvim_set_keymap("n", "<A-l>", ":bn<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
--- vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
--- vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true, noremap = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {noremap = true, expr = true})
 vim.api.nvim_set_keymap(
   "i",
   "<CR>",
@@ -92,11 +92,6 @@ vim.api.nvim_set_keymap("n", "<Leader>F", ":<C-u>NvimTreeFindFile<CR>", {silent 
 
 -- Vista
 vim.api.nvim_set_keymap("n", "<Leader>v", ":<C-u>Vista!!<CR>", {silent = true, noremap = true})
-
--- operator mappings
--- vim.api.nvim_set_keymap("v", "sa", "<Plug>(operator-surround-append)", {silent = true})
--- vim.api.nvim_set_keymap("v", "sd", "<Plug>(operator-surround-delete)", {silent = true})
--- vim.api.nvim_set_keymap("v", "sr", "<Plug>(operator-surround-replace)", {silent = true})
 
 -- LSP
 vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true, noremap = true})
