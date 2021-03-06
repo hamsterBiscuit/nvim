@@ -73,12 +73,6 @@ local function init()
   use {
     "glepnir/indent-guides.nvim",
     event = {"BufReadPre", "BufNewFile"},
-    config = function()
-      require("indent_guides").setup {
-        even_colors = {fg = "NONE", bg = "#23272e"},
-        odd_colors = {fg = "NONE", bg = "#23272e"}
-      }
-    end
   }
   -- 当前光标下划线 高亮
   use {
