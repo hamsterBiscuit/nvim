@@ -39,6 +39,7 @@ local load_core = function()
   vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
   vim.cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
   vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
+  vim.cmd [[autocmd CursorHold * packadd lspsaga.nvim | lua require'lspsaga.diagnostic'.show_line_diagnostics()]]
 end
 
 load_core()

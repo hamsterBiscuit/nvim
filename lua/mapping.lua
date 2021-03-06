@@ -41,7 +41,7 @@ vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("i", "<C-h>", "<BS>", {})
 vim.api.nvim_set_keymap("i", "<C-d>", "<Del>", {noremap = true})
 vim.api.nvim_set_keymap("i", "<C-S>", "<esc>:w<CR>", {})
-vim.api.nvim_set_keymap("i", "<C-Q>", "<esc>:wq<CR>", {})
+vim.api.nvim_set_keymap("i", "<C-q>", "<esc>:wq<CR>", {})
 
 -- switch window
 vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", {noremap = true})
@@ -111,8 +111,5 @@ vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent
 vim.api.nvim_set_keymap("n", "[g", '<cmd>lua require"gitsigns".prev_hunk()<CR>', {})
 vim.api.nvim_set_keymap("n", "]g", '<cmd>lua require"gitsigns".next_hunk()<CR>', {})
 
--- asynctasks
-vim.api.nvim_set_keymap("n", "<F5>", ":<C-u>AsyncTask file-run<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<F9>", ":<C-u>AsyncTask file-build<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<F6>", ":<C-u>AsyncTask project-run<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<F7>", ":<C-u>AsyncTask project-build<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
+vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})

@@ -44,7 +44,7 @@ local function init()
   }
 
   -- 操作视觉增强
-  -- use {"rhysd/accelerated-jk"}
+  use {"rhysd/accelerated-jk"}
   -- gc gcc 注释插件
   use {
     "tyru/caw.vim",
@@ -142,10 +142,7 @@ local function init()
   }
   use {
     "glepnir/lspsaga.nvim",
-    cmd = "Lspsaga",
-    config = function()
-      require "lspsaga".init_lsp_saga()
-    end
+    cmd = "Lspsaga"
   }
   use {
     "hrsh7th/nvim-compe",
@@ -208,7 +205,22 @@ local function init()
 
   -- editorconfig
   -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如锁进等文件规范
-  use "editorconfig/editorconfig-vim"
+  use {
+    "editorconfig/editorconfig-vim",
+    ft = {
+      "go",
+      "typescript",
+      "javascript",
+      "vim",
+      "rust",
+      "zig",
+      "c",
+      "cpp",
+      "vue",
+      "typescriptreact",
+      "javascriptreact"
+    }
+  }
 
   -- emmei插件 使用 ,, 触发补全，
   use {
@@ -220,6 +232,12 @@ local function init()
         [[autocmd FileType html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
       )
     end
+  }
+  use {
+    "kristijanhusak/vim-dadbod-ui",
+    cmd = {"DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer"},
+    config = [[require("plugin-config.dadod")]],
+    requires = {{"tpope/vim-dadbod", opt = true}}
   }
 end
 

@@ -128,21 +128,22 @@ function config:configLSP()
     }
   }
 
-  -- vim.g.completion_enable_snippet = "vim-vsnip"
-  -- vim.g.completion_confirm_key = "<C-y>"
-  -- vim.g.completion_enable_auto_hover = 0
-  -- vim.g.completion_matching_smart_case = 1
-  -- vim.g.completion_trigger_on_delete = 1
-  -- vim.g.completion_auto_change_source = 1
-  -- vim.g.completion_chain_complete_list = {
-  --   default = {
-  --     {complete_items = {"lsp", "tabnine", "snippet", "path"}},
-  --     {mode = {"<c-p>"}},
-  --     {mode = {"<c-n>"}}
-  --   }
-  -- }
-  --
-  -- vim.g.completion_word_ignored_ft = {"LuaTree", "vista"}
+  vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      -- Enable underline, use default values
+      underline = true,
+      -- Enable virtual text, override spacing to 4
+      virtual_text = false,
+      signs = {
+        enable = true,
+        priority = 20
+      },
+      -- Disable a feature
+      update_in_insert = false
+    }
+  )
 end
 
 -- vim.api.nvim_command([[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=]])
