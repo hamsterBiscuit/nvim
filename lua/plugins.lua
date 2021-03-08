@@ -160,7 +160,7 @@ local function init()
   -- git信息展示 :SignifyDiff
   use {
     "lewis6991/gitsigns.nvim",
-    event = {"BufReadPre", "BufNewFile"},
+    event = {"BufRead", "BufNewFile"},
     config = [[require("plugin-config.gitsigns")]],
     requires = {
       "nvim-lua/plenary.nvim",
@@ -169,7 +169,7 @@ local function init()
   }
   use {
     "f-person/git-blame.nvim",
-    event = {"BufReadPre", "BufNewFile"}
+    event = {"BufRead", "BufNewFile"}
   }
 
   -- 自动括号括回

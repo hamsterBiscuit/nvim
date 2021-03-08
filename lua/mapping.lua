@@ -107,9 +107,5 @@ vim.api.nvim_set_keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", {silent = true
 vim.api.nvim_set_keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent = true, noremap = true})
 
--- gitsigns.nvim
-vim.api.nvim_set_keymap("n", "[g", '<cmd>lua require"gitsigns".prev_hunk()<CR>', {})
-vim.api.nvim_set_keymap("n", "]g", '<cmd>lua require"gitsigns".next_hunk()<CR>', {})
-
 vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
 vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
