@@ -1,6 +1,6 @@
   function Prettier()
     return {
-      exe = "prettier",
+      exe = "./node_modules/.bin/prettier",
       args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
       stdin = true
     }
@@ -22,6 +22,10 @@
           Prettier
         },
         javascriptreact = {
+          -- prettier
+          Prettier
+        },
+        vue = {
           -- prettier
           Prettier
         },
