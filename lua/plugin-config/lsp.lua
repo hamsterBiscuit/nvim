@@ -77,8 +77,8 @@ function config:configLSP()
         workspace = {
           -- Make the server aware of Neovim runtime files
           library = {
-            [vim.api.expand("$VIMRUNTIME/lua")] = true,
-            [vim.api.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
           }
         }
       }
@@ -127,5 +127,6 @@ function config:configLSP()
       }
     }
   }
+end
 
 config:configLSP()
