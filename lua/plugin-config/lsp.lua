@@ -77,8 +77,8 @@ function config:configLSP()
         workspace = {
           -- Make the server aware of Neovim runtime files
           library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+            [vim.api.expand("$VIMRUNTIME/lua")] = true,
+            [vim.api.expand("$VIMRUNTIME/lua/vim/lsp")] = true
           }
         }
       }
@@ -128,47 +128,4 @@ function config:configLSP()
     }
   }
 
-  vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-      -- Enable underline, use default values
-      underline = true,
-      -- Enable virtual text, override spacing to 4
-      virtual_text = false,
-      signs = {
-        enable = true,
-        priority = 20
-      },
-      -- Disable a feature
-      update_in_insert = false
-    }
-  )
-end
-
--- vim.api.nvim_command([[sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=]])
--- vim.api.nvim_command([[sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=]])
--- vim.api.nvim_command(
---   [[sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=]]
--- )
--- vim.api.nvim_command([[sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=]])
--- -- show hover window on hover
--- vim.cmd [[ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics() ]]
--- vim.lsp.handlers["textDocument/publishDiagnostics"] =
---   vim.lsp.with(
---   vim.lsp.diagnostic.on_publish_diagnostics,
---   {
---     -- Enable underline, use default values
---     underline = true,
---     -- Enable virtual text, override spacing to 4
---     virtual_text = false,
---     -- Disable a feature
---     update_in_insert = true,
---     signs = {
---       enable = true,
---       priority = 20
---     }
---   }
--- )
---
 config:configLSP()

@@ -23,8 +23,8 @@ end
 
 local leader_map = function()
   vim.g.mapleader = " "
-  vim.fn.nvim_set_keymap("n", " ", "", {noremap = true})
-  vim.fn.nvim_set_keymap("x", " ", "", {noremap = true})
+  vim.api.nvim_set_keymap("n", " ", "", {noremap = true})
+  vim.api.nvim_set_keymap("x", " ", "", {noremap = true})
 end
 
 local load_core = function()
@@ -39,7 +39,6 @@ local load_core = function()
   vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
   vim.cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
   vim.cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
-  vim.cmd [[autocmd CursorHold * packadd lspsaga.nvim | lua require'lspsaga.diagnostic'.show_line_diagnostics()]]
 end
 
 load_core()

@@ -3,8 +3,8 @@ local t = function(str)
 end
 
 local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+  local col = vim.api.col(".") - 1
+  if col == 0 or vim.api.getline("."):sub(col, col):match("%s") then
     return true
   else
     return false
