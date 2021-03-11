@@ -72,7 +72,7 @@ local function init()
   -- 缩进线插件
   use {
     "glepnir/indent-guides.nvim",
-    event = {"BufReadPre", "BufNewFile"},
+    event = {"BufReadPre", "BufNewFile"}
   }
   -- 当前光标下划线 高亮
   use {
@@ -136,7 +136,15 @@ local function init()
   }
   use {
     "glepnir/lspsaga.nvim",
-    cmd = "Lspsaga"
+    cmd = "Lspsaga",
+    config = function()
+      local saga = require "lspsaga"
+      saga.init_lsp_saga(
+        {
+          code_action_icon = "💡"
+        }
+      )
+    end
   }
   use {
     "hrsh7th/nvim-compe",
