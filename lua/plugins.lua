@@ -137,14 +137,6 @@ local function init()
   use {
     "glepnir/lspsaga.nvim",
     cmd = "Lspsaga",
-    config = function()
-      local saga = require "lspsaga"
-      saga.init_lsp_saga(
-        {
-          code_action_icon = "💡"
-        }
-      )
-    end
   }
   use {
     "hrsh7th/nvim-compe",
