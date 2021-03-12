@@ -4,7 +4,7 @@ require("telescope").setup {
   defaults = {
     prompt_position = "top",
     sorting_strategy = "ascending",
-    prompt_prefix = "🤖",
+    prompt_prefix = "🔭 ",
     results_width = 0.6,
     file_previewer = require "telescope.previewers".vim_buffer_cat.new,
     grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
