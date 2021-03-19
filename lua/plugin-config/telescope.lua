@@ -5,6 +5,7 @@ require("telescope").setup {
     prompt_position = "top",
     sorting_strategy = "ascending",
     prompt_prefix = "🔭 ",
+    selection_caret = " ",
     results_width = 0.6,
     file_previewer = require "telescope.previewers".vim_buffer_cat.new,
     grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
