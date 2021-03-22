@@ -111,3 +111,5 @@ vim.api.nvim_set_keymap("n", "<Leader>ce", "Lspsaga show_line_diagnostics", {sil
 
 vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
 vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
+
+vim.api.nvim_set_keymap('n', '$', "<cmd>lua require'hop'.hint_words()<cr>", {})

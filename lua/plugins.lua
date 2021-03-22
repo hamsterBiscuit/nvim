@@ -58,7 +58,8 @@ local function init()
     }
   }
   -- f t 增强
-  use {"justinmk/vim-sneak", keys = {{"n", "s"}}}
+  -- use {"justinmk/vim-sneak", keys = {{"n", "s"}}}
+  use {"phaazon/hop.nvim"}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
   use {"psliwka/vim-smoothie", event = {"BufReadPre", "BufNewFile"}}
   -- 增删改引号
