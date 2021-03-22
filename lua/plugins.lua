@@ -116,7 +116,8 @@ local function init()
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
     requires = {
-      {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"}
+      {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
+      {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"}
     },
     config = [[require("plugin-config.treesitter")]]
   }
