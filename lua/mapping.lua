@@ -37,6 +37,7 @@ end
 -- Write buffer (save)
 vim.api.nvim_set_keymap("i", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<C-q>", "<esc>:wq<CR>", {})
 
 vim.api.nvim_set_keymap("i", "<C-h>", "<BS>", {})
 vim.api.nvim_set_keymap("i", "<C-d>", "<Del>", {noremap = true})
@@ -106,6 +107,7 @@ vim.api.nvim_set_keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>"
 vim.api.nvim_set_keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>ce", "Lspsaga show_line_diagnostics", {silent = true, noremap = true})
 
 vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
 vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
