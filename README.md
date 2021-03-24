@@ -100,3 +100,11 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 | `F6`   | N    | AsyncTask project-run   |
 | `F7`   | N    | AsyncTask project-build |
 | `F9`   | N    | AsyncTask file-build    |
+
+### Hop
+
+| KeyMap         | Mode | Description          |
+| -------------- | ---- | -------------------- |
+| `$`            | N    | HopWord file-run     |
+| `s`            | N    | HopChar1             |
+| `Leader` + `j` | N    | HopLine              |
