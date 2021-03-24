@@ -7,6 +7,8 @@
 
 PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配置](https://github.com/glepnir/nvim)
 
+![Snipaste_2021-03-24_23-27-05](https://user-images.githubusercontent.com/19209958/112338634-ea43f680-8cf9-11eb-8df9-04f9d9a11532.png)
+
 ## 特性
 
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) 管理插件
