@@ -58,10 +58,26 @@ local function init()
     }
   }
   -- f t 增强
-  -- use {"justinmk/vim-sneak", keys = {{"n", "s"}}}
   use {"phaazon/hop.nvim", cmd = {"HopWord", "HopChar1", "HopLine"}}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
   use {"psliwka/vim-smoothie", event = {"BufReadPre", "BufNewFile"}}
+  use {
+    "skywind3000/asynctasks.vim",
+    setup = function()
+      vim.g.asynctasks_term_pos = "bottom"
+      vim.g.asynctasks_term_rows = 10
+    end,
+    cmd = {"AsyncTask", "AsyncTaskMacro", "AsyncTaskList", "AsyncTaskEdit"},
+    requires = {
+      {
+        "skywind3000/asyncrun.vim",
+        cmd = {"AsyncRun", "AsyncStop"},
+        setup = function()
+          vim.g.asyncrun_open = 6
+        end
+      }
+    }
+  }
   -- 增删改引号
   use {
     "rhysd/vim-operator-surround",
@@ -138,7 +154,7 @@ local function init()
   }
   use {
     "glepnir/lspsaga.nvim",
-    cmd = "Lspsaga",
+    cmd = "Lspsaga"
   }
   use {
     "hrsh7th/nvim-compe",
