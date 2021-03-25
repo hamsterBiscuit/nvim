@@ -1,4 +1,6 @@
 local packer = nil
+local packer_compiled = vim.fn.stdpath("data") .. "/site/packer_compiled.vim"
+
 local function init()
   local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -9,6 +11,7 @@ local function init()
     packer = require("packer")
     packer.init(
       {
+        compile_path = packer_compiled,
         git = {
           clone_timeout = nil
         },
@@ -268,5 +271,39 @@ local plugins =
     end
   }
 )
+
+function plugins.convert_compile_file()
+  local compile_to_lua = vim.fn.stdpath("data") .. "/site/lua/_compiled.lua"
+  local lines = {}
+  local lnum = 1
+  lines[#lines + 1] = "vim.cmd [[packadd packer.nvim]]\n"
+
+  for line in io.lines(packer_compiled) do
+    lnum = lnum + 1
+    if lnum > 15 then
+      lines[#lines + 1] = line .. "\n"
+      if line == "END" then
+        break
+      end
+    end
+  end
+  table.remove(lines, #lines)
+
+  if vim.fn.filereadable(compile_to_lua) == 1 then
+    os.remove(compile_to_lua)
+  else
+    if vim.fn.isdirectory(vim.fn.stdpath("data") .. "/site/lua") ~= 1 then
+      os.execute("mkdir -p " .. vim.fn.stdpath("data") .. "/site/lua")
+    end
+  end
+
+  local file = io.open(compile_to_lua, "w")
+  for _, line in ipairs(lines) do
+    file:write(line)
+  end
+  file:close()
+
+  os.remove(packer_compiled)
+end
 
 return plugins

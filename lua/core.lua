@@ -34,6 +34,10 @@ local load_core = function()
   options:load_options()
   require("mapping")
 
+  if vim.fn.filereadable(vim.fn.stdpath("data") .. "/site/lua/_compiled.lua") == 1 then
+    require("_compiled")
+  end
+
   vim.cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
   vim.cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
   vim.cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
