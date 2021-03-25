@@ -64,7 +64,8 @@ local function init()
   use {
     "skywind3000/asynctasks.vim",
     setup = function()
-      vim.g.asynctasks_term_pos = "bottom"
+      vim.cmd [[packadd vim-terminal-help]]
+      vim.g.asynctasks_term_pos = "thelp"
       vim.g.asynctasks_term_rows = 10
     end,
     cmd = {"AsyncTask", "AsyncTaskMacro", "AsyncTaskList", "AsyncTaskEdit"},
@@ -75,6 +76,10 @@ local function init()
         setup = function()
           vim.g.asyncrun_open = 6
         end
+      },
+      {
+        "skywind3000/vim-terminal-help",
+        event = {"BufReadPre", "BufNewFile"}
       }
     }
   }
