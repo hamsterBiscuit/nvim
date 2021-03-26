@@ -242,6 +242,12 @@ local function init()
     }
   }
 
+  use {
+    "npxbr/glow.nvim",
+    run = ":GlowInstall",
+    cmd = "Glow"
+  }
+
   -- emmei插件 使用 ,, 触发补全，
   use {
     "mattn/emmet-vim",
