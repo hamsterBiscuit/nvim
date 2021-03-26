@@ -306,4 +306,9 @@ function plugins.convert_compile_file()
   os.remove(packer_compiled)
 end
 
+function plugins.magic_compile()
+  plugins.compile()
+  plugins.convert_compile_file()
+end
+
 return plugins
