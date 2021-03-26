@@ -13,11 +13,11 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
     1. [Normal](#Normal)
     2. [Window](#Window)
     3. [Find](#Find)
-    3. [File](#File)
-    4. [Vista](#Vista)
-    5. [Operator Surround](#Operator-Surround)
-    6. [AsyncTask](#AsyncTask)
-    7. [Hop](#Hop)
+    4. [File](#File)
+    5. [Vista](#Vista)
+    6. [Operator Surround](#Operator-Surround)
+    7. [AsyncTask](#AsyncTask)
+    8. [Hop](#Hop)
 
 ![Snipaste_2021-03-24_23-27-05](https://user-images.githubusercontent.com/19209958/112338634-ea43f680-8cf9-11eb-8df9-04f9d9a11532.png)
 
