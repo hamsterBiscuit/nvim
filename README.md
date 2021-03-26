@@ -1,4 +1,5 @@
-# nvim config
+# nvim
+nvim config
 
 > 此配置来自于
 > [ThinkVim](https://github.com/hardcoreplayers/ThinkVim)，可以认为本配置是
