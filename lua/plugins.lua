@@ -160,8 +160,10 @@ local function init()
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
+  -- "glepnir/lspsaga.nvim",
   use {
-    "glepnir/lspsaga.nvim",
+    "ckipp01/lspsaga.nvim",
+    branch = "trimUpdate",
     cmd = "Lspsaga"
   }
   use {
