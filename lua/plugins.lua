@@ -11,7 +11,7 @@ local function init()
     packer = require("packer")
     packer.init(
       {
-        compile_path = packer_compiled,
+        -- compile_path = packer_compiled,
         git = {
           clone_timeout = nil
         },
@@ -160,10 +160,8 @@ local function init()
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
-  -- "glepnir/lspsaga.nvim",
   use {
-    "ckipp01/lspsaga.nvim",
-    branch = "trimUpdate",
+    "glepnir/lspsaga.nvim",
     cmd = "Lspsaga"
   }
   use {
