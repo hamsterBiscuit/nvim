@@ -19,7 +19,6 @@ function options:load_options()
     wildignore = ".git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**",
     backup = false,
     writebackup = false,
-    undofile = true,
     swapfile = false,
     history = 2000,
     shada = "!,'300,<50,@100,s10,h",
@@ -79,6 +78,7 @@ function options:load_options()
   }
 
   self.bw_local = {
+    undofile = true,
     synmaxcol = 2500,
     formatoptions = "1jcroql",
     textwidth = 80,

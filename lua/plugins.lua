@@ -96,7 +96,9 @@ local function init()
   use {"mhinz/vim-sayonara", cmd = "Sayonara"}
   -- 缩进线插件
   use {
-    "glepnir/indent-guides.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    branch = 'lua',
+    config = [[requrie("indent-blankline")]],
     event = {"BufReadPre", "BufNewFile"}
   }
   -- 当前光标下划线 高亮
