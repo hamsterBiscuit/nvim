@@ -11,7 +11,7 @@ local function init()
     packer = require("packer")
     packer.init(
       {
-        -- compile_path = packer_compiled,
+        compile_path = packer_compiled,
         git = {
           clone_timeout = nil
         },
