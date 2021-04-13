@@ -11,7 +11,7 @@ local function init()
     packer = require("packer")
     packer.init(
       {
-        -- compile_path = packer_compiled,
+        compile_path = packer_compiled,
         git = {
           clone_timeout = nil
         },
@@ -26,6 +26,37 @@ local function init()
 
   -- plugins manger
   use {"wbthomason/packer.nvim", opt = true}
+  -- 补全
+  use {
+    "neovim/nvim-lspconfig",
+    event = "BufReadPre",
+    config = [[require("plugin-config.lsp")]]
+  }
+  use {
+    "glepnir/lspsaga.nvim",
+    cmd = "Lspsaga"
+  }
+  use {
+    "hrsh7th/nvim-compe",
+    event = "InsertEnter",
+    config = [[require("plugin-config.nvim-compe")]],
+    requires = {
+      {
+        "hrsh7th/vim-vsnip",
+        event = "InsertCharPre",
+        requires = {
+          {"dsznajder/vscode-es7-javascript-react-snippets"},
+          {"xabikos/vscode-javascript"},
+          {"hollowtree/vscode-vue-snippets"}
+        },
+        config = [[require("plugin-config.vsnip")]]
+      },
+      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre"},
+      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
+      {"tzachar/compe-tabnine", event = "InsertCharPre", run = "./install.sh"}
+    }
+  }
+
   -- 标签页 状态栏
   -- tab 栏插件 提供 leader + number 切换buffer
   use {
@@ -63,7 +94,7 @@ local function init()
   -- f t 增强
   use {"phaazon/hop.nvim", cmd = {"HopWord", "HopChar1", "HopLine"}}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
-  use {"psliwka/vim-smoothie", event = {"BufReadPre", "BufNewFile"}}
+  use {"psliwka/vim-smoothie", event = {"BufRead", "BufNewFile"}}
   use {
     "skywind3000/asynctasks.vim",
     setup = function()
@@ -154,37 +185,6 @@ local function init()
     "kyazdani42/nvim-tree.lua",
     cmd = {"NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile"},
     config = [[require("plugin-config.nvim-tree")]]
-  }
-
-  -- 补全
-  use {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPre",
-    config = [[require("plugin-config.lsp")]]
-  }
-  use {
-    "glepnir/lspsaga.nvim",
-    cmd = "Lspsaga"
-  }
-  use {
-    "hrsh7th/nvim-compe",
-    event = "InsertEnter",
-    config = [[require("plugin-config.nvim-compe")]],
-    requires = {
-      {
-        "hrsh7th/vim-vsnip",
-        event = "InsertCharPre",
-        requires = {
-          {"dsznajder/vscode-es7-javascript-react-snippets"},
-          {"xabikos/vscode-javascript"},
-          {"hollowtree/vscode-vue-snippets"}
-        },
-        config = [[require("plugin-config.vsnip")]]
-      },
-      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre"},
-      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
-      {"tzachar/compe-tabnine", event = "InsertCharPre", run = "./install.sh"}
-    }
   }
 
   -- git信息展示 :SignifyDiff
