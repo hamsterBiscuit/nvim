@@ -17,7 +17,8 @@ function config:configLSP()
     "pyright",
     "vimls",
     "html",
-    "cssls"
+    "cssls",
+    "phpactor"
   }
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
