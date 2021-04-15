@@ -135,7 +135,7 @@ local function init()
   -- 当前光标下划线 高亮
   use {
     "itchyny/vim-cursorword",
-    event = {"BufReadPre", "BufNewFile"},
+    event = {"BufRead", "BufNewFile"},
     config = [[require("plugin-config.vim-cursorword")]]
   }
 
@@ -219,7 +219,7 @@ local function init()
   -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
   use {
     "liuchengxu/vista.vim",
-    event = {"BufReadPre", "BufNewFile"},
+    event = {"BufRead", "BufNewFile"},
     config = [[require("plugin-config.vista")]]
   }
 
