@@ -183,7 +183,6 @@ local function init()
   -- 文件管理
   use {
     "kyazdani42/nvim-tree.lua",
-    cmd = {"NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFile"},
     config = [[require("plugin-config.nvim-tree")]]
   }
 
