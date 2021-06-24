@@ -181,10 +181,10 @@ local function init()
   }
 
   -- 文件管理
-  use {
-    "kyazdani42/nvim-tree.lua",
-    config = [[require("plugin-config.nvim-tree")]]
-  }
+  -- use {
+  --   "kyazdani42/nvim-tree.lua",
+  --   config = [[require("plugin-config.nvim-tree")]]
+  -- }
 
   -- git信息展示 :SignifyDiff
   use {
