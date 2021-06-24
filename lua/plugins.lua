@@ -128,7 +128,7 @@ local function init()
   -- 缩进线插件
   use {
     "lukas-reineke/indent-blankline.nvim",
-    branch = 'lua',
+    branch = "lua",
     config = [[requrie("indent-blankline")]],
     event = {"BufReadPre", "BufNewFile"}
   }
@@ -195,10 +195,6 @@ local function init()
       "nvim-lua/plenary.nvim",
       opt = true
     }
-  }
-  use {
-    "f-person/git-blame.nvim",
-    event = {"BufRead", "BufNewFile"}
   }
 
   -- 自动括号括回
