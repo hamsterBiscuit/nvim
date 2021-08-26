@@ -92,7 +92,18 @@ vim.api.nvim_set_keymap("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", {silent = 
 vim.api.nvim_set_keymap("n", "<Leader>F", ":<C-u>NvimTreeFindFile<CR>", {silent = true, noremap = true})
 
 -- Vista
-vim.api.nvim_set_keymap("n", "<Leader>v", ":<C-u>Vista!!<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>v", ":<C-u>SymbolsOutline<CR>", {silent = true, noremap = true})
+
+-- BufferLine
+vim.api.nvim_set_keymap("n", "<Leader>1", "<cmd>BufferLineGoToBuffer 1<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>2", "<cmd>BufferLineGoToBuffer 2<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>3", "<cmd>BufferLineGoToBuffer 3<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>4", "<cmd>BufferLineGoToBuffer 4<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>5", "<cmd>BufferLineGoToBuffer 5<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>6", "<cmd>BufferLineGoToBuffer 6<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>7", "<cmd>BufferLineGoToBuffer 7<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>8", "<cmd>BufferLineGoToBuffer 8<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>9", "<cmd>BufferLineGoToBuffer 9<CR>", {silent = true, noremap = true})
 
 -- LSP
 vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true, noremap = true})

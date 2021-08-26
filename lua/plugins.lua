@@ -128,8 +128,7 @@ local function init()
   -- 缩进线插件
   use {
     "lukas-reineke/indent-blankline.nvim",
-    branch = "lua",
-    config = [[requrie("indent-blankline")]],
+    config = [[require("indent_blankline")]],
     event = {"BufReadPre", "BufNewFile"}
   }
   -- 当前光标下划线 高亮
@@ -212,10 +211,14 @@ local function init()
   }
 
   -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
+  -- use {
+  --   "liuchengxu/vista.vim",
+  --   event = {"BufRead", "BufNewFile"},
+  --   config = [[require("plugin-config.vista")]]
+  -- }
   use {
-    "liuchengxu/vista.vim",
-    event = {"BufRead", "BufNewFile"},
-    config = [[require("plugin-config.vista")]]
+    "simrat39/symbols-outline.nvim",
+    cmd="SymbolsOutline"
   }
 
   -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
