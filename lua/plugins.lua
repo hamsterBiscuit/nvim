@@ -179,10 +179,10 @@ local function init()
   }
 
   -- 文件管理
-  -- use {
-  --   "kyazdani42/nvim-tree.lua",
-  --   config = [[require("plugin-config.nvim-tree")]]
-  -- }
+  use {
+    "kyazdani42/nvim-tree.lua",
+    config = [[require("plugin-config.nvim-tree")]]
+  }
 
   -- git信息展示 :SignifyDiff
   use {
@@ -210,11 +210,6 @@ local function init()
   }
 
   -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
-  -- use {
-  --   "liuchengxu/vista.vim",
-  --   event = {"BufRead", "BufNewFile"},
-  --   config = [[require("plugin-config.vista")]]
-  -- }
   use {
     "simrat39/symbols-outline.nvim",
     cmd="SymbolsOutline"
@@ -225,7 +220,7 @@ local function init()
   use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
 
   -- editorconfig
-  -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如锁进等文件规范
+  -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如缩进等文件规范
   use {
     "editorconfig/editorconfig-vim",
     ft = {
