@@ -27,6 +27,7 @@ local s_tab_complete = function(fallback)
   end
 end
 local cmp = require "cmp"
+
 cmp.setup {
   snippet = {
     expand = function(args)
