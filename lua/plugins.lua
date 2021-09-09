@@ -53,7 +53,6 @@ local function init()
       },
       {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre"},
       {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
-      {"tzachar/compe-tabnine", event = "InsertCharPre", run = "./install.sh"}
     }
   }
 

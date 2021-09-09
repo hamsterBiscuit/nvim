@@ -11,7 +11,6 @@ require("compe").setup {
     spell = true,
     tags = true,
     nvim_lua = true,
-    tabnine = true,
     vim_dadbod_completion = true
   }
 }

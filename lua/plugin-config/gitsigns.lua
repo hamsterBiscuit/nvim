@@ -26,6 +26,8 @@ require("gitsigns").setup {
     interval = 1000
   },
   current_line_blame = true,
-  current_line_blame_delay = 100,
-  current_line_blame_position = 'eol',
+  current_line_blame_opts = {
+    delay = 100,
+    virt_text_pos = "eol"
+  }
 }
