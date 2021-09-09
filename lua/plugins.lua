@@ -37,13 +37,20 @@ local function init()
     cmd = "Lspsaga"
   }
   use {
-    "hrsh7th/nvim-compe",
+    -- "hrsh7th/nvim-compe",
+    "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     config = [[require("plugin-config.nvim-compe")]],
     requires = {
+      {"hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"},
+      {"hrsh7th/cmp-buffer", after = "nvim-cmp"},
+      {"hrsh7th/cmp-path", after = "nvim-cmp"},
+      {"f3fora/cmp-spell", after = "nvim-cmp"},
+      {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp"},
+      {"hrsh7th/cmp-vsnip", after = "nvim-cmp"},
       {
         "hrsh7th/vim-vsnip",
-        event = "InsertCharPre",
+        after = "nvim-cmp",
         requires = {
           {"dsznajder/vscode-es7-javascript-react-snippets"},
           {"xabikos/vscode-javascript"},
@@ -51,7 +58,7 @@ local function init()
         },
         config = [[require("plugin-config.vsnip")]]
       },
-      {"hrsh7th/vim-vsnip-integ", event = "InsertCharPre"},
+      {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
       {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
     }
   }
