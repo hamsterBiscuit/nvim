@@ -30,15 +30,18 @@ function config:configLSP()
     }
   end
 
-  require("lspconfig").vuels.setup {
-    capabilities = capabilities,
-    init_options = {
-      config = {
-        vetur = {
-          ignoreProjectWarning = true
-        }
-      }
-    }
+  -- require("lspconfig").vuels.setup {
+  --   capabilities = capabilities,
+  --   init_options = {
+  --     config = {
+  --       vetur = {
+  --         ignoreProjectWarning = true
+  --       }
+  --     }
+  --   }
+  -- }
+  require "lspconfig".volar.setup {
+    capabilities = capabilities
   }
 
   require "lspconfig".tsserver.setup {
