@@ -1,4 +1,5 @@
 # nvim
+
 nvim config
 
 > 此配置来自于
@@ -9,23 +10,24 @@ nvim config
 PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配置](https://github.com/glepnir/nvim)
 
 ## Table of Contents
+
 1. [特性](#特性)
 2. [key](#key)
-    1. [Normal](#Normal)
-    2. [Window](#Window)
-    3. [Find](#Find)
-    4. [File](#File)
-    5. [Vista](#Vista)
-    6. [Operator Surround](#Operator-Surround)
-    7. [AsyncTask](#AsyncTask)
-    8. [Hop](#Hop)
+   1. [Normal](#Normal)
+   2. [Window](#Window)
+   3. [Find](#Find)
+   4. [File](#File)
+   5. [Outline](#Outline)
+   6. [Operator Surround](#Operator-Surround)
+   7. [AsyncTask](#AsyncTask)
+   8. [Hop](#Hop)
 
 ![Snipaste_2021-03-24_23-27-05](https://user-images.githubusercontent.com/19209958/112338634-ea43f680-8cf9-11eb-8df9-04f9d9a11532.png)
 
 ## 特性
 
 - [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim) 管理插件
-- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe) 提供补全
+- [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp) 提供补全
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) 提供 LSP
 - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) 提供 git 状态
 - [akinsho/nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) 提供标签页
@@ -91,11 +93,11 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 | `Leader` + `e` | N    | Open file tree                |
 | `Leader` + `F` | N    | Open file with current buffer |
 
-### Vista
+### Outline
 
-| KeyMap         | Mode | Description |
-| -------------- | ---- | ----------- |
-| `Leader` + `v` | N    | Open Vista  |
+| KeyMap         | Mode | Description  |
+| -------------- | ---- | ------------ |
+| `Leader` + `v` | N    | Open Outline |
 
 ### Operator Surround
 
@@ -116,8 +118,8 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 
 ### Hop
 
-| KeyMap         | Mode | Description          |
-| -------------- | ---- | -------------------- |
-| `$`            | N    | HopWord file-run     |
-| `s`            | N    | HopChar1             |
-| `Leader` + `j` | N    | HopLine              |
+| KeyMap         | Mode | Description      |
+| -------------- | ---- | ---------------- |
+| `$`            | N    | HopWord file-run |
+| `s`            | N    | HopChar1         |
+| `Leader` + `j` | N    | HopLine          |
