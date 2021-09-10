@@ -20,7 +20,7 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
    5. [Outline](#Outline)
    6. [Operator Surround](#Operator-Surround)
    7. [AsyncTask](#AsyncTask)
-   8. [Hop](#Hop)
+   8. [Lightspeed](#Lightspeed)
 
 ![Snipaste_2021-03-24_23-27-05](https://user-images.githubusercontent.com/19209958/112338634-ea43f680-8cf9-11eb-8df9-04f9d9a11532.png)
 
@@ -116,10 +116,8 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 | `F7`   | N    | AsyncTask project-build |
 | `F9`   | N    | AsyncTask file-build    |
 
-### Hop
+### Lightspeed
 
-| KeyMap         | Mode | Description      |
-| -------------- | ---- | ---------------- |
-| `$`            | N    | HopWord file-run |
-| `s`            | N    | HopChar1         |
-| `Leader` + `j` | N    | HopLine          |
+| KeyMap | Mode | Description |
+| ------ | ---- | ----------- |
+| `s`    | N    | Search Word |

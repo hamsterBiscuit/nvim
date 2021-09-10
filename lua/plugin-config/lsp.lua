@@ -2,13 +2,13 @@ local config = {}
 
 -- lsp
 function config:configLSP()
-  vim.cmd [[packadd lspsaga.nvim]]
-  local saga = require "lspsaga"
-  saga.init_lsp_saga(
-    {
-      code_action_icon = "💡"
-    }
-  )
+  -- vim.cmd [[packadd lspsaga.nvim]]
+  -- local saga = require "lspsaga"
+  -- saga.init_lsp_saga(
+  --   {
+  --     code_action_icon = "💡"
+  --   }
+  -- )
   local util = require("lspconfig/util")
 
   local servers = {

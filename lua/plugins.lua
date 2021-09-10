@@ -32,10 +32,10 @@ local function init()
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
-  use {
-    "glepnir/lspsaga.nvim",
-    cmd = "Lspsaga"
-  }
+  -- use {
+  --   "glepnir/lspsaga.nvim",
+  --   cmd = "Lspsaga"
+  -- }
   use {
     -- "hrsh7th/nvim-compe",
     "hrsh7th/nvim-cmp",
