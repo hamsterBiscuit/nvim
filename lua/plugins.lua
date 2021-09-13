@@ -86,15 +86,19 @@ local function init()
   use {"rhysd/accelerated-jk"}
   -- gc gcc 注释插件
   use {
-    "tyru/caw.vim",
+    "terrortylor/nvim-comment",
     keys = {"gc", "gcc"},
-    config = [[require("plugin-config.caw")]],
-    requires = {
-      "Shougo/context_filetype.vim",
-      config = function()
-        vim.g["context_filetype#search_offset"] = 2000
-      end
-    }
+    config = function()
+      require("nvim_comment").setup(
+        {
+          hook = function()
+            if vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
+              require("ts_context_commentstring.internal").update_commentstring()
+            end
+          end
+        }
+      )
+    end,
   }
   -- f t 增强
   use {"ggandor/lightspeed.nvim"}
@@ -179,7 +183,8 @@ local function init()
     event = "BufRead",
     requires = {
       {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
-      {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"}
+      {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
+      {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"}
     },
     config = [[require("plugin-config.treesitter")]]
   }
@@ -206,7 +211,7 @@ local function init()
     "windwp/nvim-autopairs",
     after = "nvim-cmp",
     config = function()
-      require('nvim-autopairs').setup{}
+      require("nvim-autopairs").setup {}
       require("nvim-autopairs.completion.cmp").setup(
         {
           map_cr = true, --  map <CR> on insert mode

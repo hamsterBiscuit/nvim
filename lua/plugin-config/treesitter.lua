@@ -12,6 +12,9 @@ require "nvim-treesitter.configs".setup {
   rainbow = {
     enable = true
   },
+  context_commentstring = {
+    enable = true
+  },
   textobjects = {
     select = {
       enable = true,
