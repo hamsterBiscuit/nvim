@@ -7,7 +7,7 @@ end
 local tab_complete = function(fallback)
   if vim.fn.pumvisible() == 1 then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n", true)
-  elseif has_words_before and vim.fn["vsnip#available"]() == 1 then
+  elseif has_words_before() and vim.fn["vsnip#available"]() == 1 then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(vsnip-expand-or-jump)", true, true, true), "", true)
   else
     fallback()
@@ -16,7 +16,7 @@ end
 local s_tab_complete = function(fallback)
   if vim.fn.pumvisible() == 1 then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n", true)
-  elseif has_words_before() and vim.fn["vsnip#available"]() then
+  elseif has_words_before() and vim.fn["vsnip#available"]() == 1 then
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(vsnip-jump-prev)", true, true, true), "", true)
   else
     fallback()

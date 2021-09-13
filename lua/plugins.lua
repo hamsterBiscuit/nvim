@@ -37,7 +37,6 @@ local function init()
   --   cmd = "Lspsaga"
   -- }
   use {
-    -- "hrsh7th/nvim-compe",
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     config = [[require("plugin-config.nvim-compe")]],
@@ -59,7 +58,7 @@ local function init()
         config = [[require("plugin-config.vsnip")]]
       },
       {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
-      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
+      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"}
     }
   }
 
@@ -98,7 +97,7 @@ local function init()
     }
   }
   -- f t 增强
-  use {'ggandor/lightspeed.nvim'}
+  use {"ggandor/lightspeed.nvim"}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
   use {"psliwka/vim-smoothie", event = {"BufRead", "BufNewFile"}}
   use {
@@ -204,9 +203,18 @@ local function init()
 
   -- 自动括号括回
   use {
-    "Raimondi/delimitMate",
-    event = {"BufReadPre", "BufNewFile"},
-    config = [[require("plugin-config.delimitMate")]]
+    "windwp/nvim-autopairs",
+    after = "nvim-cmp",
+    config = function()
+      require('nvim-autopairs').setup{}
+      require("nvim-autopairs.completion.cmp").setup(
+        {
+          map_cr = true, --  map <CR> on insert mode
+          map_complete = true, -- it will auto insert `(` after select function or method item
+          auto_select = true -- automatically select the first item
+        }
+      )
+    end
   }
 
   -- 目前配置了lua和js，ts的格式化
@@ -219,7 +227,7 @@ local function init()
   -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
   use {
     "simrat39/symbols-outline.nvim",
-    cmd="SymbolsOutline"
+    cmd = "SymbolsOutline"
   }
 
   -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
