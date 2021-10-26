@@ -98,7 +98,7 @@ local function init()
           end
         }
       )
-    end,
+    end
   }
   -- f t 增强
   use {"ggandor/lightspeed.nvim"}
@@ -281,6 +281,7 @@ local function init()
     config = [[require("plugin-config.dadod")]],
     requires = {{"tpope/vim-dadbod", opt = true}}
   }
+  use {"leafOfTree/vim-vue-plugin", ft = {"vue"}}
 end
 
 local plugins =
