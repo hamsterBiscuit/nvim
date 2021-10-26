@@ -26,6 +26,9 @@ local s_tab_complete = function(fallback)
 end
 
 cmp.setup {
+  completion = {
+    completeopt = "menu,menuone,noselect"
+  },
   snippet = {
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
@@ -35,10 +38,10 @@ cmp.setup {
     ["<Tab>"] = tab_complete,
     ["<C-j>"] = tab_complete,
     ["<S-Tab>"] = s_tab_complete,
-    ["<CR>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false
-    },
+    -- ["<CR>"] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = false
+    -- },
     ["<C-k>"] = s_tab_complete
   },
   sources = {{name = "nvim_lsp"}, {name = "path"}, {name = "buffer"}, {name = "vsnip"}, {name = "tags"}, {name = "spell"}, {name = "vim-dadbod-completion"}}
