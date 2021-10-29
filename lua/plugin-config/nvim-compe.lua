@@ -1,5 +1,6 @@
 
 local cmp = require "cmp"
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -25,6 +26,8 @@ local s_tab_complete = function(fallback)
   end
 end
 
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+
 cmp.setup {
   completion = {
     completeopt = "menu,menuone,noselect"
@@ -38,10 +41,10 @@ cmp.setup {
     ["<Tab>"] = tab_complete,
     ["<C-j>"] = tab_complete,
     ["<S-Tab>"] = s_tab_complete,
-    -- ["<CR>"] = cmp.mapping.confirm {
-    --   behavior = cmp.ConfirmBehavior.Replace,
-    --   select = false
-    -- },
+    ["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false
+    },
     ["<C-k>"] = s_tab_complete
   },
   sources = {{name = "nvim_lsp"}, {name = "path"}, {name = "buffer"}, {name = "vsnip"}, {name = "tags"}, {name = "spell"}, {name = "vim-dadbod-completion"}}

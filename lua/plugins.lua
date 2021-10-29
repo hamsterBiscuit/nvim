@@ -32,10 +32,6 @@ local function init()
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
-  -- use {
-  --   "glepnir/lspsaga.nvim",
-  --   cmd = "Lspsaga"
-  -- }
   use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -209,16 +205,9 @@ local function init()
   -- 自动括号括回
   use {
     "windwp/nvim-autopairs",
-    after = "nvim-cmp",
+    requires = "nvim-cmp",
     config = function()
       require("nvim-autopairs").setup {}
-      require("nvim-autopairs.completion.cmp").setup(
-        {
-          map_cr = true, --  map <CR> on insert mode
-          map_complete = true, -- it will auto insert `(` after select function or method item
-          auto_select = false -- automatically select the first item
-        }
-      )
     end
   }
 
