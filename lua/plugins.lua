@@ -145,11 +145,7 @@ local function init()
     event = {"BufReadPre", "BufNewFile"}
   }
   -- 当前光标下划线 高亮
-  use {
-    "itchyny/vim-cursorword",
-    event = {"BufRead", "BufNewFile"},
-    config = [[require("plugin-config.vim-cursorword")]]
-  }
+  use {"yamatsum/nvim-cursorline"}
 
   -- 颜色荧光笔
   use {
