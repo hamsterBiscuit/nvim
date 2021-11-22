@@ -129,7 +129,6 @@ local function init()
     config = [[require("plugin-config.surround")]],
     keys = {{"v", "sa"}, {"v", "sr"}, {"v", "sd"}}
   }
-  use {"mhinz/vim-sayonara", cmd = "Sayonara"}
   -- 缩进线插件
   use {
     "lukas-reineke/indent-blankline.nvim",
@@ -180,7 +179,10 @@ local function init()
     requires = {
       {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
       {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
-      {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"}
+      {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+      {"lewis6991/spellsitter.nvim", after = "nvim-treesitter", config = function()
+          require("spellsitter").setup()
+        end}
     },
     config = [[require("plugin-config.treesitter")]]
   }
