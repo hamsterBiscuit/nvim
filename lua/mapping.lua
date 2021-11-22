@@ -82,7 +82,3 @@ vim.api.nvim_set_keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", {si
 vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
 vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
 
-vim.api.nvim_set_keymap('n', '<F5>', "<cmd>AsyncTask file-run<CR>", {})
-vim.api.nvim_set_keymap('n', '<F6>', "<cmd>AsyncTask project-run<CR>", {})
-vim.api.nvim_set_keymap('n', '<F7>', "<cmd>AsyncTask project-build<CR>", {})
-vim.api.nvim_set_keymap('n', '<F9>', "<cmd>AsyncTask file-build<CR>", {})

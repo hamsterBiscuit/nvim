@@ -19,7 +19,6 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
    4. [File](#File)
    5. [Outline](#Outline)
    6. [Operator Surround](#Operator-Surround)
-   7. [AsyncTask](#AsyncTask)
    8. [Lightspeed](#Lightspeed)
 
 ![Snipaste_2021-03-24_23-27-05](https://user-images.githubusercontent.com/19209958/112338634-ea43f680-8cf9-11eb-8df9-04f9d9a11532.png)
@@ -39,7 +38,6 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) 提供模糊搜索
 - [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) 提供颜色荧光笔
 - [tyru/caw.vim](https://github.com/tyru/caw.vim) 注释插件
-- [skywind3000/asynctasks.vim](https://github.com/skywind3000/asynctasks.vim) 任务系统
 
 - [awesome-neovim](https://github.com/rockerBOO/awesome-neovim)
 
@@ -106,15 +104,6 @@ PS: 目前 ThinkVim 已经不维护，大神目前在用的配置是这个[配�
 | `sa`   | V    | operator-surround-append  |
 | `sd`   | V    | operator-surround-delete  |
 | `sr`   | V    | operator-surround-replace |
-
-### AsyncTask
-
-| KeyMap | Mode | Description             |
-| ------ | ---- | ----------------------- |
-| `F5`   | N    | AsyncTask file-run      |
-| `F6`   | N    | AsyncTask project-run   |
-| `F7`   | N    | AsyncTask project-build |
-| `F9`   | N    | AsyncTask file-build    |
 
 ### Lightspeed
 

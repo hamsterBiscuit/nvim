@@ -79,7 +79,32 @@ local function init()
   }
 
   -- 操作视觉增强
-  use {"rhysd/accelerated-jk"}
+  use {
+    "xiyaowong/accelerated-jk.nvim",
+    config = function()
+      require("accelerated-jk").setup {
+        -- equal to
+        -- nmap <silent> j <cmd>lua require'accelerated-jk'.command('gj')<cr>
+        -- nmap <silent> k <cmd>lua require'accelerated-jk'.command('gk')<cr>
+        mappings = {j = "gj", k = "gk"},
+        -- If the interval of key-repeat takes more than `acceleration_limit` ms, the step is reset
+        acceleration_limit = 150,
+        -- acceleration steps
+        acceleration_table = {7, 12, 17, 21, 24, 26, 28, 30},
+        -- If you want to decelerate a cursor moving by time instead of reset. set it
+        -- exampe:
+        -- {
+        --   { 200, 3 },
+        --   { 300, 7 },
+        --   { 450, 11 },
+        --   { 600, 15 },
+        --   { 750, 21 },
+        --   { 900, 9999 },
+        -- }
+        deceleration_table = {{150, 9999}}
+      }
+    end
+  }
   -- gc gcc 注释插件
   use {
     "terrortylor/nvim-comment",
@@ -99,30 +124,12 @@ local function init()
   -- f t 增强
   use {"ggandor/lightspeed.nvim"}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
-  use {"karb94/neoscroll.nvim", config = function()
-      require("neoscroll").setup()
-    end, event = {"BufRead", "BufNewFile"}}
   use {
-    "skywind3000/asynctasks.vim",
-    setup = function()
-      vim.cmd [[packadd vim-terminal-help]]
-      vim.g.asynctasks_term_pos = "thelp"
-      vim.g.asynctasks_term_rows = 10
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup()
     end,
-    cmd = {"AsyncTask", "AsyncTaskMacro", "AsyncTaskList", "AsyncTaskEdit"},
-    requires = {
-      {
-        "skywind3000/asyncrun.vim",
-        cmd = {"AsyncRun", "AsyncStop"},
-        setup = function()
-          vim.g.asyncrun_open = 6
-        end
-      },
-      {
-        "skywind3000/vim-terminal-help",
-        event = {"BufReadPre", "BufNewFile"}
-      }
-    }
+    event = {"BufRead", "BufNewFile"}
   }
   -- 增删改引号
   use {
