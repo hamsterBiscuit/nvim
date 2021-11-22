@@ -133,10 +133,10 @@ local function init()
   }
   -- 增删改引号
   use {
-    "rhysd/vim-operator-surround",
-    requires = {"kana/vim-operator-user"},
-    config = [[require("plugin-config.surround")]],
-    keys = {{"v", "sa"}, {"v", "sr"}, {"v", "sd"}}
+    "blackCauldron7/surround.nvim",
+    config = function()
+      require"surround".setup {mappings_style = "sandwich"}
+    end
   }
   -- 缩进线插件
   use {
