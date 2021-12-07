@@ -18,7 +18,7 @@ require("nvim-tree").setup {
     update_cwd = true
   },
   git = {
-    ignore = false
+    enable = false
   },
   view = {
     mappings = {
