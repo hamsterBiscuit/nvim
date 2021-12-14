@@ -18,7 +18,8 @@ function config:configLSP()
     "vimls",
     "html",
     "cssls",
-    "phpactor"
+    "phpactor",
+    "tailwindcss"
   }
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()
