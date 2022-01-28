@@ -22,7 +22,7 @@ local function init()
   local use = packer.use
   packer.reset()
 
-  use {"glepnir/zephyr-nvim", config = [[vim.cmd('colorscheme zephyr')]]}
+  use {"olimorris/onedarkpro.nvim", config = [[vim.cmd('colorscheme onedarkpro')]]}
 
   -- plugins manger
   use {"wbthomason/packer.nvim", opt = true}
@@ -67,15 +67,25 @@ local function init()
   }
   -- 状态栏插件
   use {
-    "glepnir/galaxyline.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"},
-    config = [[require("eviline")]]
+    "nvim-lualine/lualine.nvim",
+    requires = {"kyazdani42/nvim-web-devicons", opt = true},
+    config = function()
+      local custom_gruvbox = require "lualine.themes.onedark"
+      require("lualine").setup(
+        {
+          theme = custom_gruvbox
+        }
+      )
+    end
   }
 
   -- 开屏
+  use { "lewis6991/impatient.nvim", config = function() require('impatient').enable_profile() end }
   use {
-    "glepnir/dashboard-nvim",
-    config = [[require("plugin-config.dashboard")]]
+    "goolord/alpha-nvim",
+    config = function()
+      require "alpha".setup(require "alpha.themes.dashboard".config)
+    end
   }
 
   -- 操作视觉增强
@@ -135,7 +145,7 @@ local function init()
   use {
     "blackCauldron7/surround.nvim",
     config = function()
-      require"surround".setup {mappings_style = "sandwich"}
+      require "surround".setup {mappings_style = "sandwich"}
     end
   }
   -- 缩进线插件
@@ -264,7 +274,7 @@ local function init()
     cmd = "Glow"
   }
 
-  -- emmei插件 使用 ,, 触发补全，
+  -- emmet插件 使用 ,, 触发补全，
   use {
     "mattn/emmet-vim",
     ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},

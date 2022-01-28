@@ -22,9 +22,6 @@ require("gitsigns").setup {
     ["o ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>',
     ["x ih"] = ':<C-U>lua require"gitsigns".text_object()<CR>'
   },
-  watch_index = {
-    interval = 1000
-  },
   current_line_blame = true,
   current_line_blame_opts = {
     delay = 100,
