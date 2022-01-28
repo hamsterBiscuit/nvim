@@ -15,7 +15,7 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup {
   auto_close = true,
   update_focused_file = {
-    update_cwd = true
+    -- update_cwd = true
   },
   git = {
     enable = false
