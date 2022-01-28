@@ -32,6 +32,7 @@ local function init()
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
+  use { 'tami5/lspsaga.nvim' }
   use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
