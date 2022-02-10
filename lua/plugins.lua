@@ -32,7 +32,7 @@ local function init()
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
-  use { 'tami5/lspsaga.nvim' }
+  use {"tami5/lspsaga.nvim"}
   use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -41,7 +41,6 @@ local function init()
       {"hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"},
       {"hrsh7th/cmp-buffer", after = "nvim-cmp"},
       {"hrsh7th/cmp-path", after = "nvim-cmp"},
-      {"f3fora/cmp-spell", after = "nvim-cmp"},
       {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp"},
       {"hrsh7th/cmp-vsnip", after = "nvim-cmp"},
       {
@@ -55,7 +54,8 @@ local function init()
         config = [[require("plugin-config.vsnip")]]
       },
       {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
-      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"}
+      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
+      {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"}
     }
   }
 
@@ -81,7 +81,12 @@ local function init()
   }
 
   -- 开屏
-  use { "lewis6991/impatient.nvim", config = function() require('impatient').enable_profile() end }
+  use {
+    "lewis6991/impatient.nvim",
+    config = function()
+      require("impatient").enable_profile()
+    end
+  }
   use {
     "goolord/alpha-nvim",
     config = function()

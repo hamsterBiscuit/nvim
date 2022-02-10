@@ -1,10 +1,9 @@
-
 local cmp = require "cmp"
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
 local tab_complete = function(fallback)
@@ -26,7 +25,7 @@ local s_tab_complete = function(fallback)
   end
 end
 
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
 
 cmp.setup {
   completion = {
@@ -47,6 +46,13 @@ cmp.setup {
     },
     ["<C-k>"] = s_tab_complete
   },
-  sources = {{name = "nvim_lsp"}, {name = "path"}, {name = "buffer"}, {name = "vsnip"}, {name = "tags"}, {name = "spell"}, {name = "vim-dadbod-completion"}}
+  sources = {
+    {name = "nvim_lsp"},
+    {name = "path"},
+    {name = "buffer"},
+    {name = "vsnip"},
+    {name = "tags"},
+    {name = "vim-dadbod-completion"},
+    {name = "nvim_lsp_signature_help"}
+  }
 }
-
