@@ -74,7 +74,7 @@ function options:load_options()
     pumblend = 10,
     winblend = 10,
     -- spell = true,
-    spelllang = "en_us,cjk"
+    spelllang = "en_us,cjk",
   }
 
   self.bw_local = {
