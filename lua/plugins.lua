@@ -25,6 +25,13 @@ local function init()
   -- plugins manger
   use {"wbthomason/packer.nvim", opt = true}
 
+  use {
+    "lewis6991/impatient.nvim",
+    config = function()
+      require("impatient").enable_profile()
+    end
+  }
+
   -- Theme
   use {"olimorris/onedarkpro.nvim", config = [[vim.cmd('colorscheme onedarkpro')]]}
 
@@ -86,12 +93,6 @@ local function init()
   }
 
   -- Dashboard
-  use {
-    "lewis6991/impatient.nvim",
-    config = function()
-      require("impatient").enable_profile()
-    end
-  }
   use {
     "goolord/alpha-nvim",
     config = function()
