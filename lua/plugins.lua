@@ -55,7 +55,8 @@ local function init()
       },
       {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
       {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
-      {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"}
+      {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"},
+      {"hrsh7th/cmp-cmdline", after = "cmp-buffer"}
     }
   }
 
@@ -151,7 +152,7 @@ local function init()
   use {
     "blackCauldron7/surround.nvim",
     config = function()
-      require "surround".setup {mappings_style = "sandwich"}
+      require "surround".setup {mappings_style = "surround"}
     end
   }
   -- 缩进线插件

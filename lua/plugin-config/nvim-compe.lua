@@ -56,3 +56,17 @@ cmp.setup {
     {name = "nvim_lsp_signature_help"}
   }
 }
+cmp.setup.cmdline(
+  ":",
+  {
+    sources = {
+      {name = "cmdline"}
+    }
+  }
+)
+cmp.setup.cmdline(
+  "/",
+  {
+    sources = {{name = "buffer"}}
+  }
+)
