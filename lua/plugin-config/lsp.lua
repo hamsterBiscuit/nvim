@@ -5,11 +5,6 @@ function config:configLSP()
   vim.cmd [[packadd lspsaga.nvim]]
   local saga = require "lspsaga"
   saga.setup {}
-  -- saga.init_lsp_saga(
-  --   {
-  --     code_action_icon = "💡"
-  --   }
-  -- )
   local util = require("lspconfig/util")
 
   local servers = {
@@ -71,17 +66,19 @@ function config:configLSP()
     }
   }
   local sumneko_root_path = os.getenv("HOME") .. "/develop/lua-language-server"
+  local runtime_path = vim.split(package.path, ";")
+  table.insert(runtime_path, "lua/?.lua")
+  table.insert(runtime_path, "lua/?/init.lua")
 
   require("lspconfig").sumneko_lua.setup {
     -- capabilities = capabilities,
-    cmd = {sumneko_root_path .. "/bin/macOS/lua-language-server", "-E", sumneko_root_path .. "/main.lua"},
     settings = {
       Lua = {
         runtime = {
           -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
           version = "LuaJIT",
           -- Setup your lua path
-          path = vim.split(package.path, ";")
+          path = runtime_path
         },
         diagnostics = {
           -- Get the language server to recognize the `vim` global
@@ -89,10 +86,11 @@ function config:configLSP()
         },
         workspace = {
           -- Make the server aware of Neovim runtime files
-          library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-          }
+          library = vim.api.nvim_get_runtime_file("", true)
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false
         }
       }
     }

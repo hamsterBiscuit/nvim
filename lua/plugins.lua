@@ -142,6 +142,7 @@ local function init()
   -- f t 增强
   use {"ggandor/lightspeed.nvim"}
   -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
+
   use {
     "karb94/neoscroll.nvim",
     config = function()
