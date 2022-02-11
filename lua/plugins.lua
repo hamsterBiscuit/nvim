@@ -22,17 +22,21 @@ local function init()
   local use = packer.use
   packer.reset()
 
-  use {"olimorris/onedarkpro.nvim", config = [[vim.cmd('colorscheme onedarkpro')]]}
-
   -- plugins manger
   use {"wbthomason/packer.nvim", opt = true}
-  -- 补全
+
+  -- Theme
+  use {"olimorris/onedarkpro.nvim", config = [[vim.cmd('colorscheme onedarkpro')]]}
+
+  -- LSP
   use {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
     config = [[require("plugin-config.lsp")]]
   }
   use {"tami5/lspsaga.nvim"}
+
+  -- auto completion
   use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -61,14 +65,13 @@ local function init()
     }
   }
 
-  -- 标签页 状态栏
-  -- tab 栏插件 提供 leader + number 切换buffer
+  -- Navbar
   use {
     "akinsho/nvim-bufferline.lua",
     requires = {"kyazdani42/nvim-web-devicons"},
     config = [[require("plugin-config.bufferline")]]
   }
-  -- 状态栏插件
+  -- Status bar
   use {
     "nvim-lualine/lualine.nvim",
     requires = {"kyazdani42/nvim-web-devicons", opt = true},
@@ -82,7 +85,7 @@ local function init()
     end
   }
 
-  -- 开屏
+  -- Dashboard
   use {
     "lewis6991/impatient.nvim",
     config = function()
@@ -96,7 +99,7 @@ local function init()
     end
   }
 
-  -- 操作视觉增强
+  -- Typing
   use {
     "xiyaowong/accelerated-jk.nvim",
     config = function()
@@ -123,7 +126,7 @@ local function init()
       }
     end
   }
-  -- gc gcc 注释插件
+  -- Comment
   use {
     "terrortylor/nvim-comment",
     keys = {"gc", "gcc"},
@@ -139,10 +142,10 @@ local function init()
       )
     end
   }
-  -- f t 增强
+  -- f t
   use {"ggandor/lightspeed.nvim"}
-  -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
 
+  -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
   use {
     "karb94/neoscroll.nvim",
     config = function()
@@ -157,12 +160,14 @@ local function init()
       require "surround".setup {mappings_style = "surround"}
     end
   }
+
   -- 缩进线插件
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = [[require("indent_blankline")]],
     event = {"BufReadPre", "BufNewFile"}
   }
+
   -- 当前光标下划线 高亮
   use {"yamatsum/nvim-cursorline"}
 
@@ -196,7 +201,7 @@ local function init()
     config = [[require("plugin-config.telescope")]]
   }
 
-  -- 高亮 主题
+  -- 高亮
   use {
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
