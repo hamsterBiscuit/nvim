@@ -1,5 +1,6 @@
 local cmp = require "cmp"
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local lspkind = require("lspkind")
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -54,6 +55,19 @@ cmp.setup {
     {name = "tags"},
     {name = "vim-dadbod-completion"},
     {name = "nvim_lsp_signature_help"}
+  },
+  formatting = {
+    format = lspkind.cmp_format(
+      {
+        mode = "symbol", -- show only symbol annotations
+        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+        -- The function below will be called before any actual modifications from lspkind
+        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+        before = function(_, vim_item)
+          return vim_item
+        end
+      }
+    )
   }
 }
 cmp.setup.cmdline(

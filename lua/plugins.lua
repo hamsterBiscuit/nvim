@@ -56,7 +56,8 @@ local function init()
       {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
       {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
       {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"},
-      {"hrsh7th/cmp-cmdline", after = "cmp-buffer"}
+      {"hrsh7th/cmp-cmdline", after = "cmp-buffer"},
+      {"onsails/lspkind-nvim", requires="nvim-cmp"}
     }
   }
 
