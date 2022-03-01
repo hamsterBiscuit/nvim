@@ -5,7 +5,7 @@ vim.g.nvim_tree_icons = {
   symlink = ""
 }
 vim.g.nvim_tree_show_icons = {
-  git = 0,
+  git = 1,
   folders = 1,
   files = 1
 }
@@ -16,9 +16,6 @@ require("nvim-tree").setup {
   auto_close = true,
   update_focused_file = {
     -- update_cwd = true
-  },
-  git = {
-    enable = false
   },
   view = {
     mappings = {
