@@ -156,7 +156,7 @@ local function init()
   }
   -- 增删改引号
   use {
-    "blackCauldron7/surround.nvim",
+    "ur4ltz/surround.nvim",
     config = function()
       require "surround".setup {mappings_style = "surround"}
     end
