@@ -39,7 +39,12 @@ local function init()
   use {
     "neovim/nvim-lspconfig",
     event = "BufReadPre",
-    config = [[require("plugin-config.lsp")]]
+    -- config = [[require("plugin-config.lsp")]]
+  }
+  use {
+    "williamboman/nvim-lsp-installer",
+    event = "BufReadPre",
+    config = [[require("lsp.setup")]]
   }
   use {"tami5/lspsaga.nvim"}
 
