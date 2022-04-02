@@ -2,7 +2,7 @@ local lsp_installer = require("nvim-lsp-installer")
 
 local servers = {
   sumneko_lua = require("lsp.config.lua"),
-  -- cssls = require("lsp.config.cssls"),
+  cssls = require("lsp.config.cssls"),
   -- diagnosticls = require("lsp.config.diagnosticls"),
   -- eslint = require("lsp.config.eslint"),
   -- html = require("lsp.config.html"),
