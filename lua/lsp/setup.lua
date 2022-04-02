@@ -34,3 +34,4 @@ lsp_installer.on_server_ready(
     end
   end
 )
+
