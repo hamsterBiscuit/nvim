@@ -6,9 +6,9 @@ local servers = {
   eslint = {},
   html = require("lsp.config.html"),
   jsonls = require("lsp.config.json"),
-  -- tsserver = require("lsp.config.tsserver"),
-  -- tailwindcss = require("lsp.config.tailwindcss"),
-  -- valar = require('lsp.config.valar')
+  tsserver = {},
+  tailwindcss = {},
+  volar = require("lsp.config.volar")
 }
 
 for name, _ in pairs(servers) do
@@ -21,14 +21,16 @@ for name, _ in pairs(servers) do
   end
 end
 
-lsp_installer.on_server_ready(function(server)
-  local config = servers[server.name]
-  if config == nil then
-    return
+lsp_installer.on_server_ready(
+  function(server)
+    local config = servers[server.name]
+    if config == nil then
+      return
+    end
+    if config.on_setup then
+      config.on_setup(server)
+    else
+      server:setup({})
+    end
   end
-  if config.on_setup then
-    config.on_setup(server)
-  else
-    server:setup({})
-  end
-end)
+)
