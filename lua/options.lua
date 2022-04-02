@@ -52,8 +52,8 @@ function options:load_options()
     jumpoptions = "stack",
     showmode = false,
     shortmess = "aoOTIcF",
-    scrolloff = 5,
-    sidescrolloff = 5,
+    scrolloff = 8,
+    sidescrolloff = 8,
     foldlevelstart = 99,
     ruler = false,
     list = true,
@@ -73,6 +73,7 @@ function options:load_options()
     listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
     pumblend = 10,
     winblend = 10,
+    hlsearch = false,
   }
 
   self.bw_local = {
@@ -89,11 +90,12 @@ function options:load_options()
     wrap = false,
     linebreak = true,
     number = true,
+    relativenumber = true,
     colorcolumn = "80",
     foldenable = true,
     signcolumn = "yes",
     conceallevel = 2,
-    concealcursor = "niv"
+    concealcursor = "niv",
   }
 
   if vim.loop.os_uname().sysname == "Darwin" then
