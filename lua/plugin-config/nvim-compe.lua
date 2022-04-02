@@ -28,48 +28,54 @@ end
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
 
-cmp.setup {
-  completion = {
-    completeopt = "menu,menuone,noselect"
-  },
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end
-  },
-  mapping = {
-    ["<Tab>"] = tab_complete,
-    ["<C-j>"] = tab_complete,
-    ["<S-Tab>"] = s_tab_complete,
-    ["<CR>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false
+cmp.setup(
+  {
+    completion = {
+      completeopt = "menu,menuone,noselect"
     },
-    ["<C-k>"] = s_tab_complete
-  },
-  sources = {
-    {name = "nvim_lsp"},
-    {name = "path"},
-    {name = "buffer"},
-    {name = "vsnip"},
-    {name = "tags"},
-    {name = "vim-dadbod-completion"},
-    {name = "nvim_lsp_signature_help"}
-  },
-  formatting = {
-    format = lspkind.cmp_format(
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end
+    },
+    mapping = {
+      ["<Tab>"] = tab_complete,
+      ["<C-j>"] = tab_complete,
+      ["<S-Tab>"] = s_tab_complete,
+      ["<CR>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false
+      },
+      ["<C-k>"] = s_tab_complete
+    },
+    sources = cmp.config.sources(
       {
-        mode = "symbol", -- show only symbol annotations
-        maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-        -- The function below will be called before any actual modifications from lspkind
-        -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-        before = function(_, vim_item)
-          return vim_item
-        end
+        {name = "nvim_lsp"}
+      },
+      {
+        {name = "path"},
+        {name = "buffer"},
+        {name = "vsnip"},
+        {name = "tags"},
+        {name = "vim-dadbod-completion"},
+        {name = "nvim_lsp_signature_help"}
       }
-    )
+    ),
+    formatting = {
+      format = lspkind.cmp_format(
+        {
+          mode = "symbol", -- show only symbol annotations
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          -- The function below will be called before any actual modifications from lspkind
+          -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+          before = function(_, vim_item)
+            return vim_item
+          end
+        }
+      )
+    }
   }
-}
+)
 cmp.setup.cmdline(
   ":",
   {
