@@ -17,8 +17,8 @@ local function init()
         disable_commands = true,
         display = {
           open_fn = function()
-            return require("packer.util").float({ border = "single" })
-          end,
+            return require("packer.util").float({border = "single"})
+          end
         }
       }
     )
@@ -37,12 +37,14 @@ local function init()
   }
 
   -- Theme
-  use {"folke/tokyonight.nvim", config = [[vim.cmd('colorscheme tokyonight')]]}
+  use {"catppuccin/nvim", as = "catppuccin", config = function()
+      require("plugin-config.catppuccin")
+    end}
 
   -- LSP
   use {
     "neovim/nvim-lspconfig",
-    event = "BufReadPre",
+    event = "BufReadPre"
     -- config = [[require("plugin-config.lsp")]]
   }
   use {
@@ -77,8 +79,8 @@ local function init()
       {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
       {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"},
       {"hrsh7th/cmp-cmdline", after = "cmp-buffer"},
-      {"onsails/lspkind-nvim", requires="nvim-cmp"},
-      {"rafamadriz/friendly-snippets", requires="nvim-cmp"},
+      {"onsails/lspkind-nvim", requires = "nvim-cmp"},
+      {"rafamadriz/friendly-snippets", requires = "nvim-cmp"}
     }
   }
 
