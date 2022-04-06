@@ -11,11 +11,15 @@ local function init()
     packer = require("packer")
     packer.init(
       {
-        -- compile_path = packer_compiled,
         git = {
           clone_timeout = nil
         },
-        disable_commands = true
+        disable_commands = true,
+        display = {
+          open_fn = function()
+            return require("packer.util").float({ border = "single" })
+          end,
+        }
       }
     )
   end
