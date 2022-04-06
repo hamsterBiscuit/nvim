@@ -37,7 +37,7 @@ local function init()
   }
 
   -- Theme
-  use {"olimorris/onedarkpro.nvim", config = [[vim.cmd('colorscheme onedarkpro')]]}
+  use {"folke/tokyonight.nvim", config = [[vim.cmd('colorscheme tokyonight')]]}
 
   -- LSP
   use {
