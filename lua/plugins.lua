@@ -335,6 +335,18 @@ local function init()
       require("plugin-config.nvim-lastplace")
     end
   }
+  use {
+    "petertriho/nvim-scrollbar",
+    config = function()
+      require("plugin-config.nvim-scrollbar")
+    end
+  }
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require("plugin-config.toggleterm")
+    end
+  }
 end
 
 local plugins =

@@ -79,3 +79,7 @@ vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent
 vim.api.nvim_set_keymap("n", "j", "<Plug>(accelerated_jk_gj)", {silent = true})
 vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
 
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>tt", "<cmd>exe v:count.'ToggleTerm'<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>tf", "<cmd>lua require('toggleterm').float_toggle()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>ta", "<cmd>ToggleTermToggleAll<CR>", {silent = true, noremap = true})
