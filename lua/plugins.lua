@@ -347,6 +347,12 @@ local function init()
       require("plugin-config.toggleterm")
     end
   }
+  use {
+    "rcarriga/nvim-notify",
+    config = function()
+      require("plugin-config.nvim-notify")
+    end
+  }
 end
 
 local plugins =

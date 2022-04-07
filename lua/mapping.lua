@@ -1,4 +1,3 @@
-
 -- Write buffer (save)
 vim.api.nvim_set_keymap("i", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
