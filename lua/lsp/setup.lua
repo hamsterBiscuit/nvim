@@ -21,16 +21,28 @@ for name, _ in pairs(servers) do
   end
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 lsp_installer.on_server_ready(
   function(server)
     local config = servers[server.name]
     if config == nil then
       return
     end
-    if config.on_setup then
-      config.on_setup(server)
+    if config.opts then
+      config.opts.capabilities = capabilities
+      config.opts.root_dir = function()
+        return vim.fn.getcwd()
+      end
+      server:setup(config.opts)
     else
-      server:setup({})
+      server:setup({
+        root_dir = function()
+          return vim.fn.getcwd()
+        end,
+        capabilities = capabilities
+      })
     end
   end
 )

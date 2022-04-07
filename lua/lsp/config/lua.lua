@@ -32,6 +32,7 @@ local opts = {
 }
 
 return {
+  opts = opts,
   on_setup = function(server)
     server:setup(opts)
   end

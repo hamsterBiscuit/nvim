@@ -56,7 +56,7 @@ local function init()
     event = "BufReadPre",
     config = [[require("lsp.setup")]]
   }
-  use {"tami5/lspsaga.nvim"}
+  use {"tami5/lspsaga.nvim", config = [[require("lspsaga").setup {}]]}
 
   -- auto completion
   use {
@@ -145,18 +145,9 @@ local function init()
   }
   -- Comment
   use {
-    "terrortylor/nvim-comment",
-    keys = {"gc", "gcc"},
+    "numToStr/Comment.nvim",
     config = function()
-      require("nvim_comment").setup(
-        {
-          hook = function()
-            if vim.api.nvim_buf_get_option(0, "filetype") == "vue" then
-              require("ts_context_commentstring.internal").update_commentstring()
-            end
-          end
-        }
-      )
+      require("plugin-config.Comment")
     end
   }
   -- f t
@@ -357,6 +348,28 @@ local function init()
     "j-hui/fidget.nvim",
     config = function()
       require("fidget").setup {}
+    end
+  }
+  use {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup(
+        {
+          bind = true,
+          handler_opts = {
+            border = "rounded"
+          },
+          hint_enable = false,
+          floating_window = true,
+          hi_parameter = "LspSignatureActiveParameter"
+        }
+      )
+    end
+  }
+  use {
+    "kosayoda/nvim-lightbulb",
+    config = function()
+      require("plugin-config.nvim-lightbulb")
     end
   }
 end
