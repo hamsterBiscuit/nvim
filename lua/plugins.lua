@@ -37,9 +37,13 @@ local function init()
   }
 
   -- Theme
-  use {"catppuccin/nvim", as = "catppuccin", config = function()
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
       require("plugin-config.catppuccin")
-    end}
+    end
+  }
 
   -- LSP
   use {
@@ -86,7 +90,7 @@ local function init()
 
   -- Navbar
   use {
-    "akinsho/nvim-bufferline.lua",
+    "akinsho/bufferline.nvim",
     requires = {"kyazdani42/nvim-web-devicons"},
     config = [[require("plugin-config.bufferline")]]
   }
@@ -319,7 +323,18 @@ local function init()
     requires = {{"tpope/vim-dadbod", opt = true}}
   }
   use {"leafOfTree/vim-vue-plugin", ft = {"vue"}}
-  use {"Pocco81/AutoSave.nvim", config = function() require("plugin-config.autoSave") end}
+  use {
+    "Pocco81/AutoSave.nvim",
+    config = function()
+      require("plugin-config.autoSave")
+    end
+  }
+  use {
+    "ethanholz/nvim-lastplace",
+    config = function()
+      require("plugin-config.nvim-lastplace")
+    end
+  }
 end
 
 local plugins =
