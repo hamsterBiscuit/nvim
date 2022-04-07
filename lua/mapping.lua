@@ -1,3 +1,15 @@
+-- leader 键设置为空格
+vim.g.mapleader = " "
+
+-- 默认的键位设置函数太长了，所以这里将它们重新引用一下
+vim.keybinds = {
+  gmap = vim.api.nvim_set_keymap,
+  bmap = vim.api.nvim_buf_set_keymap,
+  dgmap = vim.api.nvim_del_keymap,
+  dbmap = vim.api.nvim_buf_del_keymap,
+  opts = {noremap = true, silent = true}
+}
+
 -- Write buffer (save)
 vim.api.nvim_set_keymap("i", "<C-s>", ":<C-u>write<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<C-s>", ":<C-u>write<CR>", {noremap = true})
@@ -18,8 +30,18 @@ vim.api.nvim_set_keymap("n", "<A-l>", ":bn<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap("n", "<C-f>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-b>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-f>",
+  "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
+  {noremap = true, silent = true}
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-b>",
+  "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
+  {noremap = true, silent = true}
+)
 
 -- vsnip Expand or jump
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
@@ -80,5 +102,10 @@ vim.api.nvim_set_keymap("n", "k", "<Plug>(accelerated_jk_gk)", {silent = true})
 
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>tt", "<cmd>exe v:count.'ToggleTerm'<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>tf", "<cmd>lua require('toggleterm').float_toggle()<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap(
+  "n",
+  "<Leader>tf",
+  "<cmd>lua require('toggleterm').float_toggle()<CR>",
+  {silent = true, noremap = true}
+)
 vim.api.nvim_set_keymap("n", "<Leader>ta", "<cmd>ToggleTermToggleAll<CR>", {silent = true, noremap = true})

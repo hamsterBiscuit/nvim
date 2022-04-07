@@ -353,6 +353,12 @@ local function init()
       require("plugin-config.nvim-notify")
     end
   }
+  use {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup {}
+    end
+  }
 end
 
 local plugins =
