@@ -319,6 +319,7 @@ local function init()
     requires = {{"tpope/vim-dadbod", opt = true}}
   }
   use {"leafOfTree/vim-vue-plugin", ft = {"vue"}}
+  use {"Pocco81/AutoSave.nvim", config = function() require("plugin-config.autoSave") end}
 end
 
 local plugins =
