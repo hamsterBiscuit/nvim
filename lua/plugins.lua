@@ -1,8 +1,7 @@
 local packer = nil
-local packer_compiled = vim.fn.stdpath("data") .. "/site/packer_compiled.vim"
 
 local function init()
-  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
+  local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
   end
@@ -27,7 +26,7 @@ local function init()
   packer.reset()
 
   -- plugins manger
-  use {"wbthomason/packer.nvim", opt = true}
+  use {"wbthomason/packer.nvim"}
 
   use {
     "lewis6991/impatient.nvim",
@@ -47,13 +46,11 @@ local function init()
 
   -- LSP
   use {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPre"
-    -- config = [[require("plugin-config.lsp")]]
+    "neovim/nvim-lspconfig"
   }
   use {
     "williamboman/nvim-lsp-installer",
-    event = "BufReadPre",
+    requires = {"hrsh7th/cmp-nvim-lsp"},
     config = [[require("lsp.setup")]]
   }
   use {"tami5/lspsaga.nvim", config = [[require("lspsaga").setup {}]]}
@@ -61,7 +58,6 @@ local function init()
   -- auto completion
   use {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     config = [[require("plugin-config.nvim-compe")]],
     requires = {
       {"hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"},
@@ -80,7 +76,7 @@ local function init()
         config = [[require("plugin-config.vsnip")]]
       },
       {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
-      {"kristijanhusak/vim-dadbod-completion", event = "InsertCharPre"},
+      {"kristijanhusak/vim-dadbod-completion"},
       {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"},
       {"hrsh7th/cmp-cmdline", after = "cmp-buffer"},
       {"onsails/lspkind-nvim", requires = "nvim-cmp"},
@@ -97,7 +93,7 @@ local function init()
   -- Status bar
   use {
     "nvim-lualine/lualine.nvim",
-    requires = {"kyazdani42/nvim-web-devicons", opt = true},
+    requires = {"kyazdani42/nvim-web-devicons"},
     config = function()
       local custom_gruvbox = require "lualine.themes.onedark"
       require("lualine").setup(
@@ -146,6 +142,7 @@ local function init()
   -- Comment
   use {
     "numToStr/Comment.nvim",
+    requires = {"JoosepAlviste/nvim-ts-context-commentstring"},
     config = function()
       require("plugin-config.Comment")
     end
@@ -158,8 +155,7 @@ local function init()
     "karb94/neoscroll.nvim",
     config = function()
       require("neoscroll").setup()
-    end,
-    event = {"BufRead", "BufNewFile"}
+    end
   }
   -- 增删改引号
   use {
@@ -172,8 +168,15 @@ local function init()
   -- 缩进线插件
   use {
     "lukas-reineke/indent-blankline.nvim",
-    config = [[require("indent_blankline")]],
-    event = {"BufReadPre", "BufNewFile"}
+    config = function()
+      return require("indent_blankline").setup(
+        {
+          filetype_exclude = {
+            "alpha"
+          }
+        }
+      )
+    end
   }
 
   -- 当前光标下划线 高亮
@@ -182,26 +185,12 @@ local function init()
   -- 颜色荧光笔
   use {
     "norcalli/nvim-colorizer.lua",
-    config = [[require("plugin-config.nvim-colorizer")]],
-    ft = {
-      "html",
-      "css",
-      "sass",
-      "scss",
-      "vim",
-      "javascript",
-      "javascriptreact",
-      "typescript",
-      "typescriptreact",
-      "vue",
-      "lua"
-    }
+    config = [[require("plugin-config.nvim-colorizer")]]
   }
 
   -- fuzzyfind 模糊搜索
   use {
     "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
     requires = {
       {"nvim-lua/popup.nvim", opt = true},
       {"nvim-lua/plenary.nvim", opt = true}
@@ -212,7 +201,6 @@ local function init()
   -- 高亮
   use {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufRead",
     requires = {
       {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
       {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
@@ -237,11 +225,9 @@ local function init()
   -- git信息展示 :SignifyDiff
   use {
     "lewis6991/gitsigns.nvim",
-    event = {"BufRead", "BufNewFile"},
     config = [[require("plugin-config.gitsigns")]],
     requires = {
-      "nvim-lua/plenary.nvim",
-      opt = true
+      "nvim-lua/plenary.nvim"
     }
   }
 
@@ -257,49 +243,32 @@ local function init()
   -- 目前配置了lua和js，ts的格式化
   use {
     "mhartington/formatter.nvim",
-    cmd = "Format",
     config = [[require("plugin-config.formatter")]]
   }
 
   -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
   use {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline"
+    "simrat39/symbols-outline.nvim"
   }
 
   -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
   -- Prettier,这个是全局的
-  use {"prettier/vim-prettier", run = "yarn install", cmd = "Prettier"}
+  use {"prettier/vim-prettier", run = "yarn install"}
 
   -- editorconfig
   -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如缩进等文件规范
   use {
-    "editorconfig/editorconfig-vim",
-    ft = {
-      "go",
-      "typescript",
-      "javascript",
-      "vim",
-      "rust",
-      "zig",
-      "c",
-      "cpp",
-      "vue",
-      "typescriptreact",
-      "javascriptreact"
-    }
+    "editorconfig/editorconfig-vim"
   }
 
   use {
     "npxbr/glow.nvim",
-    run = ":GlowInstall",
-    cmd = "Glow"
+    run = ":GlowInstall"
   }
 
   -- emmet插件 使用 ,, 触发补全，
   use {
     "mattn/emmet-vim",
-    ft = {"html", "css", "javascript", "javascriptreact", "vue", "typescript", "typescriptreact"},
     setup = [[require("plugin-config.emmet")]],
     config = function()
       vim.api.nvim_command(
@@ -309,11 +278,10 @@ local function init()
   }
   use {
     "kristijanhusak/vim-dadbod-ui",
-    cmd = {"DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer"},
     config = [[require("plugin-config.dadod")]],
     requires = {{"tpope/vim-dadbod", opt = true}}
   }
-  use {"leafOfTree/vim-vue-plugin", ft = {"vue"}}
+  use {"leafOfTree/vim-vue-plugin"}
   use {
     "Pocco81/AutoSave.nvim",
     config = function()
@@ -384,44 +352,5 @@ local plugins =
     end
   }
 )
-
-function plugins.convert_compile_file()
-  local compile_to_lua = vim.fn.stdpath("data") .. "/site/lua/_compiled.lua"
-  local lines = {}
-  local lnum = 1
-  lines[#lines + 1] = "vim.cmd [[packadd packer.nvim]]\n"
-
-  for line in io.lines(packer_compiled) do
-    lnum = lnum + 1
-    if lnum > 15 then
-      lines[#lines + 1] = line .. "\n"
-      if line == "END" then
-        break
-      end
-    end
-  end
-  table.remove(lines, #lines)
-
-  if vim.fn.filereadable(compile_to_lua) == 1 then
-    os.remove(compile_to_lua)
-  else
-    if vim.fn.isdirectory(vim.fn.stdpath("data") .. "/site/lua") ~= 1 then
-      os.execute("mkdir -p " .. vim.fn.stdpath("data") .. "/site/lua")
-    end
-  end
-
-  local file = io.open(compile_to_lua, "w")
-  for _, line in ipairs(lines) do
-    file:write(line)
-  end
-  file:close()
-
-  os.remove(packer_compiled)
-end
-
-function plugins.magic_compile()
-  plugins.compile()
-  plugins.convert_compile_file()
-end
 
 return plugins
