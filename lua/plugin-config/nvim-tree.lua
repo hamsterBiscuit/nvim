@@ -1,4 +1,3 @@
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_allow_resize = 1
 vim.g.nvim_tree_icons = {
   default = "",
@@ -16,6 +15,16 @@ local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup {
   update_focused_file = {
     -- update_cwd = true
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
+      },
+    }
   },
   view = {
     mappings = {
