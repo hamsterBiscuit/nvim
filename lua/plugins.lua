@@ -69,7 +69,6 @@ local function init()
         "hrsh7th/vim-vsnip",
         after = "nvim-cmp",
         requires = {
-          {"dsznajder/vscode-es7-javascript-react-snippets"},
           {"xabikos/vscode-javascript"},
           {"hollowtree/vscode-vue-snippets"}
         },

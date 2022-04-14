@@ -4,7 +4,7 @@ local function get_typescript_server_path(root_dir)
 
   local local_tsserverlib =
     project_root ~= nil and util.path.join(project_root, "node_modules", "typescript", "lib", "tsserverlibrary.js")
-  local global_tsserverlib = "/home/[yourusernamehere]/.npm/lib/node_modules/typescript/lib/tsserverlibrary.js"
+  local global_tsserverlib = "/home/yongqi/.nvm/versions/node/v17.8.0/lib/node_modules/typescript/lib/tsserverlibrary.js"
 
   if local_tsserverlib and util.path.exists(local_tsserverlib) then
     return local_tsserverlib
@@ -21,7 +21,4 @@ local opts = {
 
 return {
   opts = opts,
-  on_setup = function(server)
-    server:setup(opts)
-  end
 }
