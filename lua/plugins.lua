@@ -37,10 +37,9 @@ local function init()
 
   -- Theme
   use {
-    "catppuccin/nvim",
-    as = "catppuccin",
+    "folke/tokyonight.nvim",
     config = function()
-      require("plugin-config.catppuccin")
+      vim.cmd [[colorscheme tokyonight]]
     end
   }
 
@@ -94,10 +93,9 @@ local function init()
     "nvim-lualine/lualine.nvim",
     requires = {"kyazdani42/nvim-web-devicons"},
     config = function()
-      local custom_gruvbox = require "lualine.themes.onedark"
       require("lualine").setup(
         {
-          theme = custom_gruvbox
+          theme = "tokyonight"
         }
       )
     end
