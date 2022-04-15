@@ -171,7 +171,11 @@ local function init()
       return require("indent_blankline").setup(
         {
           filetype_exclude = {
-            "alpha"
+            "alpha",
+            "packer",
+            "terminal",
+            "lsp-installer",
+            "lspinfo"
           }
         }
       )
@@ -254,6 +258,8 @@ local function init()
   -- Prettier,这个是全局的
   use {"prettier/vim-prettier", run = "yarn install"}
 
+  use {"b0o/schemastore.nvim"}
+
   -- editorconfig
   -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如缩进等文件规范
   use {
@@ -265,16 +271,6 @@ local function init()
     run = ":GlowInstall"
   }
 
-  -- emmet插件 使用 ,, 触发补全，
-  use {
-    "mattn/emmet-vim",
-    setup = [[require("plugin-config.emmet")]],
-    config = function()
-      vim.api.nvim_command(
-        [[autocmd FileType html,css,javascript,javascriptreact,vue,typescript,typescriptreact EmmetInstall]]
-      )
-    end
-  }
   use {
     "kristijanhusak/vim-dadbod-ui",
     config = [[require("plugin-config.dadod")]],

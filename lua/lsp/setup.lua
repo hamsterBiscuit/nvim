@@ -6,9 +6,10 @@ local servers = {
   eslint = {},
   html = require("lsp.config.html"),
   jsonls = require("lsp.config.json"),
-  tsserver = {},
+  -- tsserver = {},
   tailwindcss = {},
-  volar = require("lsp.config.volar")
+  volar = require("lsp.config.volar"),
+  emmet_ls = {},
 }
 
 for name, _ in pairs(servers) do
