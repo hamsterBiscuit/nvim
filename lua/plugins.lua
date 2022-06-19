@@ -37,9 +37,9 @@ local function init()
 
   -- Theme
   use {
-    "folke/tokyonight.nvim",
+    "glepnir/zephyr-nvim",
     config = function()
-      vim.cmd [[colorscheme tokyonight]]
+      return require("zephyr")
     end
   }
 
@@ -52,7 +52,7 @@ local function init()
     requires = {"hrsh7th/cmp-nvim-lsp"},
     config = [[require("lsp.setup")]]
   }
-  use {"tami5/lspsaga.nvim", config = [[require("lspsaga").setup {}]]}
+  use {"glepnir/lspsaga.nvim", config = [[require("lspsaga").init_lsp_saga()]]}
 
   -- auto completion
   use {
@@ -103,10 +103,8 @@ local function init()
 
   -- Dashboard
   use {
-    "goolord/alpha-nvim",
-    config = function()
-      require "alpha".setup(require "alpha.themes.dashboard".config)
-    end
+    "glepnir/dashboard-nvim",
+    config = [[require("plugin-config.dashboard")]]
   }
 
   -- Typing
