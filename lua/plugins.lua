@@ -39,7 +39,7 @@ local function init()
   use {
     "glepnir/zephyr-nvim",
     config = function()
-      return require("zephyr")
+      vim.cmd('colorscheme zephyr')
     end
   }
 
@@ -90,15 +90,9 @@ local function init()
   }
   -- Status bar
   use {
-    "nvim-lualine/lualine.nvim",
-    requires = {"kyazdani42/nvim-web-devicons"},
-    config = function()
-      require("lualine").setup(
-        {
-          theme = "tokyonight"
-        }
-      )
-    end
+    "glepnir/galaxyline.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = [[require("plugin-config.galaxyline")]]
   }
 
   -- Dashboard
