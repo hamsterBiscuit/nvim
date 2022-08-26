@@ -1,4 +1,11 @@
-local lsp_installer = require("nvim-lsp-installer")
+
+local mason = require("mason")
+local mason_registry = require("mason-registry")
+local mason_lspconfig = require("mason-lspconfig")
+local lspconfig = require("lspconfig")
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local servers = {
   sumneko_lua = require("lsp.config.lua"),
@@ -12,41 +19,63 @@ local servers = {
   emmet_ls = {},
 }
 
-for name, _ in pairs(servers) do
-  local server_is_found, server = lsp_installer.get_server(name)
-  if server_is_found then
-    if not server:is_installed() then
+mason.setup()
+mason_lspconfig.setup()
+
+for name in pairs(servers) do
+  local ok, package = pcall(mason.get_package, name)
+    print(name)
+
+  mason_registry.get_package(name)
+  if ok then
+    if not mason_registry.is_installed(name) then
       vim.notify("Install Language Server : " .. name, "WARN", {title = "Language Servers"})
-      server:install()
+      package.install()
     end
   end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local names = mason_lspconfig.get_installed_servers()
 
-lsp_installer.on_server_ready(
-  function(server)
-    local config = servers[server.name]
-    if config == nil then
-      return
-    end
-    if config.opts then
-      config.opts.capabilities = capabilities
-      config.opts.root_dir = function()
-        return vim.fn.getcwd()
-      end
-      server:setup(config.opts)
-    else
-      server:setup({
-        root_dir = function()
-          return vim.fn.getcwd()
-        end,
-        capabilities = capabilities
-      })
-    end
-  end
-)
+
+
+
+-- local lsp_installer = require("nvim-lsp-installer")
+--
+--
+-- for name, _ in pairs(servers) do
+--   local server_is_found, server = lsp_installer.get_server(name)
+--   if server_is_found then
+--     if not server:is_installed() then
+--       vim.notify("Install Language Server : " .. name, "WARN", {title = "Language Servers"})
+--       server:install()
+--     end
+--   end
+-- end
+--
+--
+-- lsp_installer.on_server_ready(
+--   function(server)
+--     local config = servers[server.name]
+--     if config == nil then
+--       return
+--     end
+--     if config.opts then
+--       config.opts.capabilities = capabilities
+--       config.opts.root_dir = function()
+--         return vim.fn.getcwd()
+--       end
+--       server:setup(config.opts)
+--     else
+--       server:setup({
+--         root_dir = function()
+--           return vim.fn.getcwd()
+--         end,
+--         capabilities = capabilities
+--       })
+--     end
+--   end
+-- )
 
 -- 诊断样式定制
 vim.diagnostic.config(

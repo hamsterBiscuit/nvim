@@ -45,13 +45,19 @@ local function init()
 
   -- LSP
   use {
-    "neovim/nvim-lspconfig"
-  }
-  use {
-    "williamboman/nvim-lsp-installer",
-    requires = {"hrsh7th/cmp-nvim-lsp"},
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
     config = [[require("lsp.setup")]]
   }
+  -- use {
+  --   "neovim/nvim-lspconfig"
+  -- }
+  -- use {
+  --   "williamboman/nvim-lsp-installer",
+  --   requires = {"hrsh7th/cmp-nvim-lsp"},
+  --   config = [[require("lsp.setup")]]
+  -- }
   use {"glepnir/lspsaga.nvim", config = [[require("lspsaga").init_lsp_saga()]]}
 
   -- auto completion

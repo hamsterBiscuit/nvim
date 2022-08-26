@@ -1,15 +1,18 @@
 local util = require "lspconfig.util"
+
 local function get_typescript_server_path(root_dir)
-  local project_root = util.find_node_modules_ancestor(root_dir)
-
-  local local_tsserverlib =
-    project_root ~= nil and util.path.join(project_root, "node_modules", "typescript", "lib", "tsserverlibrary.js")
-  local global_tsserverlib = "/home/yongqi/.nvm/versions/node/v17.8.0/lib/node_modules/typescript/lib/tsserverlibrary.js"
-
-  if local_tsserverlib and util.path.exists(local_tsserverlib) then
-    return local_tsserverlib
+  local global_ts = os.getenv('NPM_MODULES') + '/typescript/lib/tsserverlibrary.js'
+  local found_ts = ''
+  local function check_dir(path)
+    found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib', 'tsserverlibrary.js')
+    if util.path.exists(found_ts) then
+      return path
+    end
+  end
+  if util.search_ancestors(root_dir, check_dir) then
+    return found_ts
   else
-    return global_tsserverlib
+    return global_ts
   end
 end
 
