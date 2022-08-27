@@ -1,9 +1,7 @@
 return {
-  opts = {
-    settings = {
-      json = {
-        schemas = require("schemastore").json.schemas()
-      }
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas()
     }
   }
 }
