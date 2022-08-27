@@ -13,7 +13,6 @@ local servers = {
   eslint = {},
   html = require("lsp.config.html"),
   jsonls = require("lsp.config.json"),
-  -- tsserver = {},
   tailwindcss = {},
   volar = require("lsp.config.volar"),
   emmet_ls = {},
@@ -22,24 +21,33 @@ local servers = {
 mason.setup()
 mason_lspconfig.setup()
 
-for name in pairs(servers) do
-  local ok, package = pcall(mason.get_package, name)
-    print(name)
-
-  mason_registry.get_package(name)
-  if ok then
-    if not mason_registry.is_installed(name) then
-      vim.notify("Install Language Server : " .. name, "WARN", {title = "Language Servers"})
-      package.install()
-    end
-  end
-end
-
-local names = mason_lspconfig.get_installed_servers()
-
-
-
-
+mason_lspconfig.setup_handlers {
+  function(serner_name)
+    lspconfig[server_name].setup {}
+  end,
+  ["sumneko_lua"] = function()
+    lspconfig.sumneko_lua.setup(servers.sumneko_lua)
+  end,
+  ["cssls"] = function()
+    servers.cssls.capabilities = capabilities
+    lspconfig.cssls.setup(servers.cssls)
+  end,
+  ["html"] = function()
+    servers.html.capabilities = capabilities
+    lspconfig.html.setup(servers.html)
+  end,
+  ["jsonls"] = function()
+    lspconfig.json.setup(servers.json)
+  end,
+  ["tailwindcss"] = function()
+    servers.tailwindcss.capabilities = capabilities
+    lspconfig.tailwindcss.setup(servers.tailwindcss)
+  end,
+  ["volar"] = function()
+    servers.volar.capabilities = capabilities
+    lspconfig.volar.setup(servers.volar)
+  end,
+}
 -- local lsp_installer = require("nvim-lsp-installer")
 --
 --
