@@ -20,34 +20,6 @@ for name, config in pairs(servers) do
   lspconfig[name].setup(config)
 end
 
--- mason_lspconfig.setup_handlers {
---   function(server_name)
---     lspconfig[server_name].setup {}
---   end,
---   ["sumneko_lua"] = function()
---     lspconfig.sumneko_lua.setup(servers.sumneko_lua)
---   end,
---   ["cssls"] = function()
---     servers.cssls.capabilities = capabilities
---     lspconfig.cssls.setup(servers.cssls)
---   end,
---   ["html"] = function()
---     servers.html.capabilities = capabilities
---     lspconfig.html.setup(servers.html)
---   end,
---   ["jsonls"] = function()
---     lspconfig.json.setup(servers.json)
---   end,
---   ["tailwindcss"] = function()
---     servers.tailwindcss.capabilities = capabilities
---     lspconfig.tailwindcss.setup(servers.tailwindcss)
---   end,
---   ["volar"] = function()
---     servers.volar.capabilities = capabilities
---     lspconfig.volar.setup(servers.volar)
---   end,
--- }
-
 -- 诊断样式定制
 vim.diagnostic.config(
   {
