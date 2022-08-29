@@ -60,14 +60,6 @@ packer.startup({
         require("lsp.setup")
       end
     }
-    -- use {
-    --   "neovim/nvim-lspconfig"
-    -- }
-    -- use {
-    --   "williamboman/nvim-lsp-installer",
-    --   requires = {"hrsh7th/cmp-nvim-lsp"},
-    --   config = [[require("lsp.setup")]]
-    -- }
     use { "glepnir/lspsaga.nvim", config = [[require("lspsaga").init_lsp_saga()]] }
 
     -- auto completion
