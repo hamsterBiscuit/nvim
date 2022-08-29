@@ -60,7 +60,7 @@ packer.startup({
         require("lsp.setup")
       end
     }
-    use { "glepnir/lspsaga.nvim", config = [[require("lspsaga").init_lsp_saga()]] }
+    use { "glepnir/lspsaga.nvim", config = [[require("plugin-config.lspsaga")]] }
 
     -- auto completion
     use {

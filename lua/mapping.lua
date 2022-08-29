@@ -58,8 +58,7 @@ vim.api.nvim_set_keymap("n", "<Leader>fh", ":<C-u>Telescope oldfiles<CR>", {sile
 vim.api.nvim_set_keymap("n", "<Leader>e", ":<C-u>NvimTreeToggle<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>F", ":<C-u>NvimTreeFindFile<CR>", {silent = true, noremap = true})
 
--- Vista
-vim.api.nvim_set_keymap("n", "<Leader>v", ":<C-u>SymbolsOutline<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<Leader>o", ":<C-u>LSoutlineToggle<CR>", {silent = true, noremap = true})
 
 -- BufferLine
 vim.api.nvim_set_keymap("n", "<Leader>1", "<cmd>BufferLineGoToBuffer 1<CR>", {silent = true, noremap = true})

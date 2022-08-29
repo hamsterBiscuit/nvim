@@ -20,22 +20,25 @@ for name, config in pairs(servers) do
   lspconfig[name].setup(config)
 end
 
--- 诊断样式定制
-vim.diagnostic.config(
-  {
-    -- 诊断的虚拟文本
-    virtual_text = {
-      -- 显示的前缀，可选项：'●', '▎', 'x'
-      -- 默认是一个小方块，不是很好看，所以这里改了
-      prefix = "●",
-      -- 是否总是显示前缀？是的
-      source = "always"
-    },
-    float = {
-      -- 是否显示诊断来源？是的
-      source = "always"
-    },
-    -- 在插入模式下是否显示诊断？不要
-    update_in_insert = true
-  }
-)
+local signs = {
+  Error = ' ',
+  Warn = ' ',
+  Info = ' ',
+  Hint = ' ',
+}
+for type, icon in pairs(signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+vim.diagnostic.config({
+  signs = true,
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  virtual_text = {
+    source = true,
+    prefix = "●",
+  },
+})
+
