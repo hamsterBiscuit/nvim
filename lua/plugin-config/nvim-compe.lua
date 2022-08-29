@@ -28,16 +28,18 @@ end
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
 
-lspkind.init({
-  mode = "symbol_text",
-  preset = "codicons",
-})
+lspkind.init(
+  {
+    mode = "symbol_text",
+    preset = "codicons"
+  }
+)
 
 cmp.setup(
   {
-    completion = {
-      completeopt = "menu,menuone,noselect"
-    },
+    -- completion = {
+    --   completeopt = "menu,menuone,noselect"
+    -- },
     snippet = {
       expand = function(args)
         vim.fn["vsnip#anonymous"](args.body)
@@ -84,14 +86,21 @@ cmp.setup(
 cmp.setup.cmdline(
   ":",
   {
-    sources = {
-      {name = "cmdline"}
-    }
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources(
+      {
+        {name = "path"}
+      },
+      {
+        {name = "cmdline"}
+      }
+    )
   }
 )
 cmp.setup.cmdline(
   "/",
   {
+    mapping = cmp.mapping.preset.cmdline(),
     sources = {{name = "buffer"}}
   }
 )
