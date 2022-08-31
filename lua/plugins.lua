@@ -212,7 +212,7 @@ packer.startup({
     }
 
     -- 当前光标下划线 高亮
-    use { "yamatsum/nvim-cursorline" }
+    use { "yamatsum/nvim-cursorline", config = [[require("plugin-config.nvim-cursorline")]] }
 
     -- 颜色荧光笔
     use {
