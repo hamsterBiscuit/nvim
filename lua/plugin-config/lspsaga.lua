@@ -1,6 +1,6 @@
-local lspsaga = require("lspsaga")
+local lspsagaCore = require("lspsaga")
 
-lspsaga.init_lsp_saga(
+lspsagaCore.init_lsp_saga(
   {
     symbol_in_winbar = {
       in_custom = true
@@ -49,11 +49,11 @@ local function config_winbar_or_statusline()
     end
     vim.wo.winbar = win_val
     -- if work in statusline
-    vim.wo.stl = win_val
+    -- vim.wo.stl = win_val
   end
 end
 
-local events = {"BufEnter", "BufWinEnter", "CursorMoved"}
+local events = {"BufEnter", "BufWinEnter", 'CursorMoved', 'WinLeave', 'User LspsagaUpdateSymbol'}
 
 vim.api.nvim_create_autocmd(
   events,
