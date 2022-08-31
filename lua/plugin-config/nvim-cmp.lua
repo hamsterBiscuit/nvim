@@ -26,7 +26,7 @@ local s_tab_complete = function(fallback)
   end
 end
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 lspkind.init(
   {
@@ -37,9 +37,7 @@ lspkind.init(
 
 cmp.setup(
   {
-    -- completion = {
-    --   completeopt = "menu,menuone,noselect"
-    -- },
+    preselect = cmp.PreselectMode.Item,
     snippet = {
       expand = function(args)
         vim.fn["vsnip#anonymous"](args.body)
