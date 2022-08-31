@@ -39,10 +39,8 @@ packer.startup(
 
       use {
         "lewis6991/impatient.nvim",
-        config = function()
-          require("impatient").enable_profile()
-        end
       }
+      use {"dstein64/vim-startuptime"}
       -- Theme
       use {
         "glepnir/zephyr-nvim",
