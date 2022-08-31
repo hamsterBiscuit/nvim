@@ -286,6 +286,7 @@ packer.startup(
       -- Prettier,这个是全局的
       use {"prettier/vim-prettier", run = "yarn install"}
 
+      -- 一个Neovim Lua插件，提供对SchemaStore目录的访问。
       use {"b0o/schemastore.nvim"}
 
       -- editorconfig
@@ -349,12 +350,6 @@ packer.startup(
               hi_parameter = "LspSignatureActiveParameter"
             }
           )
-        end
-      }
-      use {
-        "kosayoda/nvim-lightbulb",
-        config = function()
-          require("plugin-config.nvim-lightbulb")
         end
       }
       if packer_bootstrap then
