@@ -45,7 +45,7 @@ cmp.setup(
         vim.fn["vsnip#anonymous"](args.body)
       end
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
       ["<Tab>"] = tab_complete,
       ["<C-j>"] = tab_complete,
       ["<S-Tab>"] = s_tab_complete,
@@ -53,8 +53,12 @@ cmp.setup(
         behavior = cmp.ConfirmBehavior.Replace,
         select = false
       },
-      ["<C-k>"] = s_tab_complete
-    },
+      ["<C-k>"] = s_tab_complete,
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["CR>"] = cmp.mapping.complete({ select = true })
+    }),
     sources = cmp.config.sources(
       {
         {name = "nvim_lsp"}

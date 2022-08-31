@@ -9,36 +9,42 @@ local servers = {
   sumneko_lua = require("lsp.config.lua"),
   jsonls = require("lsp.config.json"),
   volar = require("lsp.config.volar"),
+  cssls = {},
+  eslint = {},
+  html = {},
+  tailwindcss = {}
 }
 
 mason.setup {}
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls" }
+  ensure_installed = {"sumneko_lua", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls"}
 }
 
 for name, config in pairs(servers) do
+  config.capabilities = capabilities
   lspconfig[name].setup(config)
 end
 
 local signs = {
-  Error = ' ',
-  Warn = ' ',
-  Info = ' ',
-  Hint = ' ',
+  Error = " ",
+  Warn = " ",
+  Info = " ",
+  Hint = " "
 }
 for type, icon in pairs(signs) do
-  local hl = 'DiagnosticSign' .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end
 
-vim.diagnostic.config({
-  signs = true,
-  update_in_insert = false,
-  underline = true,
-  severity_sort = true,
-  virtual_text = {
-    source = true,
-    prefix = "●",
-  },
-})
-
+vim.diagnostic.config(
+  {
+    signs = true,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    virtual_text = {
+      source = true,
+      prefix = "●"
+    }
+  }
+)

@@ -69,7 +69,7 @@ packer.startup(
       -- auto completion
       use {
         "hrsh7th/nvim-cmp",
-        config = [[require("plugin-config.nvim-compe")]],
+        config = [[require("plugin-config.nvim-cmp")]],
         requires = {
           {"hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"},
           {"hrsh7th/cmp-buffer", after = "nvim-cmp"},
@@ -280,11 +280,6 @@ packer.startup(
       use {
         "mhartington/formatter.nvim",
         config = [[require("plugin-config.formatter")]]
-      }
-
-      -- Tag 展示插件，目前主要使用lsp提供，CTAG也依然好用
-      use {
-        "simrat39/symbols-outline.nvim"
       }
 
       -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
