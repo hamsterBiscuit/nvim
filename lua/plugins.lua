@@ -399,6 +399,7 @@ packer.startup(
           )
         end
       }
+      use {"antoinemadec/FixCursorHold.nvim", event = "BufReadPre"}
       if packer_bootstrap then
         packer.sync()
       end
