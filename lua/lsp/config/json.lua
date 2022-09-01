@@ -1,3 +1,4 @@
+vim.cmd [[packadd schemastore.nvim]]
 return {
   settings = {
     json = {

@@ -40,7 +40,6 @@ packer.startup(
       use {
         "lewis6991/impatient.nvim"
       }
-      use {"dstein64/vim-startuptime"}
       -- Theme
       use {
         "glepnir/zephyr-nvim",
@@ -51,10 +50,6 @@ packer.startup(
       }
 
       -- LSP
-      use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim"
-      }
       local enable_lsp_filetype = {
         "go",
         "lua",
@@ -74,6 +69,11 @@ packer.startup(
         "stylus",
         "json",
         "python"
+      }
+      use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        ft = enable_lsp_filetype
       }
       use {
         "neovim/nvim-lspconfig",
@@ -116,6 +116,7 @@ packer.startup(
       -- Navbar
       use {
         "akinsho/bufferline.nvim",
+        event = {"BufRead", "BufNewFile"},
         requires = {"kyazdani42/nvim-web-devicons"},
         config = [[require("plugin-config.bufferline")]]
       }
@@ -135,6 +136,7 @@ packer.startup(
       -- Typing
       use {
         "xiyaowong/accelerated-jk.nvim",
+        event = {"BufRead", "BufNewFile"},
         config = function()
           require("accelerated-jk").setup {
             -- equal to
@@ -162,17 +164,22 @@ packer.startup(
       -- Comment
       use {
         "numToStr/Comment.nvim",
+        event = {"BufRead", "BufNewFile"},
         requires = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
         config = function()
           require("plugin-config.Comment")
         end
       }
       -- f t
-      use {"ggandor/lightspeed.nvim"}
+      use {
+        "ggandor/lightspeed.nvim",
+        event = {"BufRead", "BufNewFile"}
+      }
 
       -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
       use {
         "karb94/neoscroll.nvim",
+        event = {"BufRead", "BufNewFile"},
         config = function()
           require("neoscroll").setup()
         end
@@ -180,6 +187,7 @@ packer.startup(
       -- 增删改引号
       use {
         "ur4ltz/surround.nvim",
+        event = {"BufRead", "BufNewFile"},
         config = function()
           require "surround".setup {mappings_style = "surround"}
         end
@@ -188,6 +196,7 @@ packer.startup(
       -- 缩进线插件
       use {
         "lukas-reineke/indent-blankline.nvim",
+        event = {"BufRead", "BufNewFile"},
         config = function()
           return require("indent_blankline").setup(
             {
@@ -235,11 +244,16 @@ packer.startup(
       }
 
       -- 当前光标下划线 高亮
-      use {"yamatsum/nvim-cursorline", config = [[require("plugin-config.nvim-cursorline")]]}
+      use {
+        "yamatsum/nvim-cursorline",
+        event = {"BufRead", "BufNewFile"},
+        config = [[require("plugin-config.nvim-cursorline")]]
+      }
 
       -- 颜色荧光笔
       use {
         "norcalli/nvim-colorizer.lua",
+        event = {"BufRead", "BufNewFile"},
         config = [[require("plugin-config.nvim-colorizer")]]
       }
 
@@ -284,6 +298,7 @@ packer.startup(
       -- git信息展示 :SignifyDiff
       use {
         "lewis6991/gitsigns.nvim",
+        event = {"BufRead", "BufNewFile"},
         config = [[require("plugin-config.gitsigns")]],
         requires = {
           "nvim-lua/plenary.nvim"
@@ -294,6 +309,7 @@ packer.startup(
       use {
         "windwp/nvim-autopairs",
         requires = "nvim-cmp",
+        evnet = "InsertEnter",
         config = function()
           require("nvim-autopairs").setup {}
         end
@@ -302,47 +318,54 @@ packer.startup(
       -- 目前配置了lua和js，ts的格式化
       use {
         "mhartington/formatter.nvim",
+        cmd = "Format",
         config = [[require("plugin-config.formatter")]]
       }
 
       -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
       -- Prettier,这个是全局的
-      use {"prettier/vim-prettier", run = "yarn install"}
+      use {"prettier/vim-prettier", cmd = "Prettier", run = "yarn install"}
 
       -- 一个Neovim Lua插件，提供对SchemaStore目录的访问。
-      use {"b0o/schemastore.nvim"}
+      use {"b0o/schemastore.nvim", opt = true}
 
       -- editorconfig
       -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如缩进等文件规范
       use {
-        "editorconfig/editorconfig-vim"
+        "editorconfig/editorconfig-vim",
+        ft = enable_lsp_filetype
       }
 
       use {
         "npxbr/glow.nvim",
+        cmd = "Glow",
         run = ":GlowInstall"
       }
 
       use {
         "kristijanhusak/vim-dadbod-ui",
+        cmd = {"DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer"},
         config = [[require("plugin-config.dadod")]],
         requires = {{"tpope/vim-dadbod", opt = true}}
       }
-      use {"leafOfTree/vim-vue-plugin"}
+      use {"leafOfTree/vim-vue-plugin", ft = "vue"}
       use {
         "ethanholz/nvim-lastplace",
+        event = {"BufRead", "BufNewFile"},
         config = function()
           require("plugin-config.nvim-lastplace")
         end
       }
       use {
         "petertriho/nvim-scrollbar",
+        event = {"BufRead", "BufNewFile"},
         config = function()
           require("plugin-config.nvim-scrollbar")
         end
       }
       use {
         "akinsho/toggleterm.nvim",
+        cmd = "ToggleTerm",
         config = function()
           require("plugin-config.toggleterm")
         end
@@ -355,12 +378,14 @@ packer.startup(
       }
       use {
         "j-hui/fidget.nvim",
+        ft = enable_lsp_filetype,
         config = function()
           require("fidget").setup {}
         end
       }
       use {
         "ray-x/lsp_signature.nvim",
+        event = "InsertEnter",
         config = function()
           require("lsp_signature").setup(
             {
