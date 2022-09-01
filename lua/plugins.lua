@@ -38,15 +38,15 @@ packer.startup(
       use {"wbthomason/packer.nvim"}
 
       use {
-        "lewis6991/impatient.nvim",
+        "lewis6991/impatient.nvim"
       }
       use {"dstein64/vim-startuptime"}
       -- Theme
       use {
         "glepnir/zephyr-nvim",
-        requires = {"nvim-treesitter/nvim-treesitter"},
+        requires = {"nvim-treesitter/nvim-treesitter", opt = true},
         config = function()
-          require('zephyr')
+          require("zephyr")
         end
       }
 
@@ -55,21 +55,42 @@ packer.startup(
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim"
       }
+      local enable_lsp_filetype = {
+        "go",
+        "lua",
+        "sh",
+        "rust",
+        "c",
+        "cpp",
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "vue",
+        "css",
+        "html",
+        "sass",
+        "less",
+        "stylus",
+        "json",
+        "python"
+      }
       use {
         "neovim/nvim-lspconfig",
-        requires = {"hrsh7th/cmp-nvim-lsp"},
+        ft = enable_lsp_filetype,
         config = function()
           require("lsp.setup")
         end
       }
-      use {"glepnir/lspsaga.nvim", config = [[require("plugin-config.lspsaga")]]}
+      use {"glepnir/lspsaga.nvim", after = "nvim-lspconfig", config = [[require("plugin-config.lspsaga")]]}
 
       -- auto completion
       use {
         "hrsh7th/nvim-cmp",
         config = [[require("plugin-config.nvim-cmp")]],
+        event = "InsertEnter",
         requires = {
-          {"hrsh7th/cmp-nvim-lsp", after = "nvim-cmp"},
+          {"hrsh7th/cmp-nvim-lsp", after = "nvim-lspconfig"},
           {"hrsh7th/cmp-buffer", after = "nvim-cmp"},
           {"hrsh7th/cmp-path", after = "nvim-cmp"},
           {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp"},
@@ -141,7 +162,7 @@ packer.startup(
       -- Comment
       use {
         "numToStr/Comment.nvim",
-        requires = {"JoosepAlviste/nvim-ts-context-commentstring"},
+        requires = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
         config = function()
           require("plugin-config.Comment")
         end
@@ -225,6 +246,7 @@ packer.startup(
       -- fuzzyfind 模糊搜索
       use {
         "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
         requires = {
           {"nvim-lua/popup.nvim", opt = true},
           {"nvim-lua/plenary.nvim", opt = true}
@@ -247,12 +269,15 @@ packer.startup(
             end
           }
         },
+        event = "BufRead",
+        after = "telescope.nvim",
         config = [[require("plugin-config.treesitter")]]
       }
 
       -- 文件管理
       use {
         "kyazdani42/nvim-tree.lua",
+        cmd = "NvimTreeToggle",
         config = [[require("plugin-config.nvim-tree")]]
       }
 
@@ -353,6 +378,12 @@ packer.startup(
       if packer_bootstrap then
         packer.sync()
       end
-    end
+    end,
+    config = {
+      profile = {
+        enable = true,
+        threshold = 1
+      }
+    }
   }
 )
