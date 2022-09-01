@@ -136,7 +136,6 @@ packer.startup(
       -- Typing
       use {
         "xiyaowong/accelerated-jk.nvim",
-        event = {"BufRead", "BufNewFile"},
         config = function()
           require("accelerated-jk").setup {
             -- equal to
