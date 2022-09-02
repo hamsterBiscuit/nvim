@@ -12,12 +12,13 @@ local servers = {
   cssls = {},
   eslint = {},
   html = {},
-  tailwindcss = {}
+  tailwindcss = {},
+  pyright = {}
 }
 
 mason.setup {}
 mason_lspconfig.setup {
-  ensure_installed = {"sumneko_lua", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls"}
+  ensure_installed = {"sumneko_lua", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls", "pyright"}
 }
 
 for name, config in pairs(servers) do
