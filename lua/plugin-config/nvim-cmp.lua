@@ -31,7 +31,7 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 lspkind.init(
   {
     mode = "symbol_text",
-    preset = "codicons"
+    -- preset = "codicons"
   }
 )
 

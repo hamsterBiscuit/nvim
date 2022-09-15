@@ -7,6 +7,7 @@ require("nvim-tree").setup {
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
+  ignore_ft_on_setup = {"dashboard"},
   update_cwd = true,
   renderer = {
     indent_markers = {
@@ -65,7 +66,7 @@ require("nvim-tree").setup {
     hide_root_folder = false,
     mappings = {
       list = {
-        {key = "l", action = "edit"},
+        {key = {"l"}, action = "edit"},
         {key = {"s"}, action = "split"},
         {key = {"v"}, action = "vsplit"}
       }
@@ -75,7 +76,6 @@ require("nvim-tree").setup {
     enable = true,
     auto_open = true
   },
-  ignore_ft_on_setup = {},
   filters = {
     dotfiles = false,
     custom = {".DS_Store"},
