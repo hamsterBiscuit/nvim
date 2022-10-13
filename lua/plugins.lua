@@ -409,6 +409,9 @@ packer.startup(
       profile = {
         enable = true,
         threshold = 1
+      },
+      git = {
+        clone_timeout = 1000
       }
     }
   }
