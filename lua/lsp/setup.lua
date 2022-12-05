@@ -2,8 +2,10 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local servers = {
   sumneko_lua = require("lsp.config.lua"),
