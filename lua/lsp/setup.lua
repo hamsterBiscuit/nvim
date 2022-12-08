@@ -2,6 +2,7 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 
+vim.cmd([[packadd cmp-nvim-lsp]])
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
