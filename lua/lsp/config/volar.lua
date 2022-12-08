@@ -3,7 +3,6 @@ local util = require "lspconfig.util"
 local function get_typescript_server_path(root_dir)
   local global_ts = os.getenv('NPM_MODULES') .. '/typescript/lib'
   local global_ts = '/usr/local/lib/node_modules/typescript/lib'
-  print(os.getenv('NPM_MODULES') .. '/typescript/lib');
   local found_ts = ''
   local function check_dir(path)
     found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')

@@ -4,7 +4,8 @@ require("telescope").setup {
   defaults = {
     sorting_strategy = "ascending",
     layout_config = {
-      prompt_position = "top",
+      horizontal = { prompt_position = 'top', results_width = 0.6 },
+      vertical = { mirror = false },
     },
     prompt_prefix = "🔭 ",
     selection_caret = " ",

@@ -5,7 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.notify("正在安装Pakcer.nvim，请稍后...")
   -- "!git clone https://github.com/wbthomason/packer.nvim " .. install_path
   packer_bootstrap =
-    fn.system(
+  fn.system(
     {
       "git",
       "clone",
@@ -35,7 +35,7 @@ packer.startup(
   {
     function(use)
       -- plugins manger
-      use {"wbthomason/packer.nvim"}
+      use { "wbthomason/packer.nvim" }
 
       use {
         "lewis6991/impatient.nvim"
@@ -43,7 +43,7 @@ packer.startup(
       -- Theme
       use {
         "glepnir/zephyr-nvim",
-        requires = {"nvim-treesitter/nvim-treesitter", opt = true},
+        requires = { "nvim-treesitter/nvim-treesitter", opt = true },
         config = function()
           require("zephyr")
         end
@@ -82,7 +82,7 @@ packer.startup(
           require("lsp.setup")
         end
       }
-      use {"glepnir/lspsaga.nvim", after = "nvim-lspconfig", config = [[require("plugin-config.lspsaga")]]}
+      use { "glepnir/lspsaga.nvim", after = "nvim-lspconfig", config = [[require("plugin-config.lspsaga")]] }
 
       -- auto completion
       use {
@@ -90,34 +90,28 @@ packer.startup(
         config = [[require("plugin-config.nvim-cmp")]],
         event = "InsertEnter",
         requires = {
-          {"hrsh7th/cmp-nvim-lsp", after = "nvim-lspconfig"},
-          {"hrsh7th/cmp-buffer", after = "nvim-cmp"},
-          {"hrsh7th/cmp-path", after = "nvim-cmp"},
-          {"quangnguyen30192/cmp-nvim-tags", after = "nvim-cmp"},
-          {"hrsh7th/cmp-vsnip", after = "nvim-cmp"},
+          { "hrsh7th/cmp-nvim-lsp", after = "nvim-lspconfig" },
+          { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+          { "hrsh7th/cmp-path", after = "nvim-cmp" },
+          { "hrsh7th/cmp-vsnip", after = "nvim-cmp" },
           {
             "hrsh7th/vim-vsnip",
             after = "nvim-cmp",
-            requires = {
-              {"xabikos/vscode-javascript"},
-              {"hollowtree/vscode-vue-snippets"}
-            },
             config = [[require("plugin-config.vsnip")]]
           },
-          {"hrsh7th/vim-vsnip-integ", after = "nvim-cmp"},
-          {"kristijanhusak/vim-dadbod-completion"},
-          {"hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp"},
-          {"hrsh7th/cmp-cmdline", after = "cmp-buffer"},
-          {"onsails/lspkind-nvim", requires = "nvim-cmp"},
-          {"rafamadriz/friendly-snippets", requires = "nvim-cmp"}
+          { "hrsh7th/vim-vsnip-integ", after = "nvim-cmp" },
+          { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
+          { "hrsh7th/cmp-cmdline", after = "cmp-buffer" },
+          { "onsails/lspkind-nvim", requires = "nvim-cmp" },
+          { "rafamadriz/friendly-snippets", requires = "nvim-cmp" }
         }
       }
 
       -- Navbar
       use {
         "akinsho/bufferline.nvim",
-        event = {"BufRead", "BufNewFile"},
-        requires = {"kyazdani42/nvim-web-devicons"},
+        event = { "BufRead", "BufNewFile" },
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = [[require("plugin-config.bufferline")]]
       }
       -- Status bar
@@ -136,17 +130,17 @@ packer.startup(
       -- Typing
       use {
         "xiyaowong/accelerated-jk.nvim",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = function()
           require("accelerated-jk").setup {
             -- equal to
             -- nmap <silent> j <cmd>lua require'accelerated-jk'.command('gj')<cr>
             -- nmap <silent> k <cmd>lua require'accelerated-jk'.command('gk')<cr>
-            mappings = {j = "gj", k = "gk"},
+            mappings = { j = "gj", k = "gk" },
             -- If the interval of key-repeat takes more than `acceleration_limit` ms, the step is reset
             acceleration_limit = 150,
             -- acceleration steps
-            acceleration_table = {7, 12, 17, 21, 24, 26, 28, 30},
+            acceleration_table = { 7, 12, 17, 21, 24, 26, 28, 30 },
             -- If you want to decelerate a cursor moving by time instead of reset. set it
             -- exampe:
             -- {
@@ -157,15 +151,15 @@ packer.startup(
             --   { 750, 21 },
             --   { 900, 9999 },
             -- }
-            deceleration_table = {{150, 9999}}
+            deceleration_table = { { 150, 9999 } }
           }
         end
       }
       -- Comment
       use {
         "numToStr/Comment.nvim",
-        event = {"BufRead", "BufNewFile"},
-        requires = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+        event = { "BufRead", "BufNewFile" },
+        requires = { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
         config = function()
           require("plugin-config.Comment")
         end
@@ -173,13 +167,13 @@ packer.startup(
       -- f t
       use {
         "ggandor/lightspeed.nvim",
-        event = {"BufRead", "BufNewFile"}
+        event = { "BufRead", "BufNewFile" }
       }
 
       -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
       use {
         "karb94/neoscroll.nvim",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = function()
           require("neoscroll").setup()
         end
@@ -187,16 +181,16 @@ packer.startup(
       -- 增删改引号
       use {
         "ur4ltz/surround.nvim",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = function()
-          require "surround".setup {mappings_style = "surround"}
+          require "surround".setup { mappings_style = "surround" }
         end
       }
 
       -- 缩进线插件
       use {
         "lukas-reineke/indent-blankline.nvim",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = function()
           return require("indent_blankline").setup(
             {
@@ -224,7 +218,7 @@ packer.startup(
                 "TelescopePrompt",
                 "undotree"
               },
-              buftype_exclude = {"terminal", "nofile", "prompt"},
+              buftype_exclude = { "terminal", "nofile", "prompt" },
               context_patterns = {
                 "class",
                 "function",
@@ -246,14 +240,14 @@ packer.startup(
       -- 当前光标下划线 高亮
       use {
         "yamatsum/nvim-cursorline",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = [[require("plugin-config.nvim-cursorline")]]
       }
 
       -- 颜色荧光笔
       use {
         "norcalli/nvim-colorizer.lua",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = [[require("plugin-config.nvim-colorizer")]]
       }
 
@@ -262,8 +256,8 @@ packer.startup(
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
         requires = {
-          {"nvim-lua/popup.nvim", opt = true},
-          {"nvim-lua/plenary.nvim", opt = true}
+          { "nvim-lua/popup.nvim", opt = true },
+          { "nvim-lua/plenary.nvim", opt = true }
         },
         config = [[require("plugin-config.telescope")]]
       }
@@ -272,9 +266,9 @@ packer.startup(
       use {
         "nvim-treesitter/nvim-treesitter",
         requires = {
-          {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
-          {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
-          {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+          { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
+          { "p00f/nvim-ts-rainbow", after = "nvim-treesitter" },
+          { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" },
           {
             "lewis6991/spellsitter.nvim",
             after = "nvim-treesitter",
@@ -298,7 +292,7 @@ packer.startup(
       -- git信息展示 :SignifyDiff
       use {
         "lewis6991/gitsigns.nvim",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = [[require("plugin-config.gitsigns")]],
         requires = {
           "nvim-lua/plenary.nvim"
@@ -315,6 +309,14 @@ packer.startup(
         end
       }
 
+      use {
+        "glepnir/hlsearch.nvim",
+        event = 'BufRead',
+        config = function()
+          require('hlsearch').setup()
+        end,
+      }
+
       -- 目前配置了lua和js，ts的格式化
       use {
         "mhartington/formatter.nvim",
@@ -324,10 +326,10 @@ packer.startup(
 
       -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
       -- Prettier,这个是全局的
-      use {"prettier/vim-prettier", cmd = "Prettier", run = "yarn install"}
+      use { "prettier/vim-prettier", cmd = "Prettier", run = "yarn install" }
 
       -- 一个Neovim Lua插件，提供对SchemaStore目录的访问。
-      use {"b0o/schemastore.nvim", opt = true}
+      use { "b0o/schemastore.nvim", opt = true }
 
       -- editorconfig
       -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如缩进等文件规范
@@ -344,21 +346,21 @@ packer.startup(
 
       use {
         "kristijanhusak/vim-dadbod-ui",
-        cmd = {"DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer"},
+        cmd = { "DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer" },
         config = [[require("plugin-config.dadod")]],
-        requires = {{"tpope/vim-dadbod", opt = true}}
+        requires = { { "tpope/vim-dadbod", opt = true } }
       }
-      use {"leafOfTree/vim-vue-plugin", ft = "vue"}
+      use { "leafOfTree/vim-vue-plugin", ft = "vue" }
       use {
         "ethanholz/nvim-lastplace",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = function()
           require("plugin-config.nvim-lastplace")
         end
       }
       use {
         "petertriho/nvim-scrollbar",
-        event = {"BufRead", "BufNewFile"},
+        event = { "BufRead", "BufNewFile" },
         config = function()
           require("plugin-config.nvim-scrollbar")
         end
@@ -400,7 +402,7 @@ packer.startup(
           )
         end
       }
-      use {"antoinemadec/FixCursorHold.nvim", event = "BufReadPre"}
+      use { "antoinemadec/FixCursorHold.nvim", event = "BufReadPre" }
       if packer_bootstrap then
         packer.sync()
       end

@@ -59,14 +59,10 @@ cmp.setup(
     }),
     sources = cmp.config.sources(
       {
-        {name = "nvim_lsp"}
-      },
-      {
+        {name = "nvim_lsp"},
         {name = "path"},
-        {name = "buffer"},
         {name = "vsnip"},
-        {name = "tags"},
-        {name = "vim-dadbod-completion"},
+        {name = "buffer"},
         {name = "nvim_lsp_signature_help"}
       }
     ),

@@ -1,4 +1,5 @@
 local home = os.getenv("HOME")
+local z = require('zephyr')
 local db = require("dashboard")
 db.preview_command = "cat | lolcat -F 0.3"
 db.preview_file_path = home .. "/.config/nvim/static/neovim.cat"
