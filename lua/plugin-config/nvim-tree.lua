@@ -6,8 +6,6 @@ require("nvim-tree").setup {
   hijack_cursor = true,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
-  ignore_ft_on_setup = {"dashboard"},
   update_cwd = true,
   renderer = {
     indent_markers = {
