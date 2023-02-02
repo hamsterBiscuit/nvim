@@ -285,7 +285,7 @@ packer.startup(
       -- 文件管理
       use {
         "kyazdani42/nvim-tree.lua",
-        cmd = "NvimTreeToggle",
+        cmd = {"NvimTreeToggle", "NvimTreeFindFile"},
         config = [[require("plugin-config.nvim-tree")]]
       }
 
