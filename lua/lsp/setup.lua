@@ -9,7 +9,6 @@ vim.cmd([[packadd cmp-nvim-lsp]])
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local servers = {
-  sumneko_lua = require("lsp.config.lua"),
   jsonls = require("lsp.config.json"),
   volar = require("lsp.config.volar"),
   cssls = {},
@@ -17,12 +16,13 @@ local servers = {
   html = {},
   tailwindcss = {},
   pyright = {},
-  vtsls = {}
+  vtsls = {},
+  lua_ls=require("lsp.config.lua")
 }
 
 mason.setup {}
 mason_lspconfig.setup {
-  ensure_installed = {"sumneko_lua", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls", "pyright", "vtsls"}
+  ensure_installed = {"lua_ls", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls", "pyright", "vtsls"}
 }
 
 for name, config in pairs(servers) do
