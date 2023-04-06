@@ -1,5 +1,5 @@
-vim.cmd [[packadd plenary.nvim]]
-vim.cmd [[packadd popup.nvim]]
+-- vim.cmd [[packadd plenary.nvim]]
+-- vim.cmd [[packadd popup.nvim]]
 require("telescope").setup {
   defaults = {
     sorting_strategy = "ascending",

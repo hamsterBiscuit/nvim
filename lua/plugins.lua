@@ -1,12 +1,10 @@
-local fn = vim.fn
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.notify("正在安装 lazy.nvim ，请稍后...")
-  fn.system(
+  vim.fn.system(
     {
       "git",
       "clone",
-      "--filter-blob:none",
+      "--filter=blob:none",
       "https://github.com/folke/lazy.nvim.git",
       "--branch=stable", -- latest stable release
       lazypath
@@ -44,14 +42,14 @@ local lazy_config = {
     frequency = 3600 -- check for updates every hour
   }
 }
-require("lazy").startup(
+require("lazy").setup(
   {
     -- plugins manger
     "folke/lazy.nvim",
     -- Theme
     {
       "glepnir/zephyr-nvim",
-      requires = {"nvim-treesitter/nvim-treesitter", opt = true},
+      dependencies = {"nvim-treesitter/nvim-treesitter"},
       config = function()
         require("zephyr")
       end
@@ -105,13 +103,17 @@ require("lazy").startup(
     -- Status bar
     {
       "glepnir/galaxyline.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = [[require("plugin-config.galaxyline")]]
+      dependencies = "nvim-tree/nvim-web-devicons",
+      config = function()
+        require("plugin-config.galaxyline")
+      end
     },
     -- Dashboard
     {
       "glepnir/dashboard-nvim",
-      config = [[require("plugin-config.dashboard")]]
+      config = function()
+        require("plugin-config.dashboard")
+      end
     },
     -- Typing
     {
@@ -145,7 +147,7 @@ require("lazy").startup(
     {
       "numToStr/Comment.nvim",
       event = {"BufRead", "BufNewFile"},
-      requires = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+      dependencies = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
       config = function()
         require("plugin-config.Comment")
       end
@@ -163,7 +165,7 @@ require("lazy").startup(
         "<Plug>Lightspeed_t",
         "<Plug>Lightspeed_T"
       },
-      setup = function()
+      config = function()
         local default_keymaps = {
           {"n", "s", "<Plug>Lightspeed_s"},
           {"n", "S", "<Plug>Lightspeed_S"},
@@ -260,31 +262,37 @@ require("lazy").startup(
     {
       "yamatsum/nvim-cursorline",
       event = {"BufRead", "BufNewFile"},
-      config = [[require("plugin-config.nvim-cursorline")]]
+      config = function()
+        require("plugin-config.nvim-cursorline")
+      end
     },
     -- 颜色荧光笔
     {
       "norcalli/nvim-colorizer.lua",
       event = {"BufRead", "BufNewFile"},
-      config = [[require("plugin-config.nvim-colorizer")]]
+      config = function()
+        require("plugin-config.nvim-colorizer")
+      end
     },
     -- fuzzyfind 模糊搜索
     {
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
-      requires = {
-        {"nvim-lua/popup.nvim", opt = true},
-        {"nvim-lua/plenary.nvim", opt = true}
+      dependencies = {
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim"
       },
-      config = [[require("plugin-config.telescope")]]
+      config = function()
+        require("plugin-config.telescope")
+      end
     },
     -- 高亮
     {
       "nvim-treesitter/nvim-treesitter",
-      requires = {
-        {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter"},
-        {"p00f/nvim-ts-rainbow", after = "nvim-treesitter"},
-        {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+      dependencies = {
+        {"nvim-treesitter/nvim-treesitter-textobjects"},
+        {"p00f/nvim-ts-rainbow"},
+        {"JoosepAlviste/nvim-ts-context-commentstring"},
         {
           "lewis6991/spellsitter.nvim",
           after = "nvim-treesitter",
@@ -294,28 +302,33 @@ require("lazy").startup(
         }
       },
       event = "BufRead",
-      after = "telescope.nvim",
-      config = [[require("plugin-config.treesitter")]]
+      config = function()
+        require("plugin-config.treesitter")
+      end
     },
     -- 文件管理
     {
       "kyazdani42/nvim-tree.lua",
       cmd = {"NvimTreeToggle", "NvimTreeFindFile"},
-      config = [[require("plugin-config.nvim-tree")]]
+      config = function()
+        require("plugin-config.nvim-tree")
+      end
     },
     -- git信息展示 :SignifyDiff
     {
       "lewis6991/gitsigns.nvim",
       event = {"BufRead", "BufNewFile"},
-      config = [[require("plugin-config.gitsigns")]],
-      requires = {
+      config = function()
+        require("plugin-config.gitsigns")
+      end,
+      dependencies = {
         "nvim-lua/plenary.nvim"
       }
     },
     -- 自动括号括回
     {
       "windwp/nvim-autopairs",
-      requires = "nvim-cmp",
+      dependencies = "nvim-cmp",
       evnet = "InsertEnter",
       config = function()
         require("nvim-autopairs").setup {}
@@ -332,11 +345,13 @@ require("lazy").startup(
     {
       "mhartington/formatter.nvim",
       cmd = "Format",
-      config = [[require("plugin-config.formatter")]]
+      config = function()
+        require("plugin-config.formatter")
+      end
     },
     -- lang Prettier 用来格式化js ts文件，formatter 配置为默认使用项目下
     -- Prettier,这个是全局的
-    {"prettier/vim-prettier", cmd = "Prettier", run = "yarn install"},
+    {"prettier/vim-prettier", cmd = "Prettier", build = "yarn install"},
     -- editorconfig
     -- 编辑器配置，个大编辑器都有实现或者有插件，用来统一项目的编辑格式，比如缩进等文件规范
     {
@@ -346,13 +361,15 @@ require("lazy").startup(
     {
       "npxbr/glow.nvim",
       cmd = "Glow",
-      run = ":GlowInstall"
+      build = ":GlowInstall"
     },
     {
       "kristijanhusak/vim-dadbod-ui",
       cmd = {"DBUIToggle", "DBUIAddConnection", "DBUI", "DBUIFindBuffer", "DBUIRenameBuffer"},
-      config = [[require("plugin-config.dadod")]],
-      requires = {{"tpope/vim-dadbod", opt = true}}
+      config = function()
+        require("plugin-config.dadod")
+      end,
+      dependencies = {{"tpope/vim-dadbod"}}
     },
     {"leafOfTree/vim-vue-plugin", ft = "vue"},
     {

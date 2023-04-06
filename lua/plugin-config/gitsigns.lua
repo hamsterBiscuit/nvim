@@ -1,4 +1,4 @@
-vim.cmd [[packadd plenary.nvim]]
+-- vim.cmd [[packadd plenary.nvim]]
 require("gitsigns").setup {
   keymaps = {
     -- Default keymap options
