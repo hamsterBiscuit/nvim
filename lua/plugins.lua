@@ -401,6 +401,7 @@ require("lazy").setup(
     },
     {
       "j-hui/fidget.nvim",
+      tag = "legacy",
       ft = enable_lsp_filetype,
       config = function()
         require("fidget").setup {}
