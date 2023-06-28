@@ -90,7 +90,7 @@ _G.packer_plugins = {
     url = "https://github.com/antoinemadec/FixCursorHold.nvim"
   },
   ["accelerated-jk.nvim"] = {
-    config = { "\27LJ\2\nÓ\1\0\0\5\0\n\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0024\3\3\0005\4\b\0>\4\1\3=\3\t\2B\0\2\1K\0\1\0\23deceleration_table\1\3\0\0\3–\1\3N\23acceleration_table\1\t\0\0\3\a\3\f\3\17\3\21\3\24\3\26\3\28\3\30\rmappings\1\0\1\23acceleration_limit\3–\1\1\0\2\6k\agk\6j\agj\nsetup\19accelerated-jk\frequire\0" },
+    config = { "\27LJ\2\nÃ“\1\0\0\5\0\n\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0024\3\3\0005\4\b\0>\4\1\3=\3\t\2B\0\2\1K\0\1\0\23deceleration_table\1\3\0\0\3Â–\1\3ÂN\23acceleration_table\1\t\0\0\3\a\3\f\3\17\3\21\3\24\3\26\3\28\3\30\rmappings\1\0\1\23acceleration_limit\3Â–\1\1\0\2\6k\agk\6j\agj\nsetup\19accelerated-jk\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -237,7 +237,7 @@ _G.packer_plugins = {
     url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
-    config = { "\27LJ\2\n—\4\0\0\4\0\n\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2D\0\2\0\21context_patterns\1\f\0\0\nclass\rfunction\vmethod\nblock\17list_literal\rselector\b^if\v^table\17if_statement\nwhile\bfor\20buftype_exclude\1\4\0\0\rterminal\vnofile\vprompt\21filetype_exclude\1\17\0\0\14dashboard\16DogicPrompt\blog\rfugitive\14gitcommit\vpacker\rmarkdown\tjson\btxt\nvista\thelp\ftodoist\rNvimTree\bgit\20TelescopePrompt\rundotree\1\0\6\25use_treesitter_scope\2\tchar\bâ”‚/show_current_context_start_on_current_line\1\31show_current_context_start\1\25show_current_context\1\28show_first_indent_level\2\nsetup\21indent_blankline\frequire\0" },
+    config = { "\27LJ\2\nÂ—\4\0\0\4\0\n\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0=\3\t\2D\0\2\0\21context_patterns\1\f\0\0\nclass\rfunction\vmethod\nblock\17list_literal\rselector\b^if\v^table\17if_statement\nwhile\bfor\20buftype_exclude\1\4\0\0\rterminal\vnofile\vprompt\21filetype_exclude\1\17\0\0\14dashboard\16DogicPrompt\blog\rfugitive\14gitcommit\vpacker\rmarkdown\tjson\btxt\nvista\thelp\ftodoist\rNvimTree\bgit\20TelescopePrompt\rundotree\1\0\6\25use_treesitter_scope\2\tchar\bÃ¢Â”Â‚/show_current_context_start_on_current_line\1\31show_current_context_start\1\25show_current_context\1\28show_first_indent_level\2\nsetup\21indent_blankline\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -253,7 +253,7 @@ _G.packer_plugins = {
     url = "https://github.com/ggandor/lightspeed.nvim"
   },
   ["lsp_signature.nvim"] = {
-    config = { "\27LJ\2\n¶\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\17handler_opts\1\0\1\vborder\frounded\1\0\4\tbind\2\17hi_parameter LspSignatureActiveParameter\20floating_window\2\16hint_enable\1\nsetup\18lsp_signature\frequire\0" },
+    config = { "\27LJ\2\nÂ¶\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\2B\0\2\1K\0\1\0\17handler_opts\1\0\1\vborder\frounded\1\0\4\tbind\2\17hi_parameter LspSignatureActiveParameter\20floating_window\2\16hint_enable\1\nsetup\18lsp_signature\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -529,7 +529,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Setup for: lightspeed.nvim
 time([[Setup for lightspeed.nvim]], true)
-try_loadstring("\27LJ\2\n­\6\0\0\f\0\25\00084\0\21\0005\1\0\0>\1\1\0005\1\1\0>\1\2\0005\1\2\0>\1\3\0005\1\3\0>\1\4\0005\1\4\0>\1\5\0005\1\5\0>\1\6\0005\1\6\0>\1\a\0005\1\a\0>\1\b\0005\1\b\0>\1\t\0005\1\t\0>\1\n\0005\1\n\0>\1\v\0005\1\v\0>\1\f\0005\1\f\0>\1\r\0005\1\r\0>\1\14\0005\1\14\0>\1\15\0005\1\15\0>\1\16\0005\1\16\0>\1\17\0005\1\17\0>\1\18\0005\1\18\0>\1\19\0005\1\19\0>\1\20\0006\1\20\0\18\3\0\0B\1\2\4X\4\b€6\6\21\0009\6\22\0069\6\23\6:\b\1\5:\t\2\5:\n\3\0055\v\24\0B\6\5\1E\4\3\3R\4ö\127K\0\1\0\1\0\1\vsilent\2\20nvim_set_keymap\bapi\bvim\vipairs\1\4\0\0\6o\6T\23<Plug>Lightspeed_T\1\4\0\0\6o\6t\23<Plug>Lightspeed_t\1\4\0\0\6x\6T\23<Plug>Lightspeed_T\1\4\0\0\6x\6t\23<Plug>Lightspeed_t\1\4\0\0\6n\6T\23<Plug>Lightspeed_T\1\4\0\0\6n\6t\23<Plug>Lightspeed_t\1\4\0\0\6o\6F\23<Plug>Lightspeed_F\1\4\0\0\6o\6f\23<Plug>Lightspeed_f\1\4\0\0\6x\6F\23<Plug>Lightspeed_F\1\4\0\0\6x\6f\23<Plug>Lightspeed_f\1\4\0\0\6n\6F\23<Plug>Lightspeed_F\1\4\0\0\6n\6f\23<Plug>Lightspeed_f\1\4\0\0\6o\6X\23<Plug>Lightspeed_X\1\4\0\0\6o\6x\23<Plug>Lightspeed_x\1\4\0\0\6o\6Z\23<Plug>Lightspeed_S\1\4\0\0\6o\6z\23<Plug>Lightspeed_s\1\4\0\0\6x\6S\23<Plug>Lightspeed_S\1\4\0\0\6x\6s\23<Plug>Lightspeed_s\1\4\0\0\6n\6S\23<Plug>Lightspeed_S\1\4\0\0\6n\6s\23<Plug>Lightspeed_s\0", "setup", "lightspeed.nvim")
+try_loadstring("\27LJ\2\nÂ­\6\0\0\f\0\25\00084\0\21\0005\1\0\0>\1\1\0005\1\1\0>\1\2\0005\1\2\0>\1\3\0005\1\3\0>\1\4\0005\1\4\0>\1\5\0005\1\5\0>\1\6\0005\1\6\0>\1\a\0005\1\a\0>\1\b\0005\1\b\0>\1\t\0005\1\t\0>\1\n\0005\1\n\0>\1\v\0005\1\v\0>\1\f\0005\1\f\0>\1\r\0005\1\r\0>\1\14\0005\1\14\0>\1\15\0005\1\15\0>\1\16\0005\1\16\0>\1\17\0005\1\17\0>\1\18\0005\1\18\0>\1\19\0005\1\19\0>\1\20\0006\1\20\0\18\3\0\0B\1\2\4X\4\bÂ€6\6\21\0009\6\22\0069\6\23\6:\b\1\5:\t\2\5:\n\3\0055\v\24\0B\6\5\1E\4\3\3R\4Ã¶\127K\0\1\0\1\0\1\vsilent\2\20nvim_set_keymap\bapi\bvim\vipairs\1\4\0\0\6o\6T\23<Plug>Lightspeed_T\1\4\0\0\6o\6t\23<Plug>Lightspeed_t\1\4\0\0\6x\6T\23<Plug>Lightspeed_T\1\4\0\0\6x\6t\23<Plug>Lightspeed_t\1\4\0\0\6n\6T\23<Plug>Lightspeed_T\1\4\0\0\6n\6t\23<Plug>Lightspeed_t\1\4\0\0\6o\6F\23<Plug>Lightspeed_F\1\4\0\0\6o\6f\23<Plug>Lightspeed_f\1\4\0\0\6x\6F\23<Plug>Lightspeed_F\1\4\0\0\6x\6f\23<Plug>Lightspeed_f\1\4\0\0\6n\6F\23<Plug>Lightspeed_F\1\4\0\0\6n\6f\23<Plug>Lightspeed_f\1\4\0\0\6o\6X\23<Plug>Lightspeed_X\1\4\0\0\6o\6x\23<Plug>Lightspeed_x\1\4\0\0\6o\6Z\23<Plug>Lightspeed_S\1\4\0\0\6o\6z\23<Plug>Lightspeed_s\1\4\0\0\6x\6S\23<Plug>Lightspeed_S\1\4\0\0\6x\6s\23<Plug>Lightspeed_s\1\4\0\0\6n\6S\23<Plug>Lightspeed_S\1\4\0\0\6n\6s\23<Plug>Lightspeed_s\0", "setup", "lightspeed.nvim")
 time([[Setup for lightspeed.nvim]], false)
 -- Config for: galaxyline.nvim
 time([[Config for galaxyline.nvim]], true)

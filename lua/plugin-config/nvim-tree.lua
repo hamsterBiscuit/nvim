@@ -1,7 +1,18 @@
 vim.g.nvim_tree_allow_resize = 1
 
+local function on_attach(bufnr)
+  local api = require('nvim-tree.api')
+  local function opts(desc)
+    return {desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true}
+  end
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+  vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+  vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split"))
+end
+
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
 require("nvim-tree").setup {
+  on_attach = on_attach,
   disable_netrw = false,
   hijack_cursor = true,
   hijack_netrw = true,
@@ -61,13 +72,6 @@ require("nvim-tree").setup {
     relativenumber = false,
     signcolumn = "yes",
     hide_root_folder = false,
-    mappings = {
-      list = {
-        {key = {"l"}, action = "edit"},
-        {key = {"s"}, action = "split"},
-        {key = {"v"}, action = "vsplit"}
-      }
-    }
   },
   hijack_directories = {
     enable = true,
