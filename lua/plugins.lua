@@ -70,7 +70,7 @@ require("lazy").setup(
         require("lsp.setup")
       end
     },
-    {"glepnir/lspsaga.nvim", after = "nvim-lspconfig", config = [[require("plugin-config.lspsaga")]]},
+    {"nvimdev/lspsaga.nvim", after = "nvim-lspconfig", config = [[require("plugin-config.lspsaga")]]},
     -- auto completion
     {
       "hrsh7th/nvim-cmp",
