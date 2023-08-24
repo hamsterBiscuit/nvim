@@ -308,7 +308,7 @@ require("lazy").setup(
     },
     -- 文件管理
     {
-      "kyazdani42/nvim-tree.lua",
+      "nvim-tree/nvim-tree.lua",
       cmd = {"NvimTreeToggle", "NvimTreeFindFile"},
       config = function()
         require("plugin-config.nvim-tree")
