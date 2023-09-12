@@ -359,9 +359,9 @@ require("lazy").setup(
       ft = enable_lsp_filetype
     },
     {
-      "npxbr/glow.nvim",
+      "ellisonleao/glow.nvim",
+      config = function() require("glow").setup() end,
       cmd = "Glow",
-      build = ":GlowInstall"
     },
     {
       "kristijanhusak/vim-dadbod-ui",
