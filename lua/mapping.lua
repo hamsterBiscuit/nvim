@@ -26,27 +26,9 @@ vim.api.nvim_set_keymap("n", "<A-l>", ":bn<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>ws", ":<C-u>sp<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>wv", ":<C-u>vs<CR>", {noremap = true})
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-f>",
-  "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>",
-  {noremap = true, silent = true}
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<C-b>",
-  "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
-  {noremap = true, silent = true}
-)
-
 -- vsnip Expand or jump
 vim.api.nvim_set_keymap("i", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
 vim.api.nvim_set_keymap("s", "<C-n>", "vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'", {expr = true})
-
--- Plugin Floaterm
-vim.api.nvim_set_keymap("n", "<A-d>", ":Lspsaga open_floaterm<CR>", {noremap = true})
-vim.api.nvim_set_keymap("t", "<A-d>", [[<C-\><C-n>:Lspsaga close_floaterm<CR>]], {noremap = true})
-vim.api.nvim_set_keymap("n", "<Leader>g", ":Lspsaga open_floaterm lazygit<CR>", {noremap = true})
 
 -- fuzzyfind 模糊搜索 快捷键
 vim.api.nvim_set_keymap("n", "<Leader>bb", ":<C-u>Telescope buffers<CR>", {silent = true, noremap = true})
@@ -72,18 +54,16 @@ vim.api.nvim_set_keymap("n", "<Leader>8", "<cmd>BufferLineGoToBuffer 8<CR>", {si
 vim.api.nvim_set_keymap("n", "<Leader>9", "<cmd>BufferLineGoToBuffer 9<CR>", {silent = true, noremap = true})
 
 -- LSP
-vim.api.nvim_set_keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "[e", "<cmd>LspUI diagnostic prev<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "]e", "<cmd>LspUI diagnostic next<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "K", "<cmd>LspUI hover<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gd", "<cmd>LspUI definition<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gs", "<cmd>Lspsaga signature_help<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gr", "<cmd>Lspsaga rename<CR>", {silent = true, noremap = true})
+-- vim.api.nvim_set_keymap("n", "gs", "<cmd>Lspsaga signature_help<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "gr", "<cmd>LspUI rename<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", {silent = true, noremap = true})
-vim.api.nvim_set_keymap("v", "ga", "<cmd>Lspsaga range_code_action<CR>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "ga", "<cmd>LspUI code_action<CR>", {silent = true, noremap = true})
 
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap("n", "<Leader>tt", "<cmd>exe v:count.'ToggleTerm'<CR>", {silent = true, noremap = true})
