@@ -90,6 +90,7 @@ require("lazy").setup(
       dependencies = {
         {"hrsh7th/cmp-nvim-lsp"},
         {"hrsh7th/cmp-buffer"},
+        {"FelipeLema/cmp-async-path"},
         {"hrsh7th/cmp-path"},
         {"hrsh7th/cmp-vsnip"},
         {"hrsh7th/vim-vsnip"},
@@ -235,7 +236,6 @@ require("lazy").setup(
       "nvim-telescope/telescope.nvim",
       cmd = "Telescope",
       dependencies = {
-        "nvim-lua/popup.nvim",
         "nvim-lua/plenary.nvim"
       },
       config = function()
