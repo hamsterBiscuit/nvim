@@ -94,7 +94,7 @@ require("lazy").setup(
     -- Navbar
     {
       "akinsho/bufferline.nvim",
-      event = {"BufRead", "BufNewFile"},
+      event = {"UIEnter"},
       dependencies = {"nvim-tree/nvim-web-devicons", "moll/vim-bbye"},
       config = function()
         require("plugin-config.bufferline")
@@ -102,10 +102,13 @@ require("lazy").setup(
     },
     -- Status bar
     {
-      "glepnir/galaxyline.nvim",
-      dependencies = "nvim-tree/nvim-web-devicons",
+      "nvim-lualine/lualine.nvim",
+      event = "UIEnter",
+      dependencies = {
+        "nvim-tree/nvim-web-devicons"
+      },
       config = function()
-        require("plugin-config.galaxyline")
+        require("lualine").setup({})
       end
     },
     -- Dashboard
@@ -117,31 +120,8 @@ require("lazy").setup(
     },
     -- Typing
     {
-      "xiyaowong/accelerated-jk.nvim",
-      event = {"BufRead", "BufNewFile"},
-      config = function()
-        require("accelerated-jk").setup {
-          -- equal to
-          -- nmap <silent> j <cmd>lua require'accelerated-jk'.command('gj')<cr>
-          -- nmap <silent> k <cmd>lua require'accelerated-jk'.command('gk')<cr>
-          mappings = {j = "gj", k = "gk"},
-          -- If the interval of key-repeat takes more than `acceleration_limit` ms, the step is reset
-          acceleration_limit = 150,
-          -- acceleration steps
-          acceleration_table = {7, 12, 17, 21, 24, 26, 28, 30},
-          -- If you want to decelerate a cursor moving by time instead of reset. set it
-          -- exampe:
-          -- {
-          --   { 200, 3 },
-          --   { 300, 7 },
-          --   { 450, 11 },
-          --   { 600, 15 },
-          --   { 750, 21 },
-          --   { 900, 9999 },
-          -- }
-          deceleration_table = {{150, 9999}}
-        }
-      end
+      "xiyaowong/fast-cursor-move.nvim",
+      event = {"BufRead", "BufNewFile"}
     },
     -- Comment
     {
@@ -154,44 +134,11 @@ require("lazy").setup(
     },
     -- f t
     {
-      "ggandor/lightspeed.nvim",
-      -- keys = {
-      --   "<Plug>Lightspeed_s",
-      --   "<Plug>Lightspeed_S",
-      --   "<Plug>Lightspeed_x",
-      --   "<Plug>Lightspeed_X",
-      --   "<Plug>Lightspeed_f",
-      --   "<Plug>Lightspeed_F",
-      --   "<Plug>Lightspeed_t",
-      --   "<Plug>Lightspeed_T"
-      -- },
-      -- config = function()
-      --   local default_keymaps = {
-      --     {"n", "s", "<Plug>Lightspeed_s"},
-      --     {"n", "S", "<Plug>Lightspeed_S"},
-      --     {"x", "s", "<Plug>Lightspeed_s"},
-      --     {"x", "S", "<Plug>Lightspeed_S"},
-      --     {"o", "z", "<Plug>Lightspeed_s"},
-      --     {"o", "Z", "<Plug>Lightspeed_S"},
-      --     {"o", "x", "<Plug>Lightspeed_x"},
-      --     {"o", "X", "<Plug>Lightspeed_X"},
-      --     {"n", "f", "<Plug>Lightspeed_f"},
-      --     {"n", "F", "<Plug>Lightspeed_F"},
-      --     {"x", "f", "<Plug>Lightspeed_f"},
-      --     {"x", "F", "<Plug>Lightspeed_F"},
-      --     {"o", "f", "<Plug>Lightspeed_f"},
-      --     {"o", "F", "<Plug>Lightspeed_F"},
-      --     {"n", "t", "<Plug>Lightspeed_t"},
-      --     {"n", "T", "<Plug>Lightspeed_T"},
-      --     {"x", "t", "<Plug>Lightspeed_t"},
-      --     {"x", "T", "<Plug>Lightspeed_T"},
-      --     {"o", "t", "<Plug>Lightspeed_t"},
-      --     {"o", "T", "<Plug>Lightspeed_T"}
-      --   }
-      --   for _, m in ipairs(default_keymaps) do
-      --     vim.api.nvim_set_keymap(m[1], m[2], m[3], {silent = true})
-      --   end
-      -- end
+      "ggandor/leap.nvim",
+      dependencies = {"tpope/vim-repeat"},
+      config = function()
+        require("leap").add_default_mappings()
+      end
     },
     -- 平滑滚动插件 半屏或者整屏翻页变为滚动效果
     {
@@ -360,8 +307,10 @@ require("lazy").setup(
     },
     {
       "ellisonleao/glow.nvim",
-      config = function() require("glow").setup() end,
-      cmd = "Glow",
+      config = function()
+        require("glow").setup()
+      end,
+      cmd = "Glow"
     },
     {
       "kristijanhusak/vim-dadbod-ui",
@@ -423,8 +372,7 @@ require("lazy").setup(
           }
         )
       end
-    },
-    {"antoinemadec/FixCursorHold.nvim", event = "BufReadPre"}
+    }
   },
   lazy_config
 )

@@ -79,8 +79,7 @@ require("nvim-tree").setup {
   },
   filters = {
     dotfiles = false,
-    custom = {".DS_Store"},
-    exclude = {}
+    custom = {".DS_Store", "node_modules"},
   },
   actions = {
     use_system_clipboard = true,
