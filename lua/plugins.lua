@@ -92,13 +92,9 @@ require("lazy").setup(
         {"hrsh7th/cmp-buffer"},
         {"FelipeLema/cmp-async-path"},
         {"hrsh7th/cmp-path"},
-        {"hrsh7th/cmp-vsnip"},
-        {"hrsh7th/vim-vsnip"},
-        {"hrsh7th/vim-vsnip-integ"},
         {"hrsh7th/cmp-nvim-lsp-signature-help"},
         {"hrsh7th/cmp-cmdline"},
         {"onsails/lspkind-nvim"},
-        {"rafamadriz/friendly-snippets"}
       }
     },
     -- Navbar
@@ -134,14 +130,14 @@ require("lazy").setup(
       event = {"BufRead", "BufNewFile"}
     },
     -- Comment
-    {
-      "numToStr/Comment.nvim",
-      event = {"BufRead", "BufNewFile"},
-      dependencies = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
-      config = function()
-        require("plugin-config.Comment")
-      end
-    },
+    -- {
+    --   "numToStr/Comment.nvim",
+    --   event = {"BufRead", "BufNewFile"},
+    --   dependencies = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
+    --   config = function()
+    --     require("plugin-config.Comment")
+    --   end
+    -- },
     -- f t
     {
       "ggandor/leap.nvim",
@@ -206,7 +202,6 @@ require("lazy").setup(
       "nvim-treesitter/nvim-treesitter",
       dependencies = {
         {"nvim-treesitter/nvim-treesitter-textobjects"},
-        {"p00f/nvim-ts-rainbow"},
         {"JoosepAlviste/nvim-ts-context-commentstring"},
         {
           "lewis6991/spellsitter.nvim",
