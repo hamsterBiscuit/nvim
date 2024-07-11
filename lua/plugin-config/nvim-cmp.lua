@@ -7,30 +7,11 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local tab_complete = function(fallback)
-  if cmp.visible() then
-    cmp.select_next_item()
-  elseif has_words_before() and vim.fn["vsnip#available"]() == 1 then
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(vsnip-expand-or-jump)", true, true, true), "", true)
-  else
-    fallback()
-  end
-end
-local s_tab_complete = function(fallback)
-  if cmp.visible() then
-    cmp.select_prev_item()
-  elseif has_words_before() and vim.fn["vsnip#available"]() == 1 then
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Plug>(vsnip-jump-prev)", true, true, true), "", true)
-  else
-    fallback()
-  end
-end
-
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 lspkind.init(
   {
-    mode = "symbol_text",
+    mode = "symbol_text"
     -- preset = "codicons"
   }
 )
@@ -43,25 +24,59 @@ cmp.setup(
         vim.fn["vsnip#anonymous"](args.body)
       end
     },
-    mapping = cmp.mapping.preset.insert({
-      ["<Tab>"] = tab_complete,
-      ["<C-j>"] = tab_complete,
-      ["<S-Tab>"] = s_tab_complete,
-      ["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = false
-      },
-      ["<C-k>"] = s_tab_complete,
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["CR>"] = cmp.mapping.complete({ select = true })
-    }),
+    mapping = cmp.mapping.preset.insert(
+      {
+        ["<Tab>"] = function(fallback)
+          if not cmp.select_next_item() then
+            if vim.bo.buftype ~= "prompt" and has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end
+        end,
+        ["<S-Tab>"] = function(fallback)
+          if not cmp.select_prev_item() then
+            if vim.bo.buftype ~= "prompt" and has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end
+        end,
+        ["<CR>"] = cmp.mapping.confirm {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false
+        },
+        ["<C-j>"] = function(fallback)
+          if not cmp.select_next_item() then
+            if vim.bo.buftype ~= "prompt" and has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end
+        end,
+        ["<C-k>"] = function(fallback)
+          if not cmp.select_prev_item() then
+            if vim.bo.buftype ~= "prompt" and has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end
+        end,
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["CR>"] = cmp.mapping.complete({select = true})
+      }
+    ),
     sources = cmp.config.sources(
       {
         {name = "nvim_lsp"},
         {name = "async_path"},
-        {name = "buffer"},
+        {name = "buffer"}
         -- {name = "nvim_lsp_signature_help"}
       }
     ),
