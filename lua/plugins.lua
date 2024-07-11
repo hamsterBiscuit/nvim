@@ -48,7 +48,7 @@ require("lazy").setup(
     "folke/lazy.nvim",
     -- Theme
     {
-      "glepnir/zephyr-nvim",
+      "nvimdev/zephyr-nvim",
       dependencies = {"nvim-treesitter/nvim-treesitter"},
       config = function()
         require("zephyr")
@@ -94,7 +94,7 @@ require("lazy").setup(
         {"hrsh7th/cmp-path"},
         {"hrsh7th/cmp-nvim-lsp-signature-help"},
         {"hrsh7th/cmp-cmdline"},
-        {"onsails/lspkind-nvim"},
+        {"onsails/lspkind-nvim"}
       }
     },
     -- Navbar
@@ -130,14 +130,12 @@ require("lazy").setup(
       event = {"BufRead", "BufNewFile"}
     },
     -- Comment
-    -- {
-    --   "numToStr/Comment.nvim",
-    --   event = {"BufRead", "BufNewFile"},
-    --   dependencies = {"JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter"},
-    --   config = function()
-    --     require("plugin-config.Comment")
-    --   end
-    -- },
+    {
+      "folke/ts-comments.nvim",
+      opts = {},
+      event = "VeryLazy",
+      enabled = vim.fn.has("nvim-0.10.0") == 1
+    },
     -- f t
     {
       "ggandor/leap.nvim",
