@@ -17,12 +17,13 @@ local servers = {
   tailwindcss = {},
   pyright = {},
   vtsls = {},
-  lua_ls=require("lsp.config.lua")
+  lua_ls=require("lsp.config.lua"),
+  tsserver=require("lsp.config.tsserver"),
 }
 
 mason.setup {}
 mason_lspconfig.setup {
-  ensure_installed = {"lua_ls", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls", "pyright", "vtsls"}
+  ensure_installed = {"lua_ls", "cssls", "eslint", "html", "jsonls", "tailwindcss", "volar", "emmet_ls", "pyright", "vtsls", "tsserver"}
 }
 
 for name, config in pairs(servers) do

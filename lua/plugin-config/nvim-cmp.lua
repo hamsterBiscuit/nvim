@@ -19,11 +19,6 @@ lspkind.init(
 cmp.setup(
   {
     preselect = cmp.PreselectMode.Item,
-    snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
-      end
-    },
     mapping = cmp.mapping.preset.insert(
       {
         ["<Tab>"] = function(fallback)
